@@ -17,7 +17,7 @@ namespace ICanBoogie;
  * default english inflections for pluralization, singularization, and uncountable words are
  * kept in `lib/inflections/en.php`.
  *
- * @property-read Inflections $inflections
+ * @property-read Inflections $inflections Inflections used by the inflector.
  */
 class Inflector
 {

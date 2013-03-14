@@ -103,8 +103,8 @@ Most of the code and documentation was adapted from [Ruby On Rails](http://rubyo
 Significant differences:
 
 - The Ruby module separator `::` as been replaced by the PHP namespace separator `\`.
-- The plural of "octopus" is "octopuses", the plural of "virus" is "viruses" and the pural of
-"cow" is "cows".
+- The plural of "octopus" is "octopuses" (not "octopi"), the plural of "virus" is "viruses"
+(not viri) and the pural of "cow" is "cows" (not "kine").
 - The following methods have been removed: `tableize`, `classify`, `demodulize`,
 `constantize`, `deconstantize` and `foreign_key`. They can be easily implemented in specific
 inflectors.

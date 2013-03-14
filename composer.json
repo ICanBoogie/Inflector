@@ -2,7 +2,7 @@
 	"name": "icanboogie/inflector",
 	"type": "library",
 	"description": "The Inflector transforms words from singular to plural, underscore to camel case, titelize words and more.",
-	"keywords": [ "inflect", "plural", "singular", "camel case", "underscore" ],
+	"keywords": [ "inflect", "pluralize", "singularize", "camelize", "underscore", "hyphenate" ],
 	"homepage": "http://icanboogie.org/",
 	"license": "BSD-3-Clause",
 	"authors": [

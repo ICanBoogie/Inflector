@@ -14,12 +14,12 @@ namespace ICanBoogie;
 /**
  * A representation of the inflections used by an inflector.
  *
- * @property-read array $plurals
- * @property-read array $singulars
- * @property-read array $uncountables
- * @property-read array $humans
- * @property-read array $acronyms
- * @property-read array $acronym_regex
+ * @property-read array $plurals Rules for {@link pluralize()}.
+ * @property-read array $singulars Rules for {@link singularize()}.
+ * @property-read array $uncountables Uncountables.
+ * @property-read array $humans Rules for {@link humanize()}.
+ * @property-read array $acronyms Acronyms.
+ * @property-read array $acronym_regex Acronyms regex.
  */
 class Inflections
 {
@@ -130,9 +130,9 @@ class Inflections
 	 *
 	 * <pre>
 	 * $this->acronym('HTML');
-	 * $this->titleize('html');     // 'HTML'
-	 * $this->camelize('html');     // 'HTML'
-	 * $this->underscore('MyHTML'); // 'my_html'
+	 * $this->titleize('html');                 // 'HTML'
+	 * $this->camelize('html');                 // 'HTML'
+	 * $this->underscore('MyHTML');             // 'my_html'
 	 * </pre>
 	 *
 	 * The acronym, however, must occur as a delimited unit and not be part of
@@ -140,16 +140,16 @@ class Inflections
 	 *
 	 * <pre>
 	 * $this->acronym('HTTP');
-	 * $this->camelize('my_http_delimited'); // 'MyHTTPDelimited'
-	 * $this->camelize('https');             // 'Https', not 'HTTPs'
-	 * $this->underscore('HTTPS');           // 'http_s', not 'https'
+	 * $this->camelize('my_http_delimited');    // 'MyHTTPDelimited'
+	 * $this->camelize('https');                // 'Https', not 'HTTPs'
+	 * $this->underscore('HTTPS');              // 'http_s', not 'https'
 	 *
 	 * $this->acronym('HTTPS');
-	 * $this->camelize('https');   // 'HTTPS'
-	 * $this->underscore('HTTPS'); // 'https'
+	 * $this->camelize('https');                // 'HTTPS'
+	 * $this->underscore('HTTPS');              // 'https'
 	 * </pre>
 	 *
-	 * Note: Acronyms that are passed to +pluralize+ will no longer be
+	 * Note: Acronyms that are passed to {@link pluralize} will no longer be
 	 * recognized, since the acronym will not occur as a delimited unit in the
 	 * pluralized result. To work around this, you must specify the pluralized
 	 * form as an acronym as well:
@@ -168,21 +168,23 @@ class Inflections
 	 *
 	 * <pre>
 	 * $this->acronym('RESTful');
-	 * $this->underscore('RESTful');           // 'restful'
-	 * $this->underscore('RESTfulController'); // 'restful_controller'
-	 * $this->titleize('RESTfulController');   // 'RESTful Controller'
-	 * $this->camelize('restful');             // 'RESTful'
-	 * $this->camelize('restful_controller');  // 'RESTfulController'
+	 * $this->underscore('RESTful');             // 'restful'
+	 * $this->underscore('RESTfulController');   // 'restful_controller'
+	 * $this->titleize('RESTfulController');     // 'RESTful Controller'
+	 * $this->camelize('restful');               // 'RESTful'
+	 * $this->camelize('restful_controller');    // 'RESTfulController'
 	 *
 	 * $this->acronym('McHammer');
-	 * $this->underscore('McHammer');          // 'mchammer'
-	 * $this->camelize('mchammer');            // 'McHammer'
+	 * $this->underscore('McHammer');            // 'mchammer'
+	 * $this->camelize('mchammer');              // 'McHammer'
 	 * </pre>
 	 */
 	public function acronym($word)
 	{
 		$this->acronyms[downcase($word)] = $word;
 		$this->acronym_regex = '/' . implode('|', $this->acronyms) . '/';
+
+		return $this;
 	}
 
 	/**
@@ -204,6 +206,8 @@ class Inflections
 		unset($this->uncountables[$replacement]);
 
 		$this->plurals = array($rule => $replacement) + $this->plurals;
+
+		return $this;
 	}
 
 	/**
@@ -225,6 +229,8 @@ class Inflections
         unset($this->uncountables[$replacement]);
 
         $this->singulars = array($rule => $replacement) + $this->singulars;
+
+        return $this;
 	}
 
 	/**
@@ -276,6 +282,8 @@ class Inflections
 			$this->singular("/{$p0_upcase}(?i){$prest}$/", $s0_upcase . $srest);
 			$this->singular("/{$p0_downcase}(?i){$prest}$/", $s0_downcase . $srest);
 		}
+
+		return $this;
 	}
 
 	/**
@@ -298,6 +306,8 @@ class Inflections
 		}
 
 		$this->uncountables[$word] = $word;
+
+		return $this;
 	}
 
 	/**
@@ -326,5 +336,7 @@ class Inflections
 		}
 
 		$this->humans = array($rule => $replacement) + $this->humans;
+
+		return $this;
 	}
 }
