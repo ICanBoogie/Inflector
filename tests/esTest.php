@@ -23,36 +23,61 @@ class SpanishInflectionsTest extends \PHPUnit_Framework_TestCase
 		self::$inflector = Inflector::get('es');
 	}
 
-	public function test_plurales_regulares()
+	/**
+	 * @dataProvider provide_singular_to_plural
+	 */
+	public function test_singular_to_plural($singular, $plural)
 	{
-		$this->assertEquals('libros', self::$inflector->pluralize('libro'));
-		$this->assertEquals('libro', self::$inflector->singularize('libros'));
-
-		$this->assertEquals('radios', self::$inflector->pluralize('radio'));
-		$this->assertEquals('radio', self::$inflector->singularize('radios'));
-
-		$this->assertEquals('señores', self::$inflector->pluralize('señor'));
-		$this->assertEquals('señor', self::$inflector->singularize('señores'));
-
-		$this->assertEquals('leyes', self::$inflector->pluralize('ley'));
-		$this->assertEquals('ley', self::$inflector->singularize('leyes'));
+		$this->assertEquals($plural, self::$inflector->pluralize($singular));
 	}
 
-	public function test_plurales_que_terminar_en_z()
+	/**
+	 * @dataProvider provide_irregular
+	 */
+	public function test_irregular_singular_to_plural($singular, $plural)
 	{
-		$this->assertEquals('meces', self::$inflector->pluralize('mez'));
-		$this->assertEquals('luces', self::$inflector->pluralize('luz'));
+		$this->assertEquals($plural, self::$inflector->pluralize($singular));
 	}
 
-	public function test_plurales_que_terminar_en_n_o_s_con_acentos()
+	/**
+	 * @dataProvider provide_singular_to_plural
+	 */
+	public function test_plural_to_singular($singular, $plural)
 	{
-		$this->assertEquals('aviones', self::$inflector->pluralize('avión'));
-		$this->assertEquals('intereses', self::$inflector->pluralize('interés'));
+		$this->assertEquals($singular, self::$inflector->singularize($plural));
 	}
 
-	public function test_plurales_irregulares()
+	/**
+	 * @dataProvider provide_irregular
+	 */
+	public function test_irregular_plural_to_singular($singular, $plural)
 	{
-		$this->assertEquals('los', self::$inflector->pluralize('el'));
-		$this->assertEquals('el', self::$inflector->singularize('los'));
+		$this->assertEquals($singular, self::$inflector->singularize($plural));
+	}
+
+	public function provide_singular_to_plural()
+	{
+		$singular_to_plural = require __DIR__ . '/cases/es/singular_to_plural.php';
+		$dataset = array();
+
+		foreach ($singular_to_plural as $singular => $plural)
+		{
+			$dataset[] = array($singular, $plural);
+		}
+
+		return $dataset;
+	}
+
+	public function provide_irregular()
+	{
+		$irregulars = require __DIR__ . '/cases/es/irregular.php';
+		$dataset = array();
+
+		foreach ($irregulars as $singular => $plural)
+		{
+			$dataset[] = array($singular, $plural);
+		}
+
+		return $dataset;
 	}
 }

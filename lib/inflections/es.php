@@ -11,6 +11,12 @@
 
 namespace ICanBoogie;
 
+/**
+ * Spanish inflections.
+ *
+ * @see http://www.studyspanish.com/lessons/plnoun.htm
+ * @see http://spanish.about.com/cs/writing/a/writing_plurals.htm
+ */
 return function(Inflections $inflect) {
 
 	$inflect->plural('/$/', 's');
@@ -25,7 +31,18 @@ return function(Inflections $inflect) {
 
 	$inflect->singular('/s$/', '');
 	$inflect->singular('/es$/', '');
+	$inflect->singular('/ces$/', 'z');
+	$inflect->singular('/iones$/', 'ión');
+	$inflect->singular('/ereses$/', 'erés');
 
 	$inflect->irregular('el', 'los');
+	$inflect->irregular('lunes', 'lunes');
+	$inflect->irregular('rompecabezas', 'rompecabezas');
+	$inflect->irregular('crisis', 'crisis');
+	$inflect->irregular('papá', 'papás');
+	$inflect->irregular('mamá', 'mamás');
+	$inflect->irregular('sofá', 'sofás');
 
+	// because 'mes' is considered already a plural
+	$inflect->irregular('mes', 'meses');
 };
