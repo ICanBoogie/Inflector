@@ -97,6 +97,14 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 			$this->assertEquals($camel, self::$inflector->camelize($underscore));
 			$this->assertEquals($camel, camelize($underscore));
 		}
+
+		$ar = require __DIR__ . '/cases/camel_to_dash.php';
+
+		foreach ($ar as $camel => $dash)
+		{
+			$this->assertEquals($camel, self::$inflector->camelize($dash));
+			$this->assertEquals($camel, camelize($dash));
+		}
 	}
 
 	public function test_camelize_with_lower_upcases_the_first_letter()

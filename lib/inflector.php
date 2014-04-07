@@ -225,7 +225,7 @@ class Inflector
 			}, $string, 1);
 		}
 
-		$string = preg_replace_callback('/(?:_|(\/))([a-z\d]*)/i', function($matches) use($acronyms) {
+		$string = preg_replace_callback('/(?:_|-|(\/))([a-z\d]*)/i', function($matches) use($acronyms) {
 
 			list(, $m1, $m2) = $matches;
 
