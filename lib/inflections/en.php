@@ -71,6 +71,6 @@ return function(Inflections $inflect) {
 
 	// http://easenglish.net/Files/Grammar/uncountable%20words.pdf
 
-	$inflect->uncountable(explode(' ', 'advice art coal baggage butter clothing cotton currency energy equipment experience fish flour food furniture gas homework impatience information jeans knowledge leather love luggage money oil patience police polish progress research rice series sheep silk soap species sugar talent toothpaste travel vinegar weather wood wool work'));
+	$inflect->uncountable(explode(' ', 'advice art coal baggage butter clothing cotton currency equipment experience fish flour food furniture gas homework impatience information jeans knowledge leather love luggage money oil patience police polish progress research rice series sheep silk soap species sugar talent toothpaste travel vinegar weather wood wool work'));
 
 };
