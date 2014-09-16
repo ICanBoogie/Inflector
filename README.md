@@ -3,7 +3,14 @@
 The Inflector transforms words from singular to plural, underscore to camel case, titelize words
 and more. Inflections can be localized, the default english inflections for pluralization,
 singularization, and uncountable words are kept in [lib/inflections/en.php](https://github.com/ICanBoogie/Inflector/blob/master/lib/inflections/en.php).
-Inflections are currently available for English, Spanish, French and Norwegian Bokmal.
+
+Inflections are currently available for the following languages:
+
+- English (`en`)
+- French (`fr`)
+- Norwegian Bokmal (`nb`)
+- Spanish (`es`)
+- Turkish (`tr`)
 
 
 
@@ -88,7 +95,8 @@ namespace ICanBoogie;
 
 echo pluralize('child');                             // "children"
 echo pluralize('genou', 'fr');                       // "genoux"
-echo singularize('lærere', 'nb');                    // "lærer"            
+echo singularize('lærere', 'nb');                    // "lærer"
+echo pluralize('üçgen', 'tr');                       // "üçgenler"
 ```
 
 
