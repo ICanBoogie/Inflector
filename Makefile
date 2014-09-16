@@ -1,31 +1,34 @@
-install:
-	@if [ ! -f "composer.phar" ] ; then \
-		echo "Installing composer..." ; \
-		curl -s https://getcomposer.org/installer | php ; \
-	fi
-	
+# customization
+
+PACKAGE_NAME = "ICanBoogie/Inflector"
+
+# do not edit the following lines
+
+usage:
+	@echo "test:  Runs the test suite.\ndoc:   Creates the documentation.\nclean: Removes the documentation, the dependencies and the Composer files."
+
+composer.phar:
+	@echo "Installing composer..."
+	@curl -s https://getcomposer.org/installer | php
+
+vendor: composer.phar
 	@php composer.phar install --prefer-source --dev
 
-update:
+update: vendor
 	@php composer.phar update --prefer-source --dev
 
-test:
-	@if [ ! -d "vendor" ] ; then \
-		make install ; \
-	fi
+autoload: vendor
+	@php composer.phar dump-autoload
 
+test: vendor
 	@phpunit
 
-doc:
-	@if [ ! -d "vendor" ] ; then \
-		make install ; \
-	fi
-
+doc: vendor
 	@mkdir -p "docs"
 
 	@apigen \
 	--source ./ \
-	--destination docs/ --title ICanBoogie/Inflector \
+	--destination docs/ --title $(PACKAGE_NAME) \
 	--exclude "*/composer/*" \
 	--exclude "*/tests/*" \
 	--template-config /usr/share/php/data/ApiGen/templates/bootstrap/config.neon
