@@ -1,4 +1,4 @@
-# Inflector [![Build Status](https://travis-ci.org/ICanBoogie/Inflector.png?branch=master)](https://travis-ci.org/ICanBoogie/Inflector)
+# Inflector [![Build Status](https://travis-ci.org/ICanBoogie/Inflector.svg?branch=master)](https://travis-ci.org/ICanBoogie/Inflector)
 
 The Inflector transforms words from singular to plural, underscore to camel case, titelize words
 and more. Inflections can be localized, the default english inflections for pluralization,
@@ -124,6 +124,12 @@ the camel cased string.
 
 
 
+----------
+
+
+
+
+
 ## Requirement
 
 The package requires PHP 5.3 or later.
@@ -187,7 +193,7 @@ directory can later be cleaned with the `make clean` command.
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
-[![Build Status](https://travis-ci.org/ICanBoogie/Inflector.png?branch=master)](https://travis-ci.org/ICanBoogie/Inflector)
+[![Build Status](https://travis-ci.org/ICanBoogie/Inflector.svg?branch=master)](https://travis-ci.org/ICanBoogie/Inflector)
 
 
 
@@ -195,4 +201,4 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 ## License
 
-ICanBoogie/Inflector is licensed under the New BSD License - See the [LICENSE](https://raw.github.com/ICanBoogie/Inflector/master/LICENSE) file for details.
+ICanBoogie/Inflector is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
