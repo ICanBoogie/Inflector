@@ -1,4 +1,11 @@
-# Inflector [![Build Status](https://travis-ci.org/ICanBoogie/Inflector.svg?branch=master)](https://travis-ci.org/ICanBoogie/Inflector)
+# Inflector
+
+[![Release](https://img.shields.io/github/release/ICanBoogie/Inflector.svg)](https://github.com/ICanBoogie/Inflector/releases)
+[![Build Status](https://img.shields.io/travis/ICanBoogie/Inflector/master.svg)](http://travis-ci.org/ICanBoogie/Inflector)
+[![HHVM](https://img.shields.io/hhvm/icanboogie/inflector.svg)](http://hhvm.h4cc.de/package/icanboogie/inflector)
+[![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/Inflector/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/Inflector)
+[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
+[![Packagist](https://img.shields.io/packagist/dt/icanboogie/inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
 
 The Inflector transforms words from singular to plural, underscore to camel case, titelize words
 and more. Inflections can be localized, the default english inflections for pluralization,
@@ -193,7 +200,8 @@ directory can later be cleaned with the `make clean` command.
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
-[![Build Status](https://travis-ci.org/ICanBoogie/Inflector.svg?branch=master)](https://travis-ci.org/ICanBoogie/Inflector)
+[![Build Status](https://img.shields.io/travis/ICanBoogie/Inflector/master.svg)](https://travis-ci.org/ICanBoogie/Inflector)
+[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
 
 
 

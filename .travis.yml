@@ -8,5 +8,13 @@ php:
   - hhvm
 
 before_script:
-  - composer self-update
-  - composer install --no-interaction --prefer-source
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source
+  - composer require satooshi/php-coveralls --prefer-source
+
+script:
+  - mkdir -p build/logs
+  - phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+  - php vendor/bin/coveralls -v

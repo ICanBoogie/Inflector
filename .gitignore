@@ -1,7 +1,9 @@
 .buildpath
+.idea/
 .project
-.README.md.html
 .settings
+.README.md.html
+build/coverage
 composer.lock
 composer.phar
 docs
