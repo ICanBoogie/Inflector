@@ -7,21 +7,21 @@ PACKAGE_NAME = "ICanBoogie/Inflector"
 usage:
 	@echo "test:  Runs the test suite.\ndoc:   Creates the documentation.\nclean: Removes the documentation, the dependencies and the Composer files."
 
-composer.phar:
-	@echo "Installing composer..."
-	@curl -s https://getcomposer.org/installer | php
+vendor:
+	@composer install
 
-vendor: composer.phar
-	@php composer.phar install --prefer-source --dev
-
-update: vendor
-	@php composer.phar update --prefer-source --dev
+update:
+	@composer update
 
 autoload: vendor
-	@php composer.phar dump-autoload
+	@composer dump-autoload
 
 test: vendor
 	@phpunit
+
+test-coverage: vendor
+	@mkdir -p build/coverage
+	@phpunit --coverage-html build/coverage
 
 doc: vendor
 	@mkdir -p "docs"
