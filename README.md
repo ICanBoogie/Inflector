@@ -177,16 +177,7 @@ cloned with the following command line:
 
 ## Documentation
 
-The package is documented as part of the [ICanBoogie](http://icanboogie.org/) framework
-[documentation](http://icanboogie.org/docs/). The documentation for the package and its
-dependencies can be generated with the `make doc` command. The documentation is generated in
-the `docs` directory using [ApiGen](http://apigen.org/). The package directory can later by
-cleaned with the `make clean` command.
-
-The following classes are documented: 
-
-- [Inflector](http://icanboogie.org/docs/class-ICanBoogie.Inflector.html)
-- [Inflections](http://icanboogie.org/docs/class-ICanBoogie.Inflections.html)
+The package is documented as part of the [ICanBoogie](http://icanboogie.org/) framework [documentation](http://icanboogie.org/docs/). The documentation for the package is generated with the `make doc` command. The documentation is generated in the `build/docs` directory using [ApiGen](http://apigen.org/). The package directory can later by cleaned with the `make clean` command.
 
 
 
