@@ -1,15 +1,13 @@
 # Inflector
 
-[![Release](https://img.shields.io/github/release/ICanBoogie/Inflector.svg)](https://github.com/ICanBoogie/Inflector/releases)
+[![Release](https://img.shields.io/packagist/v/ICanBoogie/Inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
 [![Build Status](https://img.shields.io/travis/ICanBoogie/Inflector/master.svg)](http://travis-ci.org/ICanBoogie/Inflector)
 [![HHVM](https://img.shields.io/hhvm/icanboogie/inflector.svg)](http://hhvm.h4cc.de/package/icanboogie/inflector)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/Inflector/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/Inflector)
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
 [![Packagist](https://img.shields.io/packagist/dt/icanboogie/inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
 
-The Inflector transforms words from singular to plural, underscore to camel case, titelize words
-and more. Inflections can be localized, the default english inflections for pluralization,
-singularization, and uncountable words are kept in [lib/inflections/en.php](https://github.com/ICanBoogie/Inflector/blob/master/lib/inflections/en.php).
+A multilingual inflector that transforms words from singular to plural, underscore to camel case, and formats strings in various ways. Inflections are localized, the default english inflections for pluralization, singularization, and uncountable words are kept in [lib/inflections/en.php](lib/inflections/en.php).
 
 Inflections are currently available for the following languages:
 
@@ -33,6 +31,8 @@ These are some examples of the inflector with the `en` locale (default).
 use ICanBoogie\Inflector;
 
 $inflector = Inflector::get();
+# or 
+$inflector = Inflector::get('en');
 
 # pluralize
 
@@ -147,17 +147,10 @@ The package requires PHP 5.3 or later.
 
 ## Installation
 
-The recommended way to install this package is through [Composer](http://getcomposer.org/).
-Create a `composer.json` file and run `php composer.phar install` command to install it:
+The recommended way to install this package is through [Composer](http://getcomposer.org/):
 
-```json
-{
-	"minimum-stability": "dev",
-	"require":
-	{
-		"icanboogie/inflector": "*"
-	}
-}
+```
+$ composer require icanboogie/inflector
 ```
 
 
@@ -169,7 +162,7 @@ Create a `composer.json` file and run `php composer.phar install` command to ins
 The package is [available on GitHub](https://github.com/ICanBoogie/Inflector), its repository can be
 cloned with the following command line:
 
-	$ git clone git://github.com/ICanBoogie/Inflector.git
+	$ git clone https://github.com/ICanBoogie/Inflector.git
 
 
 
@@ -200,4 +193,4 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 ## License
 
-ICanBoogie/Inflector is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
+**ICanBoogie/Inflector** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
