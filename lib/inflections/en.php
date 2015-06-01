@@ -60,6 +60,7 @@ return function(Inflections $inflect) {
 	$inflect->singular('/(quiz)zes$/i', '\1');
 	$inflect->singular('/(database)s$/i', '\1');
 
+	$inflect->irregular('leaf', 'leaves');
 	$inflect->irregular('octopus', 'octopuses');
 	$inflect->irregular('virus', 'viruses');
 	$inflect->irregular('person', 'people');
