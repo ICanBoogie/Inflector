@@ -114,5 +114,12 @@ return array
 	"|ice"        => "|ices",
 	"|ouse"       => "|ouses",
 	"slice"       => "slices",
-	"police"      => "police"
+	"police"      => "police",
+
+    # "f" or "fe" => "ves"
+    "calf"        => "calves",
+    "half"        => "halves",
+    "knife"       => "knives",
+    "leaf"        => "leaves",
+    "loaf"        => "loaves"
 );

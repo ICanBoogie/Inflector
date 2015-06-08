@@ -62,6 +62,7 @@ return function(Inflections $inflect) {
 	$inflect->singular('/(database)s$/i', '\1');
 
     $inflect->irregular('leaf', 'leaves');
+    $inflect->irregular('loaf', 'loaves');
 	$inflect->irregular('octopus', 'octopuses');
 	$inflect->irregular('virus', 'viruses');
 	$inflect->irregular('person', 'people');

@@ -62,33 +62,68 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals("sponsor", $inflector->singularize($inflector->pluralize($countable_word)));
 	}
 
-	public function test_pluralize_singulars()
-	{
-		$ar = require __DIR__ . '/cases/singular_to_plural.php';
+    /**
+     * @dataProvider provide_singular_and_plural
+     *
+     * @param $singular
+     * @param $plural
+     */
+    public function test_pluralize_singular($singular, $plural)
+    {
+        $this->assertEquals($plural, self::$inflector->pluralize($singular));
+        $this->assertEquals(ucfirst($plural), self::$inflector->pluralize(ucfirst($singular)));
+    }
 
-		foreach ($ar as $singular => $plural)
-		{
-			$this->assertEquals($plural, self::$inflector->pluralize($singular));
-			$this->assertEquals($plural, self::$inflector->pluralize($plural));
-			$this->assertEquals(ucfirst($plural), self::$inflector->pluralize(ucfirst($singular)));
-			$this->assertEquals(ucfirst($plural), self::$inflector->pluralize(ucfirst($plural)));
-		}
+    /**
+     * @dataProvider provide_singular_and_plural
+     *
+     * @param $singular
+     * @param $plural
+     */
+    public function test_pluralize_plural($singular, $plural)
+    {
+        $this->assertEquals($plural, self::$inflector->pluralize($plural));
+        $this->assertEquals(ucfirst($plural), self::$inflector->pluralize(ucfirst($plural)));
+    }
+
+    /**
+     * @dataProvider provide_singular_and_plural
+     *
+     * @param $singular
+     * @param $plural
+     */
+    public function test_singularize_plurals($singular, $plural)
+	{
+        $this->assertEquals($singular, self::$inflector->singularize($plural));
+        $this->assertEquals(ucfirst($singular), self::$inflector->singularize(ucfirst($plural)));
 	}
 
-	public function test_singularize_plurals()
-	{
-		$ar = require __DIR__ . '/cases/singular_to_plural.php';
+    /**
+     * @dataProvider provide_singular_and_plural
+     *
+     * @param $singular
+     * @param $plural
+     */
+    public function test_singularize_singular($singular, $plural)
+    {
+        $this->assertEquals($singular, self::$inflector->singularize($singular));
+        $this->assertEquals(ucfirst($singular), self::$inflector->singularize(ucfirst($singular)));
+    }
 
-		foreach ($ar as $singular => $plural)
-		{
-			$this->assertEquals($singular, self::$inflector->singularize($plural));
-			$this->assertEquals($singular, self::$inflector->singularize($singular));
-			$this->assertEquals(ucfirst($singular), self::$inflector->singularize(ucfirst($plural)));
-			$this->assertEquals(ucfirst($singular), self::$inflector->singularize(ucfirst($singular)));
-		}
-	}
+    public function provide_singular_and_plural()
+    {
+        $cases = require __DIR__ . '/cases/singular_to_plural.php';
+        $ar = array();
 
-	public function test_camelize()
+        foreach ($cases as $singular => $plural)
+        {
+            $ar[] = array($singular, $plural);
+        }
+
+        return $ar;
+    }
+
+    public function test_camelize()
 	{
 		$ar = require __DIR__ . '/cases/camel_to_underscore.php';
 
