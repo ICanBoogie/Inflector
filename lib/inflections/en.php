@@ -11,6 +11,7 @@
 
 namespace ICanBoogie;
 
+//@codeCoverageIgnoreStart
 return function(Inflections $inflect) {
 
 	$inflect->plural('/$/', 's');
@@ -60,7 +61,7 @@ return function(Inflections $inflect) {
 	$inflect->singular('/(quiz)zes$/i', '\1');
 	$inflect->singular('/(database)s$/i', '\1');
 
-	$inflect->irregular('leaf', 'leaves');
+    $inflect->irregular('leaf', 'leaves');
 	$inflect->irregular('octopus', 'octopuses');
 	$inflect->irregular('virus', 'viruses');
 	$inflect->irregular('person', 'people');
@@ -75,3 +76,4 @@ return function(Inflections $inflect) {
 	$inflect->uncountable(explode(' ', 'advice art coal baggage butter clothing cotton currency equipment experience fish flour food furniture gas homework impatience information jeans knowledge leather love luggage money oil patience police polish progress research rice series sheep silk soap species sugar talent toothpaste travel vinegar weather wood wool work'));
 
 };
+//@codeCoverageIgnoreEnd

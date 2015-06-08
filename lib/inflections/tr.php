@@ -11,6 +11,7 @@
 
 namespace ICanBoogie;
 
+//@codeCoverageIgnoreStart
 return function(Inflections $inflect) {
 
 	$inflect->plural('/([aoıu][^aoıueöiü]{0,6})$/u', '\1lar');
@@ -23,3 +24,4 @@ return function(Inflections $inflect) {
 	$inflect->irregular('o', 'onlar');
 
 };
+//@codeCoverageIgnoreEnd

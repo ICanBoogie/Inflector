@@ -17,6 +17,7 @@ namespace ICanBoogie;
  * @see http://www.studyspanish.com/lessons/plnoun.htm
  * @see http://spanish.about.com/cs/writing/a/writing_plurals.htm
  */
+//@codeCoverageIgnoreStart
 return function(Inflections $inflect) {
 
 	$inflect->plural('/$/', 's');
@@ -46,3 +47,4 @@ return function(Inflections $inflect) {
 	// because 'mes' is considered already a plural
 	$inflect->irregular('mes', 'meses');
 };
+//@codeCoverageIgnoreEnd

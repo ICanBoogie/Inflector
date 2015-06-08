@@ -11,6 +11,7 @@
 
 namespace ICanBoogie;
 
+//@codeCoverageIgnoreStart
 return function(Inflections $inflect) {
 
 	$inflect->plural('/$/', 'er');
@@ -23,3 +24,4 @@ return function(Inflections $inflect) {
     $inflect->irregular('konto', 'konti');
 
 };
+//@codeCoverageIgnoreEnd

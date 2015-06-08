@@ -11,6 +11,7 @@
 
 namespace ICanBoogie;
 
+//@codeCoverageIgnoreStart
 return function(Inflections $inflect) {
 
 	# http://grammaire.reverso.net/5_5_01_pluriel_des_noms_et_des_adjectifs.shtml
@@ -36,3 +37,4 @@ return function(Inflections $inflect) {
 	$inflect->irregular('madame', 'mesdames');
 	$inflect->irregular('mademoiselle', 'mesdemoiselles');
 };
+//@codeCoverageIgnoreEnd
