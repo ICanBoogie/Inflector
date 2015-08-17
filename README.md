@@ -117,6 +117,7 @@ Most of the code and documentation was adapted from [Ruby On Rails](http://rubyo
 
 Significant differences:
 
+- Better support of accentuated characters.
 - The Ruby module separator `::` as been replaced by the PHP namespace separator `\`.
 - The plural of "octopus" is "octopuses" (not "octopi"), the plural of "virus" is "viruses"
 (not viri) and the pural of "cow" is "cows" (not "kine").
@@ -131,6 +132,26 @@ the camel cased string.
 
 
 
+### Getting started
+
+**Inflector** expects to work in UTF-8, which is the default encoding character set starting PHP 5.6, for older versions please use `mb_internal_encoding()` as follows:
+
+```php
+<?php
+
+namespace ICanBoogie;
+
+// …
+
+mb_internal_encoding('UTF-8');
+
+titleize("été_aux_âmes_inouïes"); // Été Aux Âmes Inouïes
+```
+
+
+
+
+
 ----------
 
 
@@ -139,7 +160,7 @@ the camel cased string.
 
 ## Requirement
 
-The package requires PHP 5.3 or later.
+The package requires PHP 5.3.4 or later.
 
 
 

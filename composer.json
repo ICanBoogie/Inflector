@@ -18,7 +18,8 @@
 		"source": "https://github.com/ICanBoogie/Inflector"
 	},
 	"require": {
-		"php": ">=5.3.4"
+		"php": ">=5.3.4",
+		"ext-mbstring": "*"
 	},
 	"autoload": {
 		"classmap": [ "lib/" ],
