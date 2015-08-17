@@ -396,4 +396,14 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 			$this->assertEquals($singular, $inflect->singularize($singular));
 		}
 	}
+
+	public function test_humanize_accentuated_characters()
+	{
+		$this->assertEquals("Été aux âmes inouïes", self::$inflector->humanize("été_aux_âmes_inouïes"));
+	}
+
+	public function test_titleize_accentuated_characters()
+	{
+		$this->assertEquals("L'été Aux Âmes Inouïes", self::$inflector->titleize("l'été_aux_âmes_inouïes"));
+	}
 }

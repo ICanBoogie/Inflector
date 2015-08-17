@@ -307,14 +307,14 @@ class Inflector
 
 		$result = preg_replace('/_id$/', "", $result);
 		$result = strtr($result, '_', ' ');
-		$result = preg_replace_callback('/([a-z\d]*)/i', function($matches) use($acronyms) {
+		$result = preg_replace_callback('/([[:alnum:]]+)/u', function($matches) use($acronyms) {
 
 			list($m) = $matches;
 
 			return !empty($acronyms[$m]) ? $acronyms[$m] : downcase($m);
 		}, $result);
 
-		$result = preg_replace_callback('/^\w/', function($matches) {
+		$result = preg_replace_callback('/^[[:lower:]]/u', function($matches) {
 
 			return upcase($matches[0]);
 
@@ -343,9 +343,10 @@ class Inflector
 	{
 		$str = $this->underscore($str);
 		$str = $this->humanize($str);
-		$str = preg_replace_callback('/\b(?<![\'’`])[a-z]/', function($matches) {
 
-			return capitalize($matches[0]);
+		$str = preg_replace_callback('/\b(?<![\'’`])[[:lower:]]/u', function($matches) {
+
+			return upcase($matches[0]);
 
 		}, $str);
 
