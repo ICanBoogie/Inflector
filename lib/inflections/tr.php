@@ -11,17 +11,23 @@
 
 namespace ICanBoogie;
 
+/**
+ * Turkish inflections.
+ *
+ * @param Inflections $inflect
+ */
 //@codeCoverageIgnoreStart
 return function(Inflections $inflect) {
 
-	$inflect->plural('/([aoıu][^aoıueöiü]{0,6})$/u', '\1lar');
-	$inflect->plural('/([eöiü][^aoıueöiü]{0,6})$/u', '\1ler');
+	$inflect
+	->plural('/([aoıu][^aoıueöiü]{0,6})$/u', '\1lar')
+	->plural('/([eöiü][^aoıueöiü]{0,6})$/u', '\1ler')
 
-	$inflect->singular('/l[ae]r$/i', '');
+	->singular('/l[ae]r$/i', '')
 
-	$inflect->irregular('ben', 'biz');
-	$inflect->irregular('sen', 'siz');
-	$inflect->irregular('o', 'onlar');
+	->irregular('ben', 'biz')
+	->irregular('sen', 'siz')
+	->irregular('o', 'onlar');
 
 };
 //@codeCoverageIgnoreEnd

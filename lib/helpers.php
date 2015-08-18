@@ -48,6 +48,8 @@ if (!function_exists(__NAMESPACE__ . '\capitalize'))
 	 * remainder to lowercase.
 	 *
 	 * @param string $str
+	 *
+	 * @return string
 	 */
 	function capitalize($str)
 	{
@@ -63,7 +65,7 @@ if (!function_exists(__NAMESPACE__ . '\capitalize'))
  *
  * @return string
  */
-function pluralize($word, $locale='en')
+function pluralize($word, $locale = 'en')
 {
 	return Inflector::get($locale)->pluralize($word);
 }
@@ -76,7 +78,7 @@ function pluralize($word, $locale='en')
  *
  * @return string
  */
-function singularize($word, $locale='en')
+function singularize($word, $locale = 'en')
 {
 	return Inflector::get($locale)->singularize($word);
 }
@@ -90,7 +92,7 @@ function singularize($word, $locale='en')
  *
  * @return string
  */
-function camelize($str, $uppercase_first_letter=false, $locale='en')
+function camelize($str, $uppercase_first_letter = false, $locale = 'en')
 {
 	return Inflector::get($locale)->camelize($str, $uppercase_first_letter);
 }
@@ -103,7 +105,7 @@ function camelize($str, $uppercase_first_letter=false, $locale='en')
  *
  * @return string
  */
-function underscore($camel_cased_word, $locale='en')
+function underscore($camel_cased_word, $locale = 'en')
 {
 	return Inflector::get($locale)->underscore($camel_cased_word);
 }
@@ -116,7 +118,7 @@ function underscore($camel_cased_word, $locale='en')
  *
  * @return string
  */
-function hyphenate($str, $locale='en')
+function hyphenate($str, $locale = 'en')
 {
 	return Inflector::get($locale)->hyphenate($str);
 }
@@ -129,7 +131,7 @@ function hyphenate($str, $locale='en')
  *
  * @return string
  */
-function humanize($lower_case_and_underscored_word, $locale='en')
+function humanize($lower_case_and_underscored_word, $locale = 'en')
 {
 	return Inflector::get($locale)->humanize($lower_case_and_underscored_word);
 }
@@ -142,7 +144,7 @@ function humanize($lower_case_and_underscored_word, $locale='en')
  *
  * @return string
  */
-function titleize($str, $locale='en')
+function titleize($str, $locale = 'en')
 {
 	return Inflector::get($locale)->titleize($str);
 }

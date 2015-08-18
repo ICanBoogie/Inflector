@@ -11,30 +11,37 @@
 
 namespace ICanBoogie;
 
+/**
+ * French inflections.
+ *
+ * @param Inflections $inflect
+ *
+ * @see http://grammaire.reverso.net/5_5_01_pluriel_des_noms_et_des_adjectifs.shtml
+ */
 //@codeCoverageIgnoreStart
 return function(Inflections $inflect) {
 
-	# http://grammaire.reverso.net/5_5_01_pluriel_des_noms_et_des_adjectifs.shtml
+	$inflect
+	->plural('/$/', 's')
+	->singular('/s$/', '')
 
-	$inflect->plural('/$/', 's');
-	$inflect->singular('/s$/', '');
+	->plural('/(bijou|caillou|chou|genou|hibou|joujou|pou|au|eu|eau)$/', '\1x')
+	->singular('/(bijou|caillou|chou|genou|hibou|joujou|pou|au|eu|eau)x$/', '\1')
 
-	$inflect->plural('/(bijou|caillou|chou|genou|hibou|joujou|pou|au|eu|eau)$/', '\1x');
-	$inflect->singular('/(bijou|caillou|chou|genou|hibou|joujou|pou|au|eu|eau)x$/', '\1');
+	->plural('/(bleu|émeu|landau|lieu|pneu|sarrau)$/', '\1s')
+	->plural('/al$/', 'aux')
+	->plural('/ail$/', 'ails')
+	->singular('/(journ|chev)aux$/', '\1al')
+	->singular('/ails$/', 'ail')
 
-	$inflect->plural('/(bleu|émeu|landau|lieu|pneu|sarrau)$/', '\1s');
-	$inflect->plural('/al$/', 'aux');
-	$inflect->plural('/ail$/', 'ails');
-	$inflect->singular('/(journ|chev)aux$/', '\1al');
-	$inflect->singular('/ails$/', 'ail');
+	->plural('/(b|cor|ém|gemm|soupir|trav|vant|vitr)ail$/', '\1aux')
+	->singular('/(b|cor|ém|gemm|soupir|trav|vant|vitr)aux$/', '\1ail')
 
-	$inflect->plural('/(b|cor|ém|gemm|soupir|trav|vant|vitr)ail$/', '\1aux');
-	$inflect->singular('/(b|cor|ém|gemm|soupir|trav|vant|vitr)aux$/', '\1ail');
+	->plural('/(s|x|z)$/', '\1')
 
-	$inflect->plural('/(s|x|z)$/', '\1');
+	->irregular('monsieur', 'messieurs')
+	->irregular('madame', 'mesdames')
+	->irregular('mademoiselle', 'mesdemoiselles');
 
-	$inflect->irregular('monsieur', 'messieurs');
-	$inflect->irregular('madame', 'mesdames');
-	$inflect->irregular('mademoiselle', 'mesdemoiselles');
 };
 //@codeCoverageIgnoreEnd

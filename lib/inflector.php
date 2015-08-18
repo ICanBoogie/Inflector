@@ -21,6 +21,9 @@ namespace ICanBoogie;
  */
 class Inflector
 {
+	/**
+	 * @var Inflector[]
+	 */
 	static private $inflectors = array();
 
 	/**
@@ -33,7 +36,7 @@ class Inflector
 	 *
 	 * @return \ICanBoogie\Inflector
 	 */
-	static public function get($locale='en')
+	static public function get($locale = 'en')
 	{
 		if (isset(self::$inflectors[$locale]))
 		{
@@ -55,7 +58,7 @@ class Inflector
 	 *
 	 * @param Inflections $inflections
 	 */
-	protected function __construct(Inflections $inflections=null)
+	protected function __construct(Inflections $inflections = null)
 	{
 		$this->inflections = $inflections ?: new Inflections;
 	}
@@ -65,14 +68,12 @@ class Inflector
 	 *
 	 * @param string $property
 	 *
-	 * @throws PropertyNotDefined in attempt to read an unaccessible property. If the {@link PropertyNotDefined}
+	 * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
 	 * class is not available a {@link \InvalidArgumentException} is thrown instead.
 	 */
 	public function __get($property)
 	{
-		static $readers = array('inflections');
-
-		if (in_array($property, $readers))
+		if ($property === 'inflections')
 		{
 			return $this->$property;
 		}
@@ -201,7 +202,7 @@ class Inflector
 	 *
 	 * @return string
 	 */
-	public function camelize($term, $downcase_first_letter=false)
+	public function camelize($term, $downcase_first_letter = false)
 	{
 		$string = (string) $term;
 		$acronyms = $this->inflections->acronyms;
@@ -312,6 +313,7 @@ class Inflector
 			list($m) = $matches;
 
 			return !empty($acronyms[$m]) ? $acronyms[$m] : downcase($m);
+
 		}, $result);
 
 		$result = preg_replace_callback('/^[[:lower:]]/u', function($matches) {
@@ -395,6 +397,10 @@ class Inflector
 	 * $this->ordinal(-11);   // "th"
 	 * $this->ordinal(-1021); // "st"
 	 * </pre>
+	 *
+	 * @param int $number
+	 *
+	 * @return string
 	 */
 	public function ordinal($number)
 	{
@@ -426,6 +432,10 @@ class Inflector
 	 * $this->ordinalize(-11);   // "-11th"
 	 * $this->ordinalize(-1021); // "-1021st"
 	 * </pre>
+	 *
+	 * @param int $number
+	 *
+	 * @return string
 	 */
 	public function ordinalize($number)
 	{

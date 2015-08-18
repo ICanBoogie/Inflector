@@ -23,19 +23,22 @@ namespace ICanBoogie;
  */
 class Inflections
 {
+	/**
+	 * @var Inflections[]
+	 */
 	static private $inflections = array();
 
 	/**
 	 * Returns inflections for the specified locale.
 	 *
 	 * Note: Inflections are shared for the same locale. If you need to alter an instance you
-	 * SHOULD clone it first, otherwise your changes will affect others.
+	 * MUST clone it first, otherwise your changes will affect others.
 	 *
 	 * @param string $locale
 	 *
-	 * @return \ICanBoogie\Inflections
+	 * @return Inflections
 	 */
-	static public function get($locale='en')
+	static public function get($locale = 'en')
 	{
 		if (isset(self::$inflections[$locale]))
 		{
@@ -43,6 +46,8 @@ class Inflections
 		}
 
 		$instance = new static;
+
+		/* @var $inflections callable */
 
 		$inflections = require __DIR__ . "/inflections/{$locale}.php";
 		$inflections($instance);
@@ -53,35 +58,35 @@ class Inflections
 	/**
 	 * Rules for {@link pluralize()}.
 	 *
-	 * @var array[string]string
+	 * @var array
 	 */
 	protected $plurals = array();
 
 	/**
 	 * Rules for {@link singularize()}.
 	 *
-	 * @var array[string]string
+	 * @var array
 	 */
 	protected $singulars = array();
 
 	/**
 	 * Uncountables.
 	 *
-	 * @var array[]string
+	 * @var array
 	 */
 	protected $uncountables = array();
 
 	/**
 	 * Rules for {@link humanize()}.
 	 *
-	 * @var array[string]string
+	 * @var array
 	 */
 	protected $humans = array();
 
 	/**
 	 * Acronyms.
 	 *
-	 * @var array[string]string
+	 * @var array
 	 */
 	protected $acronyms = array();
 
@@ -98,7 +103,7 @@ class Inflections
 	 *
 	 * @param string $property
 	 *
-	 * @throws PropertyNotDefined in attempt to read an unaccessible property. If the {@link PropertyNotDefined}
+	 * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
 	 * class is not available a {@link \InvalidArgumentException} is thrown instead.
 	 */
 	public function __get($property)
@@ -178,10 +183,14 @@ class Inflections
 	 * $this->underscore('McHammer');            // 'mchammer'
 	 * $this->camelize('mchammer');              // 'McHammer'
 	 * </pre>
+	 *
+	 * @param string $acronym
+	 *
+	 * @return $this
 	 */
-	public function acronym($word)
+	public function acronym($acronym)
 	{
-		$this->acronyms[downcase($word)] = $word;
+		$this->acronyms[downcase($acronym)] = $acronym;
 		$this->acronym_regex = '/' . implode('|', $this->acronyms) . '/';
 
 		return $this;
@@ -199,6 +208,8 @@ class Inflections
 	 * @param string $rule A regex string.
 	 * @param string $replacement The replacement should always be a string that may include
 	 * references to the matched data from the rule.
+	 *
+	 * @return $this
 	 */
 	public function plural($rule, $replacement)
 	{
@@ -222,6 +233,8 @@ class Inflections
 	 * @param string $rule A regex string.
 	 * @param string $replacement The replacement should always be a string that may include
 	 * references to the matched data from the rule.
+	 *
+	 * @return $this
 	 */
 	public function singular($rule, $replacement)
 	{
@@ -245,6 +258,8 @@ class Inflections
 	 *
 	 * @param string $singular
 	 * @param string $plural
+	 *
+	 * @return $this
 	 */
 	public function irregular($singular, $plural)
 	{
@@ -295,6 +310,8 @@ class Inflections
 	 * </pre>
 	 *
 	 * @param string|array $word
+	 *
+	 * @return $this
 	 */
 	public function uncountable($word)
 	{
@@ -302,7 +319,7 @@ class Inflections
 		{
 			$this->uncountables += array_combine($word, $word);
 
-			return;
+			return $this;
 		}
 
 		$this->uncountables[$word] = $word;
@@ -325,6 +342,8 @@ class Inflections
 	 * "/", "#" or "~" are recognized as regular expressions.
 	 *
 	 * @param string $replacement
+	 *
+	 * @return $this
 	 */
 	public function human($rule, $replacement)
 	{
