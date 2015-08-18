@@ -21,6 +21,8 @@ namespace ICanBoogie;
  */
 class Inflector
 {
+	const DEFAULT_LOCALE = 'en';
+
 	/**
 	 * @var Inflector[]
 	 */

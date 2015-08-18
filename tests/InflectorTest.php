@@ -20,7 +20,7 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 
 	static public function setUpBeforeClass()
 	{
-		self::$inflector = Inflector::get('en');
+		self::$inflector = Inflector::get();
 	}
 
 	public function test_pluralize_plurals()

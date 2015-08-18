@@ -38,7 +38,7 @@ class Inflections
 	 *
 	 * @return Inflections
 	 */
-	static public function get($locale = 'en')
+	static public function get($locale = INFLECTOR_DEFAULT_LOCALE)
 	{
 		if (isset(self::$inflections[$locale]))
 		{

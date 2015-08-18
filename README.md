@@ -32,6 +32,8 @@ use ICanBoogie\Inflector;
 
 $inflector = Inflector::get();
 # or 
+$inflector = Inflector::get(INFLECTOR_DEFAULT_LOCALE);
+# or
 $inflector = Inflector::get('en');
 
 # pluralize
