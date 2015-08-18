@@ -199,7 +199,7 @@ class Inflector
 	 * </pre>
 	 *
 	 * @param string $term
-	 * @param bool $downcase_first_letter If `false` then {@link camelize} produces
+	 * @param bool $downcase_first_letter If `true` then {@link camelize} produces
 	 * lowerCamelCase.
 	 *
 	 * @return string
