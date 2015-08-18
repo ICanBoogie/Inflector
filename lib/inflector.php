@@ -21,8 +21,6 @@ namespace ICanBoogie;
  */
 class Inflector
 {
-	const DEFAULT_LOCALE = 'en';
-
 	/**
 	 * @var Inflector[]
 	 */
@@ -38,7 +36,7 @@ class Inflector
 	 *
 	 * @return \ICanBoogie\Inflector
 	 */
-	static public function get($locale = 'en')
+	static public function get($locale = INFLECTOR_DEFAULT_LOCALE)
 	{
 		if (isset(self::$inflectors[$locale]))
 		{
@@ -120,7 +118,7 @@ class Inflector
 			return $rc;
 		}
 
-		if (preg_match('/\b\w+\Z/', downcase($rc), $matches))
+		if (preg_match('/\b[[:word:]]+\Z/u', downcase($rc), $matches))
 		{
 			if (isset($this->inflections->uncountables[$matches[0]]))
 			{
@@ -211,7 +209,7 @@ class Inflector
 
 		if ($downcase_first_letter)
 		{
-			$string = preg_replace_callback('/^(?:' . trim($this->inflections->acronym_regex, '/') . '(?=\b|[A-Z_])|\w)/', function($matches) {
+			$string = preg_replace_callback('/^(?:' . trim($this->inflections->acronym_regex, '/') . '(?=\b|[[:upper:]_])|\w)/u', function($matches) {
 
 				return downcase($matches[0]);
 
@@ -219,7 +217,7 @@ class Inflector
 		}
 		else
 		{
-			$string = preg_replace_callback('/^[a-z\d]*/', function($matches) use($acronyms) {
+			$string = preg_replace_callback('/^[[:lower:]\d]*/u', function($matches) use($acronyms) {
 
 				$m = $matches[0];
 
@@ -228,7 +226,7 @@ class Inflector
 			}, $string, 1);
 		}
 
-		$string = preg_replace_callback('/(?:_|-|(\/))([a-z\d]*)/i', function($matches) use($acronyms) {
+		$string = preg_replace_callback('/(?:_|-|(\/))([[:alnum:]]*)/u', function($matches) use($acronyms) {
 
 			list(, $m1, $m2) = $matches;
 
@@ -266,7 +264,7 @@ class Inflector
 	{
 		$word = (string) $camel_cased_word;
 		$word = str_replace('\\', '/', $word);
-		$word = preg_replace_callback('/(?:([A-Za-z\d])|^)(' . trim($this->inflections->acronym_regex, '/') . ')(?=\b|[^a-z])/', function($matches) {
+		$word = preg_replace_callback('/(?:([[:alpha:]\d])|^)(' . trim($this->inflections->acronym_regex, '/') . ')(?=\b|[^[:lower:]])/u', function($matches) {
 
 			list(, $m1, $m2) = $matches;
 
@@ -274,8 +272,8 @@ class Inflector
 
 		}, $word);
 
-		$word = preg_replace('/([A-Z\d]+)([A-Z][a-z])/', '\1_\2', $word);
-		$word = preg_replace('/([a-z\d])([A-Z])/','\1_\2', $word);
+		$word = preg_replace('/([[:upper:]\d]+)([[:upper:]][[:lower:]])/u', '\1_\2', $word);
+		$word = preg_replace('/([[:lower:]\d])([[:upper:]])/u','\1_\2', $word);
 		$word = strtr($word, "-", "_");
 		$word = downcase($word);
 
