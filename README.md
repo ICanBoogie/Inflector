@@ -30,11 +30,11 @@ These are some examples of the inflector with the `en` locale (default).
 
 use ICanBoogie\Inflector;
 
-$inflector = Inflector::get();
-# or 
-$inflector = Inflector::get(INFLECTOR_DEFAULT_LOCALE);
+$inflector = Inflector::get(Inflector::DEFAULT_LOCALE);
 # or
 $inflector = Inflector::get('en');
+# or
+$inflector = Inflector::get();
 
 # pluralize
 
@@ -54,10 +54,19 @@ $inflector->singularize('CamelChildren');            // "CamelChild"
 
 # camelize
 
-$inflector->camelize('active_model');                // 'ActiveModel'
-$inflector->camelize('active_model', true);          // 'activeModel'
-$inflector->camelize('active_model/errors');         // 'ActiveModel\Errors'
-$inflector->camelize('active_model/errors', true);   // 'activeModel\Errors'
+$inflector->camelize('active_model', Inflector::UPCASE_FIRST_LETTER);
+# or
+$inflector->camelize('active_model');
+// 'ActiveModel'
+
+$inflector->camelize('active_model', Inflector::DOWNCASE_FIRST_LETTER);
+// 'activeModel'
+
+$inflector->camelize('active_model/errors');         
+// 'ActiveModel\Errors'
+
+$inflector->camelize('active_model/errors', Inflector::DOWNCASE_FIRST_LETTER);
+// 'activeModel\Errors'
 
 # underscore
 
@@ -136,7 +145,8 @@ the camel cased string.
 
 ### Getting started
 
-**Inflector** expects to work in UTF-8, which is the default encoding character set starting PHP 5.6, for older versions please use `mb_internal_encoding()` as follows:
+**Inflector** expects to work in UTF-8, which is the default encoding character set starting
+PHP 5.6, for older versions please use `mb_internal_encoding()` as follows:
 
 ```php
 <?php
@@ -193,7 +203,10 @@ cloned with the following command line:
 
 ## Documentation
 
-The package is documented as part of the [ICanBoogie](http://icanboogie.org/) framework [documentation](http://icanboogie.org/docs/). The documentation for the package is generated with the `make doc` command. The documentation is generated in the `build/docs` directory using [ApiGen](http://apigen.org/). The package directory can later by cleaned with the `make clean` command.
+The package is documented as part of the [ICanBoogie](http://icanboogie.org/) framework
+[documentation][]. The documentation for the package is generated with the `make doc` command.
+The documentation is generated in the `build/docs` directory using [ApiGen](http://apigen.org/).
+The package directory can later by cleaned with the `make clean` command.
 
 
 
@@ -216,4 +229,10 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 ## License
 
-**ICanBoogie/Inflector** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
+**icanboogie/inflector** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
+
+
+
+
+
+[documentation]: http://api.icanboogie.org/inflector/1.3/

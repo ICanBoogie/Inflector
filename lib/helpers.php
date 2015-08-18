@@ -11,6 +11,9 @@
 
 namespace ICanBoogie;
 
+/**
+ * Default inflector locale.
+ */
 const INFLECTOR_DEFAULT_LOCALE = 'en';
 
 if (!function_exists(__NAMESPACE__ . '\downcase'))

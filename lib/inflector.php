@@ -22,6 +22,23 @@ namespace ICanBoogie;
 class Inflector
 {
 	/**
+	 * Default inflector locale.
+	 *
+	 * Alias to {@link INFLECTOR_DEFAULT_LOCALE}.
+	 */
+	const DEFAULT_LOCALE = INFLECTOR_DEFAULT_LOCALE;
+
+	/**
+	 * {@link camelize()} option to downcase the first letter.
+	 */
+	const DOWNCASE_FIRST_LETTER = true;
+
+	/**
+	 * {@link camelize()} option to keep the first letter as is.
+	 */
+	const UPCASE_FIRST_LETTER = false;
+
+	/**
 	 * @var Inflector[]
 	 */
 	static private $inflectors = array();
@@ -36,7 +53,7 @@ class Inflector
 	 *
 	 * @return \ICanBoogie\Inflector
 	 */
-	static public function get($locale = INFLECTOR_DEFAULT_LOCALE)
+	static public function get($locale = self::DEFAULT_LOCALE)
 	{
 		if (isset(self::$inflectors[$locale]))
 		{
@@ -197,12 +214,12 @@ class Inflector
 	 * </pre>
 	 *
 	 * @param string $term
-	 * @param bool $downcase_first_letter If `true` then {@link camelize} produces
-	 * lowerCamelCase.
+	 * @param bool $downcase_first_letter One of {@link UPCASE_FIRST_LETTER},
+	 * {@link DOWNCASE_FIRST_LETTER}.
 	 *
 	 * @return string
 	 */
-	public function camelize($term, $downcase_first_letter = false)
+	public function camelize($term, $downcase_first_letter = self::UPCASE_FIRST_LETTER)
 	{
 		$string = (string) $term;
 		$acronyms = $this->inflections->acronyms;
