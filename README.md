@@ -14,6 +14,7 @@ Inflections are currently available for the following languages:
 - English (`en`)
 - French (`fr`)
 - Norwegian Bokmal (`nb`)
+- Portuguese (`pt`)
 - Spanish (`es`)
 - Turkish (`tr`)
 
@@ -235,4 +236,4 @@ The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 
 
 
-[documentation]: http://api.icanboogie.org/inflector/1.3/
+[documentation]: http://api.icanboogie.org/inflector/latest/
