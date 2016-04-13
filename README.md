@@ -5,7 +5,7 @@
 [![HHVM](https://img.shields.io/hhvm/icanboogie/inflector.svg)](http://hhvm.h4cc.de/package/icanboogie/inflector)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/Inflector/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/Inflector)
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
-[![Packagist](https://img.shields.io/packagist/dt/icanboogie/inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
+[![Packagist](https://img.shields.io/packagist/dm/icanboogie/inflector.svg?maxAge=2592000)](https://packagist.org/packages/icanboogie/inflector)
 
 A multilingual inflector that transforms words from singular to plural, underscore to camel case, and formats strings in various ways. Inflections are localized, the default english inflections for pluralization, singularization, and uncountable words are kept in [lib/inflections/en.php](lib/inflections/en.php).
 
