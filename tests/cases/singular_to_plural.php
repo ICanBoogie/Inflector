@@ -124,5 +124,5 @@ return array
     "half"        => "halves",
     "knife"       => "knives",
     "leaf"        => "leaves",
-    "loaf"        => "loaves",
+    "loaf"        => "loaves"
 );
