@@ -25,7 +25,7 @@ return function(Inflections $inflect) {
 	->plural('/^(ax|test)is$/i', '\1es')
 	->plural('/(alias|status)$/i', '\1es')
 	->plural('/(bu)s$/i', '\1ses')
-	->plural('/(buffal|tomat)o$/i', '\1oes')
+	->plural('/(buffal|tomat|potat|volcan|her)o$/i', '\1oes')
 	->plural('/([ti])um$/i', '\1a')
 	->plural('/([ti])a$/i', '\1a')
 	->plural('/sis$/i', 'ses')

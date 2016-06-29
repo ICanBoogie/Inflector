@@ -75,6 +75,9 @@ return array
 	"photo"       => "photos",
 	"buffalo"     => "buffaloes",
 	"tomato"      => "tomatoes",
+	"potato"      => "potatoes",
+	"volcano"     => "volcanoes",
+	"hero"        => "heroes",
 	"dwarf"       => "dwarves",
 	"elf"         => "elves",
 	"information" => "information",
@@ -121,5 +124,5 @@ return array
     "half"        => "halves",
     "knife"       => "knives",
     "leaf"        => "leaves",
-    "loaf"        => "loaves"
+    "loaf"        => "loaves",
 );
