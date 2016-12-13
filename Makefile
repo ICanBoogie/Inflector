@@ -1,7 +1,7 @@
 # customization
 
-PACKAGE_NAME = ICanBoogie/Inflector
-PACKAGE_VERSION = 1.3.3
+PACKAGE_NAME = icanboogie/inflector
+PACKAGE_VERSION = 1.4
 
 # do not edit the following lines
 
