@@ -238,7 +238,7 @@ class Inflector
 
 				$m = $matches[0];
 
-				return !empty($acronyms[$m]) ? $acronyms[$m] : self::ucfirst($m);
+				return !empty($acronyms[$m]) ? $acronyms[$m] : mb_ucfirst($m);
 
 			}, $string, 1);
 		}
@@ -247,7 +247,7 @@ class Inflector
 
 			list(, $m1, $m2) = $matches;
 
-			return $m1 . (isset($acronyms[$m2]) ? $acronyms[$m2] : self::ucfirst($m2));
+			return $m1 . (isset($acronyms[$m2]) ? $acronyms[$m2] : mb_ucfirst($m2));
 
 		}, $string);
 
@@ -457,16 +457,5 @@ class Inflector
 	public function ordinalize($number)
 	{
 		return $number . $this->ordinal($number);
-	}
-
-	/**
-	 * Multi-byte safe ucfirst
-	 *
-	 * @param $str
-	 * @return string
-	 */
-	private static function ucfirst($str)
-	{
-		return upcase(mb_substr($str, 0, 1)) . mb_substr($str, 1);
 	}
 }

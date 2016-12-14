@@ -153,3 +153,16 @@ function titleize($str, $locale = INFLECTOR_DEFAULT_LOCALE)
 {
 	return Inflector::get($locale)->titleize($str);
 }
+
+/**
+ * Returns a copy of str with the first character converted to uppercase and the
+ * remainder to as-is.
+ *
+ * @param string $str
+ *
+ * @return string
+ */
+function mb_ucfirst($str)
+{
+	return upcase(mb_substr($str, 0, 1)) . mb_substr($str, 1);
+}
