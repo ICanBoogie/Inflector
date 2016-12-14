@@ -148,6 +148,12 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals('Capital', camelize('capital'));
 	}
 
+	public function test_camelize_conserving_internal_uppercase_with_delimiter()
+	{
+		$this->assertEquals('WordOne\\WordTwo', self::$inflector->camelize('wordOne/wordTwo'));
+		$this->assertEquals('WordOne\\WordTwo', camelize('wordOne/wordTwo'));
+	}
+
 	public function test_camelize_with_lower_downcases_the_first_letter()
 	{
 		$this->assertEquals('capital', self::$inflector->camelize('Capital', true));
