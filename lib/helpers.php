@@ -53,12 +53,19 @@ if (!function_exists(__NAMESPACE__ . '\capitalize'))
 	 * remainder to lowercase.
 	 *
 	 * @param string $str
+	 * @param bool $preserve_str_end Whether the string end should be preserved or downcased.
 	 *
 	 * @return string
 	 */
-	function capitalize($str)
+	function capitalize($str, $preserve_str_end = false)
 	{
-		return upcase(mb_substr($str, 0, 1)) . downcase(mb_substr($str, 1));
+		$end = mb_substr($str, 1);
+
+		if (!$preserve_str_end) {
+			$end = downcase($end);
+		}
+
+		return upcase(mb_substr($str, 0, 1)) . $end;
 	}
 }
 

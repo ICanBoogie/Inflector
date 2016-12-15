@@ -238,7 +238,7 @@ class Inflector
 
 				$m = $matches[0];
 
-				return !empty($acronyms[$m]) ? $acronyms[$m] : capitalize($m);
+				return !empty($acronyms[$m]) ? $acronyms[$m] : capitalize($m, true);
 
 			}, $string, 1);
 		}
@@ -247,7 +247,7 @@ class Inflector
 
 			list(, $m1, $m2) = $matches;
 
-			return $m1 . (isset($acronyms[$m2]) ? $acronyms[$m2] : capitalize($m2));
+			return $m1 . (isset($acronyms[$m2]) ? $acronyms[$m2] : capitalize($m2, true));
 
 		}, $string);
 
