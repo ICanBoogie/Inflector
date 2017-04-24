@@ -17,6 +17,7 @@ return array
 	"my money"    => "my money",
 
 	"category"    => "categories",
+	"currency"    => "currencies",
 	"energy"      => "energies",
 	"query"       => "queries",
 	"ability"     => "abilities",
