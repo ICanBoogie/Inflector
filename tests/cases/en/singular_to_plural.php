@@ -111,7 +111,7 @@ return array
 	"prize"       => "prizes",
 	"edge"        => "edges",
 
-	"cow"			=> "cows",
+	"cow"         => "cows",
 	"database"    => "databases",
 
 	# regression tests against improper inflection regexes

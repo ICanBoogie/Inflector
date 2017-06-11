@@ -7,7 +7,6 @@ return array
 	'child'  => 'children',
 	'sex'    => 'sexes',
 	'move'   => 'moves',
-	'cow'    => 'kine',
 	'zombie' => 'zombies',
 	'genus'  => 'genera'
 );

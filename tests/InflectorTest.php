@@ -62,67 +62,6 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals("sponsor", $inflector->singularize($inflector->pluralize($countable_word)));
 	}
 
-    /**
-     * @dataProvider provide_singular_and_plural
-     *
-     * @param $singular
-     * @param $plural
-     */
-    public function test_pluralize_singular($singular, $plural)
-    {
-        $this->assertEquals($plural, self::$inflector->pluralize($singular));
-        $this->assertEquals(ucfirst($plural), self::$inflector->pluralize(ucfirst($singular)));
-    }
-
-    /**
-     * @dataProvider provide_singular_and_plural
-     *
-     * @param $singular
-     * @param $plural
-     */
-    public function test_pluralize_plural($singular, $plural)
-    {
-        $this->assertEquals($plural, self::$inflector->pluralize($plural));
-        $this->assertEquals(ucfirst($plural), self::$inflector->pluralize(ucfirst($plural)));
-    }
-
-    /**
-     * @dataProvider provide_singular_and_plural
-     *
-     * @param $singular
-     * @param $plural
-     */
-    public function test_singularize_plurals($singular, $plural)
-	{
-        $this->assertEquals($singular, self::$inflector->singularize($plural));
-        $this->assertEquals(ucfirst($singular), self::$inflector->singularize(ucfirst($plural)));
-	}
-
-    /**
-     * @dataProvider provide_singular_and_plural
-     *
-     * @param $singular
-     * @param $plural
-     */
-    public function test_singularize_singular($singular, $plural)
-    {
-        $this->assertEquals($singular, self::$inflector->singularize($singular));
-        $this->assertEquals(ucfirst($singular), self::$inflector->singularize(ucfirst($singular)));
-    }
-
-    public function provide_singular_and_plural()
-    {
-        $cases = require __DIR__ . '/cases/singular_to_plural.php';
-        $ar = array();
-
-        foreach ($cases as $singular => $plural)
-        {
-            $ar[] = array($singular, $plural);
-        }
-
-        return $ar;
-    }
-
     public function test_camelize()
 	{
 		$ar = require __DIR__ . '/cases/camel_to_underscore.php';
@@ -366,40 +305,6 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 		foreach (require __DIR__ . '/cases/underscores_to_dashes.php' as $underscored => $dasherized)
 		{
 			$this->assertEquals($underscored, self::$inflector->underscore(self::$inflector->dasherize($underscored)));
-		}
-	}
-
-	public function test_irregularities_between_singular_and_plural()
-	{
-		$inflect = clone self::$inflector;
-
-		foreach (require __DIR__ . '/cases/irregularities.php' as $singular => $plural)
-		{
-			$inflect->inflections->irregular($singular, $plural);
-			$this->assertEquals($singular, $inflect->singularize($plural));
-			$this->assertEquals($plural, $inflect->pluralize($singular));
-		}
-	}
-
-	public function test_pluralize_of_irregularity_plural_should_be_the_same()
-	{
-		$inflect = clone self::$inflector;
-
-		foreach (require __DIR__ . '/cases/irregularities.php' as $singular => $plural)
-		{
-			$inflect->inflections->irregular($singular, $plural);
-			$this->assertEquals($plural, $inflect->pluralize($plural));
-		}
-	}
-
-	public function test_pluralize_of_irregularity_singular_should_be_the_same()
-	{
-		$inflect = clone self::$inflector;
-
-		foreach (require __DIR__ . '/cases/irregularities.php' as $singular => $plural)
-		{
-			$inflect->inflections->irregular($singular, $plural);
-			$this->assertEquals($singular, $inflect->singularize($singular));
 		}
 	}
 

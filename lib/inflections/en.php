@@ -78,6 +78,7 @@ return function(Inflections $inflect) {
 	->irregular('move', 'moves')
 	->irregular('zombie', 'zombies')
 	->irregular('goose', 'geese')
+	->irregular('genus', 'genera')
 
 	// http://easenglish.net/Files/Grammar/uncountable%20words.pdf
 	->uncountable(explode(' ', 'advice art coal baggage butter clothing cotton equipment experience feedback fish flour food furniture gas homework impatience information jeans knowledge leather love luggage money oil management patience police polish progress research rice series sheep staff silk soap species sugar talent toothpaste travel vinegar weather wood wool work'));
