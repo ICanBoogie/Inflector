@@ -31,14 +31,6 @@ class PortugueseInflectionsTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($plural, self::$inflector->pluralize($singular));
 	}
 
-	/**
-	 * @dataProvider provide_irregular
-	 */
-	public function test_irregular_singular_to_plural($singular, $plural)
-	{
-		$this->assertEquals($plural, self::$inflector->pluralize($singular));
-	}
-
 	public function provide_singular_to_plural()
 	{
 		$singular_to_plural = require __DIR__ . '/cases/pt/singular_to_plural.php';
@@ -51,18 +43,4 @@ class PortugueseInflectionsTest extends \PHPUnit_Framework_TestCase
 
 		return $dataset;
 	}
-
-	public function provide_irregular()
-	{
-		$irregulars = require __DIR__ . '/cases/pt/irregular.php';
-		$dataset = array();
-
-		foreach ($irregulars as $singular => $plural)
-		{
-			$dataset[] = array($singular, $plural);
-		}
-
-		return $dataset;
-	}
-
 }
