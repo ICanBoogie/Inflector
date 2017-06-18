@@ -24,14 +24,6 @@ class SpanishInflectionsTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider provide_singular_to_plural
-	 */
-	public function test_singular_to_plural($singular, $plural)
-	{
-		$this->assertEquals($plural, self::$inflector->pluralize($singular));
-	}
-
-	/**
 	 * @dataProvider provide_irregular
 	 */
 	public function test_irregular_singular_to_plural($singular, $plural)
@@ -40,32 +32,11 @@ class SpanishInflectionsTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @dataProvider provide_singular_to_plural
-	 */
-	public function test_plural_to_singular($singular, $plural)
-	{
-		$this->assertEquals($singular, self::$inflector->singularize($plural));
-	}
-
-	/**
 	 * @dataProvider provide_irregular
 	 */
 	public function test_irregular_plural_to_singular($singular, $plural)
 	{
 		$this->assertEquals($singular, self::$inflector->singularize($plural));
-	}
-
-	public function provide_singular_to_plural()
-	{
-		$singular_to_plural = require __DIR__ . '/cases/es/singular_to_plural.php';
-		$dataset = array();
-
-		foreach ($singular_to_plural as $singular => $plural)
-		{
-			$dataset[] = array($singular, $plural);
-		}
-
-		return $dataset;
 	}
 
 	public function provide_irregular()

@@ -14,40 +14,12 @@ namespace ICanBoogie;
 class TurkishInflectionsTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @dataProvider provide_singular_to_plural
-	 */
-	public function test_plurals($singular, $plural)
-	{
-		$this->assertEquals($plural, pluralize($singular, 'tr'));
-	}
-
-	/**
-	 * @dataProvider provide_singular_to_plural
-	 */
-	public function test_singular($singular, $plural)
-	{
-		$this->assertEquals($singular, singularize($plural, 'tr'));
-	}
-
-	/**
 	 * @dataProvider provide_irregular
 	 */
 	public function test_irregular($singular, $plural)
 	{
 		$this->assertEquals($singular, singularize($plural, 'tr'));
 		$this->assertEquals($plural, pluralize($singular, 'tr'));
-	}
-
-	public function provide_singular_to_plural()
-	{
-		$rc = array();
-
-		foreach (require __DIR__ . '/cases/tr/singular_to_plural.php' as $singular => $plural)
-		{
-			$rc[] = array($singular, $plural);
-		}
-
-		return $rc;
 	}
 
 	public function provide_irregular()

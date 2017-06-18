@@ -13,22 +13,6 @@ namespace ICanBoogie;
 
 class FrenchInflectionsTest extends \PHPUnit_Framework_TestCase
 {
-	public function test_plurals()
-	{
-		foreach (require __DIR__ . '/cases/fr/singular_to_plural.php' as $plural => $singular)
-		{
-			$this->assertEquals($plural, pluralize($singular, 'fr'));
-		}
-	}
-
-	public function test_singular()
-	{
-		foreach (require __DIR__ . '/cases/fr/singular_to_plural.php' as $plural => $singular)
-		{
-			$this->assertEquals($singular, singularize($plural, 'fr'));
-		}
-	}
-
 	public function test_irregular()
 	{
 		foreach (require __DIR__ . '/cases/fr/irregular.php' as $singular => $plural)

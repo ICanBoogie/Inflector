@@ -4,20 +4,20 @@
 
 return array
 (
-	'amis' => 'ami',
-	'chiens' => 'chien',
-	'fidèles' => 'fidèle',
-	'rapports' => 'rapport',
-	'sains' => 'sain',
-	'jouets' => 'jouet',
+	'ami' => 'amis',
+	'chien' => 'chiens',
+	'fidèle' => 'fidèles',
+	'rapport' => 'rapports',
+	'sain' => 'sains',
+	'jouet' => 'jouets',
 
-	'bijoux' => 'bijou',
-	'cailloux' => 'caillou',
-	'choux' => 'chou',
-	'genoux' => 'genou',
-	'hiboux' => 'hibou',
-	'joujoux' => 'joujou',
-	'poux' => 'pou',
+	'bijou' => 'bijoux',
+	'caillou' => 'cailloux',
+	'chou' => 'choux',
+	'genou' => 'genoux',
+	'hibou' => 'hiboux',
+	'joujou' => 'joujoux',
+	'pou' => 'poux',
 
 	# -s, -x, -z
 
@@ -25,33 +25,39 @@ return array
 
 	# -au, -eu, -eau
 
-	'tuyaux' => 'tuyau',
-	'nouveaux' => 'nouveau',
-	'aveux' => 'aveu',
+	'tuyau' => 'tuyaux',
+	'nouveau' => 'nouveaux',
+	'aveu' => 'aveux',
 
-	'bleus' => 'bleu',
-	'émeus' => 'émeu',
-	'landaus' => 'landau',
-	'lieus' => 'lieu', // poisson
-	'pneus' => 'pneu',
-	'sarraus' => 'sarrau',
+	'bleu' => 'bleus',
+	'émeu' => 'émeus',
+	'landau' => 'landaus',
+	'lieu' => 'lieus',
+	'pneu' => 'pneus',
+	'sarrau' => 'sarraus',
 
 	# -al
 
-	'journaux' => 'journal',
+	'journal' => 'journaux',
 
 	# -ail
 
-	'détails' => 'détail',
+	'détail' => 'détails',
 
 	# -ail (exceptions)
 
-	'baux' => 'bail',
-	'coraux' => 'corail',
-	'émaux' => 'émail',
-	'gemmaux' => 'gemmail',
-	'soupiraux' => 'soupirail',
-	'travaux' => 'travail',
-	'vantaux' => 'vantail',
-	'vitraux' => 'vitrail'
+	'bail' => 'baux',
+	'corail' => 'coraux',
+	'émail' => 'émaux',
+	'gemmail' => 'gemmaux',
+	'soupirail' => 'soupiraux',
+	'travail' => 'travaux',
+	'vantail' => 'vantaux',
+	'vitrail' => 'vitraux',
+
+	# irregulars
+
+	'monsieur' => 'messieurs',
+	'madame' => 'mesdames',
+	'mademoiselle' => 'mesdemoiselles',
 );

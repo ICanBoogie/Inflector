@@ -29,17 +29,6 @@ class EnglishInflectionsTest extends \PHPUnit_Framework_TestCase
 	 * @param string $singular
 	 * @param string $plural
 	 */
-	public function test_singular_to_plural($singular, $plural)
-	{
-		$this->assertEquals($plural, self::$inflector->pluralize($singular));
-	}
-
-	/**
-	 * @dataProvider provide_singular_and_plural
-	 *
-	 * @param string $singular
-	 * @param string $plural
-	 */
 	public function test_plural_to_plural($singular, $plural)
 	{
 		$this->assertEquals($plural, self::$inflector->pluralize($plural));
@@ -54,17 +43,6 @@ class EnglishInflectionsTest extends \PHPUnit_Framework_TestCase
 	public function test_irregular_singular_to_plural($singular, $plural)
 	{
 		$this->assertEquals($plural, self::$inflector->pluralize($singular));
-	}
-
-	/**
-	 * @dataProvider provide_singular_and_plural
-	 *
-	 * @param string $singular
-	 * @param string $plural
-	 */
-	public function test_plural_to_singular($singular, $plural)
-	{
-		$this->assertEquals($singular, self::$inflector->singularize($plural));
 	}
 
 	/**
