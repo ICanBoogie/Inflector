@@ -2,7 +2,6 @@
 
 [![Release](https://img.shields.io/packagist/v/ICanBoogie/Inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
 [![Build Status](https://img.shields.io/travis/ICanBoogie/Inflector/master.svg)](http://travis-ci.org/ICanBoogie/Inflector)
-[![HHVM](https://img.shields.io/hhvm/icanboogie/inflector.svg)](http://hhvm.h4cc.de/package/icanboogie/inflector)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/Inflector/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/Inflector)
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
 [![Packagist](https://img.shields.io/packagist/dm/icanboogie/inflector.svg?maxAge=2592000)](https://packagist.org/packages/icanboogie/inflector)
