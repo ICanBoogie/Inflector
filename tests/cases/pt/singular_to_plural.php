@@ -2,30 +2,36 @@
 
 return array
 (
+	'livro' => 'livros',
+	'radio' => 'radios',
+	'senhor' => 'senhores',
+	'lei' => 'leis',
+	'rei' => 'reis',
 
-	# Palavras terminadas em ao adiciona oes
+	'luz' => 'luzes',
+	'juiz' => 'juizes',
 
-	'patrão' => 'patrões',
-	'ladrão' => 'ladrões',
-	'casarão' => 'casarões',
+	'avião' => 'aviões',
+	'cão' => 'cães',
+	'interesse' => 'interesses',
+	'ás' => 'ases',
+	'mão' => 'mãos',
+	'peão' => 'peões',
 
-	# Palavras terminadas em (r|s|z) adiciona es
+	'casa' => 'casas',
+	'árvore' => 'árvores',
+	'cor' => 'cores',
+	'álbum' => 'álbuns',
+	'mulher' => 'mulheres',
 
-	# Palavras terminadas em (a|e|o|u) + l adiciona is
+	'nação' => 'nações',
+	'país' => 'países', // https://www.memrise.com/course/331877/countries-paises-brazilian-portuguese/1/
 
-	# Palavras terminadas em il adiciona is
-
-	'cantil' => 'cantis',
-	'canil' => 'canis',
-
-	# Palavras terminadas em (m|n) adiciona ns
-
-	'afim' => 'afins',
-	'agiotagem' => 'agiotagens',
-
-	# Pdrão simplismente adiciona s
-
-	'carro' => 'carros',
-	'familia' => 'familias'
-
+	'chão' => 'chãos',
+	'charlatão' => 'charlatães',
+	'cidadão' => 'cidadãos',
+	'consul' => 'consules',
+	'cristão' => 'cristãos',
+	'difícil' => 'difíceis',
+	'email' => 'emails'
 );

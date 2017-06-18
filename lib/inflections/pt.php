@@ -20,19 +20,53 @@ namespace ICanBoogie;
 return function(Inflections $inflect) {
 
 	$inflect
-		->plural('/^(.*)$/i', '\1s')
-		->plural('/^(.*)ão$/i', '\1ões')
-		->plural('/^(.*)(r|s|z)$/i', '\1\2es')
-		->plural('/^(.*)(a|e|o|u)l$/i', '\1\2is')
-		->plural('/^(.*)il$/i', '\1\2is')
-		->plural('/^(.*)(m|n)$/i', '\1ns')
+	    ->plural('/$/',  's')
+	    ->plural('/(s)$/i',  '\1')
+	    ->plural('/(z|r)$/i', '\1es')
+	    ->plural('/al$/i',  'ais')
+	    ->plural('/el$/i',  'eis')
+	    ->plural('/ol$/i',  'ois')
+	    ->plural('/ul$/i',  'uis')
+	    ->plural('/([^aeou])il$/i',  '\1is')
+	    ->plural('/m$/i',   'ns')
+	    ->plural('/^(japon|escoc|ingl|dinamarqu|fregu|portugu)ês$/i',  '\1eses')
+	    ->plural('/^(|g)ás$/i',  '\1ases')
+	    ->plural('/ão$/i',  'ões')
+	    ->plural('/^(irm|m)ão$/i',  '\1ãos')
+		->plural('/^(alem|c|p)ão$/i', '\1ães')
+
+		# Sem acentos...
+	    ->plural('/ao$/i',  'oes')
+        ->plural('/^(irm|m)ao$/i',  '\1aos')
+		->plural('/^(alem|c|p)ao$/i', '\1aes')
+
+	    ->singular('/([^ê])s$/i', '\1')
+	    ->singular('/^(á|gá)s$/i', '\1s')
+	    ->singular('/(r|z)es$/i', '\1')
+	    ->singular('/([^p])ais$/i', '\1al')
+	    ->singular('/éis$/i', 'el')
+	    ->singular('/eis$/i', 'ei')
+	    ->singular('/ois$/i', 'ol')
+	    ->singular('/uis$/i', 'ul')
+	    ->singular('/(r|t|f|v)is$/i', '\1il')
+	    ->singular('/ns$/i', 'm')
+	    ->singular('/sses$/i', 'sse')
+	    ->singular('/^(.*[^s]s)es$/i', '\1')
+	    ->singular('/(ãe|ão|õe)s$/', 'ão')
+	    ->singular('/(ae|ao|oe)s$/', 'ao')
+	    ->singular('/(japon|escoc|ingl|dinamarqu|fregu|portugu)eses$/i', '\1ês')
+		->singular('/^(g|)ases$/i', '\1ás')
+
+		# Irregulares
 		->irregular('abdomen', 'abdomens')
 		->irregular('alemão', 'alemães')
 		->irregular('artesã', 'artesãos')
-		->irregular('ás', 'áses')
+		->irregular('álcool', 'álcoois')
+	    ->irregular("árvore", "árvores")
 		->irregular('bencão', 'bencãos')
 		->irregular('cão', 'cães')
 		->irregular('campus', 'campi')
+		->irregular("cadáver", "cadáveres")
 		->irregular('capelão', 'capelães')
 		->irregular('capitão', 'capitães')
 		->irregular('chão', 'chãos')
@@ -44,6 +78,7 @@ return function(Inflections $inflect) {
 		->irregular('email', 'emails')
 		->irregular('escrivão', 'escrivães')
 		->irregular('fóssil', 'fósseis')
+		->irregular('gás', 'gases')
 		->irregular('germens', 'germen')
 		->irregular('grão', 'grãos')
 		->irregular('hífen', 'hífens')
@@ -60,10 +95,8 @@ return function(Inflections $inflect) {
 		->irregular('sacristão', 'sacristães')
 		->irregular('sotão', 'sotãos')
 		->irregular('tabelião', 'tabeliães')
-		->irregular('gás', 'gases')
-		->irregular('álcool', 'álcoois')
-		// http://easenglish.net/Files/Grammar/uncountable%20words.pdf
-		->uncountable(explode(' ', 'atlas lapis onibus pires virus status'));
 
+		->uncountable(explode(' ', 'tórax tênis ônibus lápis fênix'))
+	;
 };
 //@codeCoverageIgnoreEnd
