@@ -20,14 +20,17 @@ namespace ICanBoogie;
 return function(Inflections $inflect) {
 
 	$inflect
-    ->plural('/$/', 'er')
-    ->plural('/r$/i', 're')
-    ->plural('/e$/i', 'er')
+	    ->plural('/$/', 'er')
+	    ->plural('/r$/i', 're')
+	    ->plural('/e$/i', 'er')
 
-    ->singular('/er$/i', '')
-    ->singular('/re$/i', 'r')
+	    ->singular('/er$/i', '')
+	    ->singular('/re$/i', 'r')
 
-    ->irregular('konto', 'konti');
+	    ->irregular('konto', 'konti')
+
+		->uncountable(explode(' ', 'barn fjell hus'))
+	;
 
 };
 //@codeCoverageIgnoreEnd

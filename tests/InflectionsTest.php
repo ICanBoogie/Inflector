@@ -36,12 +36,12 @@ class InflectionsTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function provide_singular_and_plural()
 	{
-		$locales = explode(' ', 'en es fr pt tr');
+		$locales = explode(' ', 'en es fr nb pt tr');
 		$rc = array();
 
 		foreach ($locales as $locale)
 		{
-			foreach (require __DIR__ . "/cases/$locale/singular_to_plural.php" as $singular => $plural)
+			foreach (require __DIR__ . "/Inflections/$locale.php" as $singular => $plural)
 			{
 				$rc[] = array($locale, $singular, $plural);
 			}
