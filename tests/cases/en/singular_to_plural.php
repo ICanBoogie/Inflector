@@ -125,5 +125,15 @@ return array
     "half"        => "halves",
     "knife"       => "knives",
     "leaf"        => "leaves",
-    "loaf"        => "loaves"
+    "loaf"        => "loaves",
+
+	# irregulars
+
+	'person' => 'people',
+	'man'    => 'men',
+	'child'  => 'children',
+	'sex'    => 'sexes',
+	'move'   => 'moves',
+	'zombie' => 'zombies',
+	'genus'  => 'genera',
 );

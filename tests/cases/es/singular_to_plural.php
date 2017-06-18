@@ -47,5 +47,15 @@ return array
 	#
 
 	'ley' => 'leyes',
-	'café' => 'cafés'
+	'café' => 'cafés',
+
+	# irregulars
+
+	'el' => 'los',
+	'lunes' => 'lunes',
+	'rompecabezas' => 'rompecabezas',
+	'crisis' => 'crisis',
+	'papá' => 'papás',
+	'mamá' => 'mamás',
+	'sofá' => 'sofás',
 );

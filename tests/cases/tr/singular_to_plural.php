@@ -7,5 +7,11 @@ return array
 	'kitap' => 'kitaplar',
 	'köpek' => 'köpekler',
 	'test' => 'testler',
-	'üçgen' => 'üçgenler'
+	'üçgen' => 'üçgenler',
+
+	# irregulars
+
+	'ben' => 'biz',
+	'sen' => 'siz',
+	'o' => 'onlar',
 );
