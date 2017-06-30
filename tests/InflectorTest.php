@@ -62,7 +62,7 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals("sponsor", $inflector->singularize($inflector->pluralize($countable_word)));
 	}
 
-    public function test_camelize()
+	public function test_camelize()
 	{
 		$ar = require __DIR__ . '/cases/camel_to_underscore.php';
 
@@ -220,6 +220,11 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 		{
 			$this->assertEquals($underscore, self::$inflector->underscore($camel));
 		}
+
+		foreach (require __DIR__ . '/cases/misc_to_underscore.php' as $misc => $underscore)
+		{
+			$this->assertEquals($underscore, self::$inflector->underscore($misc));
+		}
 	}
 
 	public function test_underscore_with_slashes()
@@ -232,12 +237,9 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 
 	public function test_hyphenate()
 	{
-		$ar = array
-		(
+		$ar = array(
 			'AlterCSSClassNames' => 'alter-css-class-names'
-		)
-
-		+ require __DIR__ . '/cases/underscores_to_dashes.php';
+		);
 
 		$inflector = self::$inflector;
 
@@ -245,6 +247,17 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 		{
 			$this->assertEquals($hyphenated, $inflector->hyphenate($str));
 		}
+
+		foreach (require __DIR__ . '/cases/underscores_to_dashes.php' as $underscore => $dash)
+		{
+			$this->assertEquals($dash, self::$inflector->hyphenate($underscore));
+		}
+
+		foreach (require __DIR__ . '/cases/misc_to_dashes.php' as $misc => $dash)
+		{
+			$this->assertEquals($dash, self::$inflector->hyphenate($misc));
+		}
+
 	}
 
 	public function test_humanize()
