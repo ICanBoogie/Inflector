@@ -291,7 +291,7 @@ class Inflector
 
 		$word = preg_replace('/([[:upper:]\d]+)([[:upper:]][[:lower:]])/u', '\1_\2', $word);
 		$word = preg_replace('/([[:lower:]\d])([[:upper:]])/u','\1_\2', $word);
-		$word = strtr($word, "-", "_");
+		$word = preg_replace('/\-+|\s+/', '_', $word);
 		$word = downcase($word);
 
 		return $word;

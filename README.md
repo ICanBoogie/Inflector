@@ -72,6 +72,10 @@ $inflector->camelize('active_model/errors', Inflector::DOWNCASE_FIRST_LETTER);
 
 $inflector->underscore('ActiveModel');               // 'active_model'
 $inflector->underscore('ActiveModel\Errors');        // 'active_model/errors'
+$inflector->underscore('Less Active Phrase');        // 'less_active_phrase'
+$inflector->underscore('Number 1 Test');             // 'number_1_test'
+$inflector->underscore('Johnny5 Still Alive');       // 'johnny5_still_alive'
+$inflector->underscore('Lots   of   Spaces');        // 'lots_of_spaces'
 
 # humanize
 
