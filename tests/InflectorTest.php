@@ -253,7 +253,7 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 			$this->assertEquals($dash, self::$inflector->hyphenate($underscore));
 		}
 
-		foreach (require __DIR__ . '/cases/misc_to_dashes.php' as $misc => $dash)
+		foreach (require __DIR__ . '/cases/misc_to_hyphens.php' as $misc => $dash)
 		{
 			$this->assertEquals($dash, self::$inflector->hyphenate($misc));
 		}

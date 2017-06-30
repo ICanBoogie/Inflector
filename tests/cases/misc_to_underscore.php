@@ -1,9 +1,10 @@
 <?php
 
 return array(
-	"This is a Test" => "this_is_a_test",
-	"Test number 1" => "test_number_1",
-	"Johnny5 Still alive" => "johnny5_still_alive",
+	"Less active phrase" => "less_active_phrase",
+	"Number 1 test" => "number_1_test",
+	"Johnny5 still alive" => "johnny5_still_alive",
 	"double  spaces rule" => "double_spaces_rule",
-	"triple   spaces!"    => "triple_spaces!"
+	"triple   spaces!" => "triple_spaces!",
+	"Lots   of   Spaces" => "lots_of_spaces"
 );
