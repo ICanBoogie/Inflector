@@ -81,7 +81,7 @@ return function(Inflections $inflect) {
 	->irregular('genus', 'genera')
 
 	// http://easenglish.net/Files/Grammar/uncountable%20words.pdf
-	->uncountable(explode(' ', 'advice art coal baggage butter clothing cotton equipment experience feedback fish flour food furniture gas homework impatience information jeans knowledge leather love luggage money oil management patience police polish progress research rice series sheep staff silk soap species sugar talent toothpaste travel vinegar weather wood wool work'));
+	->uncountable(explode(' ', 'advice aircraft art baggage butter clothing coal cotton deer equipment experience feedback fish flour food furniture gas homework impatience information jeans knowledge leather love luggage management money moose music news oil patience police polish progress research rice salmon sand series sheep silk sms soap spam species staff sugar swine talent toothpaste traffic travel vinegar weather wood wool work'));
 
 };
 //@codeCoverageIgnoreEnd
