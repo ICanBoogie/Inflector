@@ -161,7 +161,7 @@ class Inflector
 	 * $this->pluralize('children');   // "child"
 	 * $this->pluralize('sheep');      // "sheep"
 	 * $this->pluralize('words');      // "words"
-	 * $this->pluralize('CamelChild'); // "CamelChild"
+	 * $this->pluralize('CamelChild'); // "CamelChildren"
 	 * </pre>
 	 *
 	 * @param string $word
@@ -178,7 +178,7 @@ class Inflector
 	 *
 	 * <pre>
 	 * $this->singularize('posts');         // "post"
-	 * $this->singularize('childred');      // "child"
+	 * $this->singularize('children');      // "child"
 	 * $this->singularize('sheep');         // "sheep"
 	 * $this->singularize('word');          // "word"
 	 * $this->singularize('CamelChildren'); // "CamelChild"
