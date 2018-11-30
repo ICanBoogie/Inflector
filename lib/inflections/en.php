@@ -66,6 +66,7 @@ return function(Inflections $inflect) {
 	->singular('/(matr)ices$/i', '\1ix')
 	->singular('/(quiz)zes$/i', '\1')
 	->singular('/(database)s$/i', '\1')
+	->singular('/(canoe)s$/i', '\1')
 
     ->irregular('leaf', 'leaves')
     ->irregular('loaf', 'loaves')
