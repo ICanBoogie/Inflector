@@ -106,6 +106,12 @@ $inflector->ordinalize(1002);                        // "1002nd"
 $inflector->ordinalize(1003);                        // "1003rd"
 $inflector->ordinalize(-11);                         // "-11th"
 $inflector->ordinalize(-1021);                       // "-1021st"
+
+# uncountable
+
+$inflector->is_uncountable("advice");                // true
+$inflector->is_uncountable("weather");               // true
+$inflector->is_uncountable("cat");                   // false
 ```
 
 Helpers makes it easy to use default locale inflections.

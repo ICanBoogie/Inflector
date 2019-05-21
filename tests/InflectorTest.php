@@ -330,4 +330,14 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->assertEquals("L'été Aux Âmes Inouïes", self::$inflector->titleize("l'été_aux_âmes_inouïes"));
 	}
+
+	public function test_is_uncountable()
+	{
+		$inflections = new Inflections();
+		$inflections->uncountable($uncountable = uniqid());
+		$inflector = new Inflector($inflections);
+
+		$this->assertTrue($inflector->is_uncountable($uncountable));
+		$this->assertFalse($inflector->is_uncountable(uniqid()));
+	}
 }

@@ -75,7 +75,7 @@ class Inflector
 	 *
 	 * @param Inflections $inflections
 	 */
-	protected function __construct(Inflections $inflections = null)
+	public function __construct(Inflections $inflections = null)
 	{
 		$this->inflections = $inflections ?: new Inflections;
 	}
@@ -457,5 +457,27 @@ class Inflector
 	public function ordinalize($number)
 	{
 		return $number . $this->ordinal($number);
+	}
+
+	/**
+	 * Returns true if the word is uncountable, false otherwise.
+	 *
+	 * <pre>
+	 * $this->is_uncountable('advice');    // true
+	 * $this->is_uncountable('weather');   // true
+	 * $this->is_uncountable('cat');       // false
+	 * </pre>
+	 *
+	 * @param string $word
+	 *
+	 * @return bool
+	 */
+	public function is_uncountable($word)
+	{
+		$rc = (string) $word;
+
+		return $rc
+			&& preg_match('/\b[[:word:]]+\Z/u', downcase($rc), $matches)
+			&& isset($this->inflections->uncountables[$matches[0]]);
 	}
 }
