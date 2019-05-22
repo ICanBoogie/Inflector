@@ -75,7 +75,7 @@ class Inflector
 	 *
 	 * @param Inflections $inflections
 	 */
-	protected function __construct(Inflections $inflections = null)
+	public function __construct(Inflections $inflections = null)
 	{
 		$this->inflections = $inflections ?: new Inflections;
 	}
@@ -509,11 +509,9 @@ class Inflector
 	 * Returns true if the word is uncountable, false otherwise.
 	 *
 	 * <pre>
-	 * $this->isSingular('post');       // false
-	 * $this->isSingular('children');   // false
-	 * $this->isSingular('sheep');      // true
-	 * $this->isSingular('words');      // false
-	 * $this->isSingular('CamelChild'); // false
+	 * $this->is_uncountable('advice');    // true
+	 * $this->is_uncountable('weather');   // true
+	 * $this->is_uncountable('cat');       // false
 	 * </pre>
 	 *
 	 * @param string $word
@@ -524,19 +522,8 @@ class Inflector
 	{
 		$rc = (string) $word;
 
-		if (!$rc)
-		{
-			return false;
-		}
-
-		if (preg_match('/\b[[:word:]]+\Z/u', downcase($rc), $matches))
-		{
-			if (isset($this->inflections->uncountables[$matches[0]]))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return $rc
+			&& preg_match('/\b[[:word:]]+\Z/u', downcase($rc), $matches)
+			&& isset($this->inflections->uncountables[$matches[0]]);
 	}
 }
