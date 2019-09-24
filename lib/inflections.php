@@ -44,6 +44,9 @@ class Inflections
 		{
 			return self::$inflections[$locale];
 		}
+		if (!file_exists(__DIR__ . "/inflections/{$locale}.php")) {
+			throw new \Exception("Inflections file does not exist for the locale: '$locale'");
+		}
 
 		$instance = new static;
 
