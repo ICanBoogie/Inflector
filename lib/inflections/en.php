@@ -17,7 +17,7 @@ namespace ICanBoogie;
  * @param Inflections $inflect
  */
 //@codeCoverageIgnoreStart
-return function(Inflections $inflect) {
+return function(Inflections $inflect): void {
 
 	$inflect
 	->plural('/$/', 's')

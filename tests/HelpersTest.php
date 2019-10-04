@@ -11,10 +11,12 @@
 
 namespace ICanBoogie;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @group helpers
  */
-class HelpersTest extends \PHPUnit_Framework_TestCase
+class HelpersTest extends TestCase
 {
 	/**
 	 * @dataProvider provide_test_capitalize

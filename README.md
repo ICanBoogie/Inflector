@@ -182,7 +182,7 @@ titleize("été_aux_âmes_inouïes"); // Été Aux Âmes Inouïes
 
 ## Requirement
 
-The package requires PHP 5.3.4 or later.
+The package requires PHP 7.1 or later.
 
 
 
@@ -195,17 +195,6 @@ The recommended way to install this package is through [Composer](http://getcomp
 ```
 $ composer require icanboogie/inflector
 ```
-
-
-
-
-
-### Cloning the repository
-
-The package is [available on GitHub](https://github.com/ICanBoogie/Inflector), its repository can be
-cloned with the following command line:
-
-	$ git clone https://github.com/ICanBoogie/Inflector.git
 
 
 
@@ -226,7 +215,8 @@ The package directory can later by cleaned with the `make clean` command.
 
 The test suite is ran with the `make test` command. [Composer](http://getcomposer.org/) is
 automatically installed as well as all the dependencies required to run the suite. The package
-directory can later be cleaned with the `make clean` command.
+directory can later be cleaned with the `make clean` command. It is recommended to run `make test`
+in the test container created with `make test-container`.
 
 The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
 

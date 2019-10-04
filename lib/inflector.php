@@ -26,34 +26,30 @@ class Inflector
 	 *
 	 * Alias to {@link INFLECTOR_DEFAULT_LOCALE}.
 	 */
-	const DEFAULT_LOCALE = INFLECTOR_DEFAULT_LOCALE;
+	public const DEFAULT_LOCALE = INFLECTOR_DEFAULT_LOCALE;
 
 	/**
 	 * {@link camelize()} option to downcase the first letter.
 	 */
-	const DOWNCASE_FIRST_LETTER = true;
+	public const DOWNCASE_FIRST_LETTER = true;
 
 	/**
 	 * {@link camelize()} option to keep the first letter as is.
 	 */
-	const UPCASE_FIRST_LETTER = false;
+	public const UPCASE_FIRST_LETTER = false;
 
 	/**
-	 * @var Inflector[]
+	 * @var array<string, Inflector>
 	 */
-	static private $inflectors = array();
+	static private $inflectors = [];
 
 	/**
 	 * Returns an inflector for the specified locale.
 	 *
 	 * Note: Inflectors are shared for the same locale. If you need to alter an inflector you
 	 * MUST clone it first.
-	 *
-	 * @param string $locale
-	 *
-	 * @return \ICanBoogie\Inflector
 	 */
-	static public function get($locale = self::DEFAULT_LOCALE)
+	static public function get(string $locale = self::DEFAULT_LOCALE): self
 	{
 		if (isset(self::$inflectors[$locale]))
 		{
@@ -70,11 +66,6 @@ class Inflector
 	 */
 	protected $inflections;
 
-	/**
-	 * Initializes the {@link $inflections} property.
-	 *
-	 * @param Inflections $inflections
-	 */
 	public function __construct(Inflections $inflections = null)
 	{
 		$this->inflections = $inflections ?: new Inflections;
@@ -83,12 +74,10 @@ class Inflector
 	/**
 	 * Returns the {@link $inflections} property.
 	 *
-	 * @param string $property
-	 *
 	 * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
 	 * class is not available a {@link \InvalidArgumentException} is thrown instead.
 	 */
-	public function __get($property)
+	public function __get(string $property)
 	{
 		if ($property === 'inflections')
 		{
@@ -97,7 +86,7 @@ class Inflector
 
 		if (class_exists('ICanBoogie\PropertyNotDefined'))
 		{
-			throw new PropertyNotDefined(array($property, $this));
+			throw new PropertyNotDefined([ $property, $this ]);
 		}
 		else
 		{
@@ -121,12 +110,9 @@ class Inflector
 	 * $this->apply_inflections('posts', $this->singulars); // "post"
 	 * </pre>
 	 *
-	 * @param string $word
-	 * @param array $rules
-	 *
-	 * @return string
+	 * @param array<string, string> $rules
 	 */
-	private function apply_inflections($word, array $rules)
+	private function apply_inflections(string $word, array $rules): string
 	{
 		$rc = (string) $word;
 
@@ -163,12 +149,8 @@ class Inflector
 	 * $this->pluralize('words');      // "words"
 	 * $this->pluralize('CamelChild'); // "CamelChildren"
 	 * </pre>
-	 *
-	 * @param string $word
-	 *
-	 * @return string
 	 */
-	public function pluralize($word)
+	public function pluralize(string $word): string
 	{
 		return $this->apply_inflections($word, $this->inflections->plurals);
 	}
@@ -183,12 +165,8 @@ class Inflector
 	 * $this->singularize('word');          // "word"
 	 * $this->singularize('CamelChildren'); // "CamelChild"
 	 * </pre>
-	 *
-	 * @param string $word
-	 *
-	 * @return string
 	 */
-	public function singularize($word)
+	public function singularize(string $word): string
 	{
 		return $this->apply_inflections($word, $this->inflections->singulars);
 	}
@@ -213,20 +191,17 @@ class Inflector
 	 * $this->camelize($this->underscore('SSLError')); // "SslError"
 	 * </pre>
 	 *
-	 * @param string $term
 	 * @param bool $downcase_first_letter One of {@link UPCASE_FIRST_LETTER},
 	 * {@link DOWNCASE_FIRST_LETTER}.
-	 *
-	 * @return string
 	 */
-	public function camelize($term, $downcase_first_letter = self::UPCASE_FIRST_LETTER)
+	public function camelize(string $term, bool $downcase_first_letter = self::UPCASE_FIRST_LETTER): string
 	{
 		$string = (string) $term;
 		$acronyms = $this->inflections->acronyms;
 
 		if ($downcase_first_letter)
 		{
-			$string = preg_replace_callback('/^(?:' . trim($this->inflections->acronym_regex, '/') . '(?=\b|[[:upper:]_])|\w)/u', function($matches) {
+			$string = preg_replace_callback('/^(?:' . trim($this->inflections->acronym_regex, '/') . '(?=\b|[[:upper:]_])|\w)/u', function(array $matches): string {
 
 				return downcase($matches[0]);
 
@@ -234,7 +209,7 @@ class Inflector
 		}
 		else
 		{
-			$string = preg_replace_callback('/^[[:lower:]\d]*/u', function($matches) use($acronyms) {
+			$string = preg_replace_callback('/^[[:lower:]\d]*/u', function(array $matches) use($acronyms): string {
 
 				$m = $matches[0];
 
@@ -243,7 +218,7 @@ class Inflector
 			}, $string, 1);
 		}
 
-		$string = preg_replace_callback('/(?:_|-|(\/))([[:alnum:]]*)/u', function($matches) use($acronyms) {
+		$string = preg_replace_callback('/(?:_|-|(\/))([[:alnum:]]*)/u', function(array $matches) use($acronyms): string {
 
 			list(, $m1, $m2) = $matches;
 
@@ -272,16 +247,12 @@ class Inflector
 	 * <pre>
 	 * $this->camelize($this->underscore('SSLError')); // "SslError"
 	 * </pre>
-	 *
-	 * @param string $camel_cased_word
-	 *
-	 * @return string
 	 */
-	public function underscore($camel_cased_word)
+	public function underscore(string $camel_cased_word): string
 	{
 		$word = (string) $camel_cased_word;
 		$word = str_replace('\\', '/', $word);
-		$word = preg_replace_callback('/(?:([[:alpha:]\d])|^)(' . trim($this->inflections->acronym_regex, '/') . ')(?=\b|[^[:lower:]])/u', function($matches) {
+		$word = preg_replace_callback('/(?:([[:alpha:]\d])|^)(' . trim($this->inflections->acronym_regex, '/') . ')(?=\b|[^[:lower:]])/u', function(array $matches): string {
 
 			list(, $m1, $m2) = $matches;
 
@@ -305,12 +276,8 @@ class Inflector
 	 * $this->humanize('employee_salary'); // "Employee salary"
 	 * $this->humanize('author_id');       // "Author"
 	 * </pre>
-	 *
-	 * @param string $lower_case_and_underscored_word
-	 *
-	 * @return string
 	 */
-	public function humanize($lower_case_and_underscored_word)
+	public function humanize(string $lower_case_and_underscored_word): string
 	{
 		$result = (string) $lower_case_and_underscored_word;
 
@@ -325,7 +292,7 @@ class Inflector
 
 		$result = preg_replace('/_id$/', "", $result);
 		$result = strtr($result, '_', ' ');
-		$result = preg_replace_callback('/([[:alnum:]]+)/u', function($matches) use($acronyms) {
+		$result = preg_replace_callback('/([[:alnum:]]+)/u', function(array $matches) use($acronyms): string {
 
 			list($m) = $matches;
 
@@ -333,7 +300,7 @@ class Inflector
 
 		}, $result);
 
-		$result = preg_replace_callback('/^[[:lower:]]/u', function($matches) {
+		$result = preg_replace_callback('/^[[:lower:]]/u', function(array $matches): string {
 
 			return upcase($matches[0]);
 
@@ -353,17 +320,13 @@ class Inflector
 	 * $this->titleize('TheManWithoutAPast');      // "The Man Without A Past"
 	 * $this->titleize('raiders_of_the_lost_ark'); // "Raiders Of The Lost Ark"
 	 * </pre>
-	 *
-	 * @param string $str
-	 *
-	 * @return string
 	 */
-	public function titleize($str)
+	public function titleize(string $str): string
 	{
 		$str = $this->underscore($str);
 		$str = $this->humanize($str);
 
-		$str = preg_replace_callback('/\b(?<![\'’`])[[:lower:]]/u', function($matches) {
+		$str = preg_replace_callback('/\b(?<![\'’`])[[:lower:]]/u', function(array $matches): string {
 
 			return upcase($matches[0]);
 
@@ -378,12 +341,8 @@ class Inflector
 	 * <pre>
 	 * $this->dasherize('puni_puni'); // "puni-puni"
 	 * </pre>
-	 *
-	 * @param string $underscored_word
-	 *
-	 * @return string
 	 */
-	public function dasherize($underscored_word)
+	public function dasherize(string $underscored_word): string
 	{
 		return strtr($underscored_word, '_', '-');
 	}
@@ -392,12 +351,8 @@ class Inflector
 	 * Makes an hyphenated, lowercase form from the expression in the string.
 	 *
 	 * This is a combination of {@link underscore} and {@link dasherize}.
-	 *
-	 * @param string $str
-	 *
-	 * @return string
 	 */
-	public function hyphenate($str)
+	public function hyphenate(string $str): string
 	{
 		return $this->dasherize($this->underscore($str));
 	}
@@ -414,12 +369,8 @@ class Inflector
 	 * $this->ordinal(-11);   // "th"
 	 * $this->ordinal(-1021); // "st"
 	 * </pre>
-	 *
-	 * @param int $number
-	 *
-	 * @return string
 	 */
-	public function ordinal($number)
+	public function ordinal(int $number): string
 	{
 		$abs_number = abs($number);
 
@@ -449,12 +400,8 @@ class Inflector
 	 * $this->ordinalize(-11);   // "-11th"
 	 * $this->ordinalize(-1021); // "-1021st"
 	 * </pre>
-	 *
-	 * @param int $number
-	 *
-	 * @return string
 	 */
-	public function ordinalize($number)
+	public function ordinalize(int $number): string
 	{
 		return $number . $this->ordinal($number);
 	}
@@ -467,12 +414,8 @@ class Inflector
 	 * $this->is_uncountable('weather');   // true
 	 * $this->is_uncountable('cat');       // false
 	 * </pre>
-	 *
-	 * @param string $word
-	 *
-	 * @return bool
 	 */
-	public function is_uncountable($word)
+	public function is_uncountable(string $word): bool
 	{
 		$rc = (string) $word;
 

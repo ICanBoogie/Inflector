@@ -19,26 +19,22 @@ namespace ICanBoogie;
  * @property-read array $uncountables Uncountables.
  * @property-read array $humans Rules for {@link humanize()}.
  * @property-read array $acronyms Acronyms.
- * @property-read array $acronym_regex Acronyms regex.
+ * @property-read string $acronym_regex Acronyms regex.
  */
 class Inflections
 {
 	/**
-	 * @var Inflections[]
+	 * @var array<string , Inflections>
 	 */
-	static private $inflections = array();
+	static private $inflections = [];
 
 	/**
 	 * Returns inflections for the specified locale.
 	 *
 	 * Note: Inflections are shared for the same locale. If you need to alter an instance you
 	 * MUST clone it first, otherwise your changes will affect others.
-	 *
-	 * @param string $locale
-	 *
-	 * @return Inflections
 	 */
-	static public function get($locale = INFLECTOR_DEFAULT_LOCALE)
+	static public function get(string $locale = INFLECTOR_DEFAULT_LOCALE): Inflections
 	{
 		if (isset(self::$inflections[$locale]))
 		{
@@ -60,35 +56,35 @@ class Inflections
 	 *
 	 * @var array
 	 */
-	protected $plurals = array();
+	protected $plurals = [];
 
 	/**
 	 * Rules for {@link singularize()}.
 	 *
 	 * @var array
 	 */
-	protected $singulars = array();
+	protected $singulars = [];
 
 	/**
 	 * Uncountables.
 	 *
 	 * @var array
 	 */
-	protected $uncountables = array();
+	protected $uncountables = [];
 
 	/**
 	 * Rules for {@link humanize()}.
 	 *
 	 * @var array
 	 */
-	protected $humans = array();
+	protected $humans = [];
 
 	/**
 	 * Acronyms.
 	 *
 	 * @var array
 	 */
-	protected $acronyms = array();
+	protected $acronyms = [];
 
 	/**
 	 * Acronyms regex.
@@ -103,12 +99,14 @@ class Inflections
 	 *
 	 * @param string $property
 	 *
+	 * @return mixed
+	 *
 	 * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
 	 * class is not available a {@link \InvalidArgumentException} is thrown instead.
 	 */
-	public function __get($property)
+	public function __get(string $property)
 	{
-		static $readers = array('acronyms', 'acronym_regex', 'plurals', 'singulars', 'uncountables', 'humans');
+		static $readers = [ 'acronyms', 'acronym_regex', 'plurals', 'singulars', 'uncountables', 'humans' ];
 
 		if (in_array($property, $readers))
 		{
@@ -117,7 +115,7 @@ class Inflections
 
 		if (class_exists('ICanBoogie\PropertyNotDefined'))
 		{
-			throw new PropertyNotDefined(array($property, $this));
+			throw new PropertyNotDefined([ $property, $this ]);
 		}
 		else
 		{
@@ -184,11 +182,9 @@ class Inflections
 	 * $this->camelize('mchammer');              // 'McHammer'
 	 * </pre>
 	 *
-	 * @param string $acronym
-	 *
 	 * @return $this
 	 */
-	public function acronym($acronym)
+	public function acronym(string $acronym): self
 	{
 		$this->acronyms[downcase($acronym)] = $acronym;
 		$this->acronym_regex = '/' . implode('|', $this->acronyms) . '/';
@@ -211,12 +207,12 @@ class Inflections
 	 *
 	 * @return $this
 	 */
-	public function plural($rule, $replacement)
+	public function plural(string $rule, string $replacement): self
 	{
 		unset($this->uncountables[$rule]);
 		unset($this->uncountables[$replacement]);
 
-		$this->plurals = array($rule => $replacement) + $this->plurals;
+		$this->plurals = [ $rule => $replacement ] + $this->plurals;
 
 		return $this;
 	}
@@ -236,12 +232,12 @@ class Inflections
 	 *
 	 * @return $this
 	 */
-	public function singular($rule, $replacement)
+	public function singular(string $rule, string $replacement): self
 	{
 		unset($this->uncountables[$rule]);
         unset($this->uncountables[$replacement]);
 
-        $this->singulars = array($rule => $replacement) + $this->singulars;
+        $this->singulars = [ $rule => $replacement ] + $this->singulars;
 
         return $this;
 	}
@@ -256,12 +252,9 @@ class Inflections
 	 * $this->irregular('person', 'people');
 	 * </pre>
 	 *
-	 * @param string $singular
-	 * @param string $plural
-	 *
 	 * @return $this
 	 */
-	public function irregular($singular, $plural)
+	public function irregular(string $singular, string $plural): self
 	{
 		unset($this->uncountables[$singular]);
 		unset($this->uncountables[$plural]);
@@ -313,7 +306,7 @@ class Inflections
 	 *
 	 * @return $this
 	 */
-	public function uncountable($word)
+	public function uncountable($word): self
 	{
 		if (is_array($word))
 		{
@@ -341,20 +334,18 @@ class Inflections
 	 * @param string $rule A regular expression rule or a string mapping. Strings that starts with
 	 * "/", "#" or "~" are recognized as regular expressions.
 	 *
-	 * @param string $replacement
-	 *
 	 * @return $this
 	 */
-	public function human($rule, $replacement)
+	public function human(string $rule, string $replacement): self
 	{
-		$r0 = $rule{0};
+		$r0 = $rule[0];
 
 		if ($r0 != '/' && $r0 != '#' && $r0 != '~')
 		{
 			$rule = '/' . preg_quote($rule, '/') . '/';
 		}
 
-		$this->humans = array($rule => $replacement) + $this->humans;
+		$this->humans = [ $rule => $replacement ] + $this->humans;
 
 		return $this;
 	}

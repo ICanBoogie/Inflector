@@ -11,7 +11,9 @@
 
 namespace ICanBoogie;
 
-class InflectorTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class InflectorTest extends TestCase
 {
 	/**
 	 * @var Inflector

@@ -2,10 +2,12 @@
 
 namespace ICanBoogie;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * @group integration
  */
-class InflectionsTest extends \PHPUnit_Framework_TestCase
+class InflectionsTest extends TestCase
 {
 	/**
 	 * @dataProvider provide_singular_and_plural

@@ -1,8 +1,8 @@
 # customization
 
 PACKAGE_NAME = icanboogie/inflector
-PACKAGE_VERSION = 1.4
-PHPUNIT_VERSION = phpunit-4.8.phar
+PACKAGE_VERSION = 2.0
+PHPUNIT_VERSION = phpunit-7.5.phar
 PHPUNIT_FILENAME = build/$(PHPUNIT_VERSION)
 PHPUNIT = php $(PHPUNIT_FILENAME)
 
@@ -37,7 +37,11 @@ test-coveralls: test-dependencies
 	@mkdir -p build/logs
 	COMPOSER_ROOT_VERSION=$(PACKAGE_VERSION) composer require satooshi/php-coveralls
 	@$(PHPUNIT) --coverage-clover build/logs/clover.xml
-	php vendor/bin/coveralls -v
+	php vendor/bin/php-coveralls -v
+
+test-container:
+	@docker-compose run --rm tests sh
+	@docker-compose down
 
 doc: vendor
 	@mkdir -p build/docs

@@ -20,7 +20,7 @@ namespace ICanBoogie;
  * @see http://spanish.about.com/cs/writing/a/writing_plurals.htm
  */
 //@codeCoverageIgnoreStart
-return function(Inflections $inflect) {
+return function(Inflections $inflect): void {
 
 	$inflect
 	->plural('/$/', 's')

@@ -19,7 +19,7 @@ namespace ICanBoogie;
  * @see http://grammaire.reverso.net/5_5_01_pluriel_des_noms_et_des_adjectifs.shtml
  */
 //@codeCoverageIgnoreStart
-return function(Inflections $inflect) {
+return function(Inflections $inflect): void {
 
 	$inflect
 	->plural('/$/', 's')
