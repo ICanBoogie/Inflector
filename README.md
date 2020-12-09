@@ -1,7 +1,6 @@
 # Inflector
 
 [![Release](https://img.shields.io/packagist/v/ICanBoogie/Inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
-[![Build Status](https://img.shields.io/travis/ICanBoogie/Inflector/master.svg)](http://travis-ci.org/ICanBoogie/Inflector)
 [![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/Inflector/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/Inflector)
 [![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
 [![Packagist](https://img.shields.io/packagist/dm/icanboogie/inflector.svg?maxAge=2592000)](https://packagist.org/packages/icanboogie/inflector)
@@ -62,7 +61,7 @@ $inflector->camelize('active_model');
 $inflector->camelize('active_model', Inflector::DOWNCASE_FIRST_LETTER);
 // 'activeModel'
 
-$inflector->camelize('active_model/errors');         
+$inflector->camelize('active_model/errors');
 // 'ActiveModel\Errors'
 
 $inflector->camelize('active_model/errors', Inflector::DOWNCASE_FIRST_LETTER);
@@ -132,7 +131,7 @@ echo pluralize('üçgen', 'tr');                       // "üçgenler"
 
 ### Acknowledgements
 
-Most of the code and documentation was adapted from [Ruby On Rails](http://rubyonrails.org/)'s 
+Most of the code and documentation was adapted from [Ruby On Rails](http://rubyonrails.org/)'s
 [Inflector](http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html) and
 [David Celis](https://github.com/davidcelis)' [inflections](https://github.com/davidcelis/inflections).
 
@@ -213,15 +212,11 @@ The package directory can later by cleaned with the `make clean` command.
 
 ## Testing
 
-The test suite is ran with the `make test` command. [Composer](http://getcomposer.org/) is
-automatically installed as well as all the dependencies required to run the suite. The package
-directory can later be cleaned with the `make clean` command. It is recommended to run `make test`
-in the test container created with `make test-container`.
+The test suite is run with the `make test` command. [Composer](http://getcomposer.org/) is
+automatically installed as well as all the dependencies required to run the suite. It is recommended
+to run `make test` in the test container created with `make test-container`.
 
-The package is continuously tested by [Travis CI](http://about.travis-ci.org/).
-
-[![Build Status](https://img.shields.io/travis/ICanBoogie/Inflector/master.svg)](https://travis-ci.org/ICanBoogie/Inflector)
-[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
+The package is continuously tested with [GitHub Actions](https://github.com/ICanBoogie/Inflector/actions/).
 
 
 
