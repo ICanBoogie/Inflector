@@ -2,9 +2,7 @@
 
 PACKAGE_NAME = icanboogie/inflector
 PACKAGE_VERSION = 2.0
-PHPUNIT_VERSION = phpunit-7.5.phar
-PHPUNIT_FILENAME = build/$(PHPUNIT_VERSION)
-PHPUNIT = php $(PHPUNIT_FILENAME)
+PHPUNIT = vendor/bin/phpunit
 
 # do not edit the following lines
 
@@ -17,27 +15,16 @@ vendor:
 update:
 	@COMPOSER_ROOT_VERSION=$(PACKAGE_VERSION) composer update
 
-autoload: vendor
-	@composer dump-autoload
-
-test-dependencies: vendor $(PHPUNIT_FILENAME)
-
-$(PHPUNIT_FILENAME):
-	mkdir -p build
-	wget https://phar.phpunit.de/$(PHPUNIT_VERSION) -O $(PHPUNIT_FILENAME)
-
-test: test-dependencies
+test: vendor
 	@$(PHPUNIT)
 
-test-coverage: test-dependencies
+test-coverage: vendor
 	@mkdir -p build/coverage
 	@$(PHPUNIT) --coverage-html build/coverage
 
-test-coveralls: test-dependencies
+test-coveralls: vendor
 	@mkdir -p build/logs
-	COMPOSER_ROOT_VERSION=$(PACKAGE_VERSION) composer require satooshi/php-coveralls
 	@$(PHPUNIT) --coverage-clover build/logs/clover.xml
-	php vendor/bin/php-coveralls -v
 
 test-container:
 	@docker-compose run --rm tests sh
