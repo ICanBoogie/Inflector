@@ -407,6 +407,52 @@ class Inflector
 	}
 
 	/**
+	 * Returns true if the word is plural, false otherwise.
+	 * Uncountable words return true.
+	 *
+	 * <pre>
+	 * $this->isPlural('post');       // false
+	 * $this->isPlural('children');   // true
+	 * $this->isPlural('sheep');      // true
+	 * $this->isPlural('words');      // true
+	 * $this->isPlural('CamelChild'); // false
+	 * </pre>
+	 *
+	 * @param string $word
+	 *
+	 * @return bool
+	 */
+	public function is_plural($word)
+	{
+		$rc = (string) $word;
+
+		return $rc && ($this->is_uncountable($word) || $word == $this->apply_inflections($word, $this->inflections->plurals));
+	}
+
+	/**
+	 * Returns true if the word is plural, false otherwise.
+	 * Uncountable words return true.
+	 *
+	 * <pre>
+	 * $this->isSingular('post');       // true
+	 * $this->isSingular('children');   // false
+	 * $this->isSingular('sheep');      // true
+	 * $this->isSingular('words');      // false
+	 * $this->isSingular('CamelChild'); // true
+	 * </pre>
+	 *
+	 * @param string $word
+	 *
+	 * @return bool
+	 */
+	public function is_singular($word)
+	{
+		$rc = (string) $word;
+
+		return $rc && ($this->is_uncountable($word) || $word == $this->apply_inflections($word, $this->inflections->singulars));
+	}
+
+	/**
 	 * Returns true if the word is uncountable, false otherwise.
 	 *
 	 * <pre>
