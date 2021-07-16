@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.5/phpunit.xsd"
-	colors="true"
-	bootstrap="./tests/bootstrap.php"
->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.5/phpunit.xsd"
+		 bootstrap="tests/bootstrap.php"
+		 executionOrder="depends,defects"
+		 beStrictAboutOutputDuringTests="true"
+		 verbose="true"
+		 colors="true">
 	<testsuites>
 		<testsuite name="icanboogie/inflector">
 			<directory>./tests</directory>
@@ -13,7 +13,7 @@
 	</testsuites>
 
 	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
+		<whitelist>
 			<directory suffix=".php">./lib</directory>
 		</whitelist>
 	</filter>

@@ -25,6 +25,11 @@
 		"classmap": [ "lib/" ],
 		"files": [ "lib/helpers.php" ]
 	},
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\ICanBoogie\\": "tests"
+        }
+    },
 	"require-dev": {
 		"phpunit/phpunit": "^7.5"
 	}

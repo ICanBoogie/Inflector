@@ -9,37 +9,32 @@
  * file that was distributed with this source code.
  */
 
-namespace ICanBoogie;
+namespace Tests\ICanBoogie;
 
 use PHPUnit\Framework\TestCase;
+
+use function ICanBoogie\capitalize;
 
 /**
  * @group helpers
  */
-class HelpersTest extends TestCase
+final class HelpersTest extends TestCase
 {
-	/**
-	 * @dataProvider provide_test_capitalize
-	 *
-	 * @param string $str
-	 * @param bool $preserve_str_end
-	 * @param string $expected
-	 */
-	public function test_capitalize($str, $preserve_str_end, $expected)
-	{
-		$this->assertSame($expected, capitalize($str, $preserve_str_end));
-	}
+    /**
+     * @dataProvider provide_test_capitalize
+     */
+    public function test_capitalize(string $str, bool $preserve_str_end, string $expected): void
+    {
+        $this->assertSame($expected, capitalize($str, $preserve_str_end));
+    }
 
-	/**
-	 * @return array
-	 */
-	public function provide_test_capitalize()
-	{
-		return array(
+    public function provide_test_capitalize(): array
+    {
+        return [
 
-			array("été Ensoleillé", false, "Été ensoleillé"),
-			array("été Ensoleillé", true, "Été Ensoleillé"),
+            [ "été Ensoleillé", false, "Été ensoleillé" ],
+            [ "été Ensoleillé", true, "Été Ensoleillé" ],
 
-		);
-	}
+        ];
+    }
 }

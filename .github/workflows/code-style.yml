@@ -1,0 +1,21 @@
+name: code-style
+
+on:
+- push
+- pull_request
+
+jobs:
+  phpstan:
+    name: PHPCS
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: "7.1"
+        ini-values: memory_limit=-1
+        tools: composer:v2, phpcs
+    - name: Run PHPCS
+      run: phpcs

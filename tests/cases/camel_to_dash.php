@@ -1,8 +1,7 @@
 <?php
 
-return array
-(
-	"Street"              => "street",
-	"StreetAddress"       => "street-address",
-	"PersonStreetAddress" => "person-street-address"
-);
+return [
+    "Street" => "street",
+    "StreetAddress" => "street-address",
+    "PersonStreetAddress" => "person-street-address"
+];

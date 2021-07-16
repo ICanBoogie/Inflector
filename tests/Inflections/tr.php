@@ -1,17 +1,16 @@
 <?php
 
-return array
-(
-	'gün' => 'günler',
-	'kiraz' => 'kirazlar',
-	'kitap' => 'kitaplar',
-	'köpek' => 'köpekler',
-	'test' => 'testler',
-	'üçgen' => 'üçgenler',
+return [
+    'gün' => 'günler',
+    'kiraz' => 'kirazlar',
+    'kitap' => 'kitaplar',
+    'köpek' => 'köpekler',
+    'test' => 'testler',
+    'üçgen' => 'üçgenler',
 
-	# irregulars
+    # irregulars
 
-	'ben' => 'biz',
-	'sen' => 'siz',
-	'o' => 'onlar',
-);
+    'ben' => 'biz',
+    'sen' => 'siz',
+    'o' => 'onlar',
+];

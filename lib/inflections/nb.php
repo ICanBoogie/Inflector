@@ -13,24 +13,16 @@ namespace ICanBoogie;
 
 /**
  * Norwegian Bokmal inflections.
- *
- * @param Inflections $inflect
  */
 //@codeCoverageIgnoreStart
-return function(Inflections $inflect): void {
-
-	$inflect
-	    ->plural('/$/', 'er')
-	    ->plural('/r$/i', 're')
-	    ->plural('/e$/i', 'er')
-
-	    ->singular('/er$/i', '')
-	    ->singular('/re$/i', 'r')
-
-	    ->irregular('konto', 'konti')
-
-		->uncountable(explode(' ', 'barn fjell hus'))
-	;
-
+return function (Inflections $inflect): void {
+    $inflect
+        ->plural('/$/', 'er')
+        ->plural('/r$/i', 're')
+        ->plural('/e$/i', 'er')
+        ->singular('/er$/i', '')
+        ->singular('/re$/i', 'r')
+        ->irregular('konto', 'konti')
+        ->uncountable(explode(' ', 'barn fjell hus'));
 };
 //@codeCoverageIgnoreEnd

@@ -18,6 +18,12 @@ Inflections are currently available for the following languages:
 
 
 
+#### Installation
+
+```bash
+composer require icanboogie/inflector
+```
+
 
 
 ### Usage
@@ -128,7 +134,6 @@ echo pluralize('üçgen', 'tr');                       // "üçgenler"
 
 
 
-
 ### Acknowledgements
 
 Most of the code and documentation was adapted from [Ruby On Rails](http://rubyonrails.org/)'s
@@ -147,8 +152,6 @@ inflectors.
 - Added the `hyphenate` method, which is a combination of `underscore` and `dasherize`.
 - One specifies `true` rather than `false` to `camelize()` to downcase the first letter of
 the camel cased string.
-
-
 
 
 
@@ -171,42 +174,16 @@ titleize("été_aux_âmes_inouïes"); // Été Aux Âmes Inouïes
 
 
 
-
-
 ----------
 
 
 
+## Continuous Integration
 
+The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/Common/actions).
 
-## Requirement
-
-The package requires PHP 7.1 or later.
-
-
-
-
-
-## Installation
-
-The recommended way to install this package is through [Composer](http://getcomposer.org/):
-
-```
-$ composer require icanboogie/inflector
-```
-
-
-
-
-
-## Documentation
-
-The package is documented as part of the [ICanBoogie](http://icanboogie.org/) framework
-[documentation][]. The documentation for the package is generated with the `make doc` command.
-The documentation is generated in the `build/docs` directory using [ApiGen](http://apigen.org/).
-The package directory can later by cleaned with the `make clean` command.
-
-
+[![Tests](https://github.com/ICanBoogie/Inflector/workflows/phpunit/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Aphpunit)
+[![Code Style](https://github.com/ICanBoogie/Common/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Acode-style)
 
 
 
@@ -220,14 +197,6 @@ The package is continuously tested with [GitHub Actions](https://github.com/ICan
 
 
 
-
-
 ## License
 
-**icanboogie/inflector** is licensed under the New BSD License - See the [LICENSE](LICENSE) file for details.
-
-
-
-
-
-[documentation]: http://api.icanboogie.org/inflector/latest/
+**icanboogie/inflector** is released under the [BSD-3-Clause](LICENSE).

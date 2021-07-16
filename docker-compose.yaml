@@ -1,9 +1,11 @@
 ---
-version: "3.0"
+version: "3.2"
 services:
-  tests:
+  app:
     build: .
+    environment:
+      PHP_IDE_CONFIG: 'serverName=icanboogie-inflector'
     volumes:
-    - .:/tests:delegated
-    - ~/.composer:/root/.composer
-    working_dir: /tests
+    - .:/app:delegated
+    - ~/.composer:/root/.composer:delegated
+    working_dir: /app

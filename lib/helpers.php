@@ -16,46 +16,43 @@ namespace ICanBoogie;
  */
 const INFLECTOR_DEFAULT_LOCALE = 'en';
 
-if (!function_exists(__NAMESPACE__ . '\downcase'))
-{
-	/**
-	 * Returns an lowercase string.
-	 */
-	function downcase(string $str): string
-	{
-		return mb_strtolower($str);
-	}
+if (!function_exists(__NAMESPACE__ . '\downcase')) {
+    /**
+     * Returns an lowercase string.
+     */
+    function downcase(string $str): string
+    {
+        return mb_strtolower($str);
+    }
 }
 
-if (!function_exists(__NAMESPACE__ . '\upcase'))
-{
-	/**
-	 * Returns an uppercase string.
-	 */
-	function upcase(string $str): string
-	{
-		return mb_strtoupper($str);
-	}
+if (!function_exists(__NAMESPACE__ . '\upcase')) {
+    /**
+     * Returns an uppercase string.
+     */
+    function upcase(string $str): string
+    {
+        return mb_strtoupper($str);
+    }
 }
 
-if (!function_exists(__NAMESPACE__ . '\capitalize'))
-{
-	/**
-	 * Returns a copy of str with the first character converted to uppercase and the
-	 * remainder to lowercase.
-	 *
-	 * @param bool $preserve_str_end Whether the string end should be preserved or downcased.
-	 */
-	function capitalize(string $str, bool $preserve_str_end = false): string
-	{
-		$end = mb_substr($str, 1);
+if (!function_exists(__NAMESPACE__ . '\capitalize')) {
+    /**
+     * Returns a copy of str with the first character converted to uppercase and the
+     * remainder to lowercase.
+     *
+     * @param bool $preserve_str_end Whether the string end should be preserved or downcased.
+     */
+    function capitalize(string $str, bool $preserve_str_end = false): string
+    {
+        $end = mb_substr($str, 1);
 
-		if (!$preserve_str_end) {
-			$end = downcase($end);
-		}
+        if (!$preserve_str_end) {
+            $end = downcase($end);
+        }
 
-		return upcase(mb_substr($str, 0, 1)) . $end;
-	}
+        return upcase(mb_substr($str, 0, 1)) . $end;
+    }
 }
 
 /**
@@ -63,7 +60,7 @@ if (!function_exists(__NAMESPACE__ . '\capitalize'))
  */
 function pluralize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
 {
-	return Inflector::get($locale)->pluralize($word);
+    return Inflector::get($locale)->pluralize($word);
 }
 
 /**
@@ -71,7 +68,7 @@ function pluralize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): str
  */
 function singularize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
 {
-	return Inflector::get($locale)->singularize($word);
+    return Inflector::get($locale)->singularize($word);
 }
 
 /**
@@ -79,7 +76,7 @@ function singularize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): s
  */
 function camelize(string $str, bool $uppercase_first_letter = false, string $locale = INFLECTOR_DEFAULT_LOCALE): string
 {
-	return Inflector::get($locale)->camelize($str, $uppercase_first_letter);
+    return Inflector::get($locale)->camelize($str, $uppercase_first_letter);
 }
 
 /**
@@ -87,7 +84,7 @@ function camelize(string $str, bool $uppercase_first_letter = false, string $loc
  */
 function underscore(string $camel_cased_word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
 {
-	return Inflector::get($locale)->underscore($camel_cased_word);
+    return Inflector::get($locale)->underscore($camel_cased_word);
 }
 
 /**
@@ -95,7 +92,7 @@ function underscore(string $camel_cased_word, string $locale = INFLECTOR_DEFAULT
  */
 function hyphenate(string $str, string $locale = INFLECTOR_DEFAULT_LOCALE): string
 {
-	return Inflector::get($locale)->hyphenate($str);
+    return Inflector::get($locale)->hyphenate($str);
 }
 
 /**
@@ -103,7 +100,7 @@ function hyphenate(string $str, string $locale = INFLECTOR_DEFAULT_LOCALE): stri
  */
 function humanize(string $lower_case_and_underscored_word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
 {
-	return Inflector::get($locale)->humanize($lower_case_and_underscored_word);
+    return Inflector::get($locale)->humanize($lower_case_and_underscored_word);
 }
 
 /**
@@ -111,5 +108,5 @@ function humanize(string $lower_case_and_underscored_word, string $locale = INFL
  */
 function titleize(string $str, string $locale = INFLECTOR_DEFAULT_LOCALE): string
 {
-	return Inflector::get($locale)->titleize($str);
+    return Inflector::get($locale)->titleize($str);
 }

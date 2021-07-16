@@ -13,21 +13,15 @@ namespace ICanBoogie;
 
 /**
  * Turkish inflections.
- *
- * @param Inflections $inflect
  */
 //@codeCoverageIgnoreStart
-return function(Inflections $inflect): void {
-
-	$inflect
-	->plural('/([aoıu][^aoıueöiü]{0,6})$/u', '\1lar')
-	->plural('/([eöiü][^aoıueöiü]{0,6})$/u', '\1ler')
-
-	->singular('/l[ae]r$/i', '')
-
-	->irregular('ben', 'biz')
-	->irregular('sen', 'siz')
-	->irregular('o', 'onlar');
-
+return function (Inflections $inflect): void {
+    $inflect
+        ->plural('/([aoıu][^aoıueöiü]{0,6})$/u', '\1lar')
+        ->plural('/([eöiü][^aoıueöiü]{0,6})$/u', '\1ler')
+        ->singular('/l[ae]r$/i', '')
+        ->irregular('ben', 'biz')
+        ->irregular('sen', 'siz')
+        ->irregular('o', 'onlar');
 };
 //@codeCoverageIgnoreEnd
