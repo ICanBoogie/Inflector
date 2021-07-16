@@ -56,11 +56,8 @@ class Inflector
      */
     public static function get(string $locale = self::DEFAULT_LOCALE): self
     {
-        if (isset(self::$inflectors[$locale])) {
-            return self::$inflectors[$locale];
-        }
-
-        return self::$inflectors[$locale] = new self(Inflections::get($locale));
+        return self::$inflectors[$locale]
+            ?? self::$inflectors[$locale] = new self(Inflections::get($locale));
     }
 
     /**
@@ -68,7 +65,7 @@ class Inflector
      *
      * @var Inflections
      */
-    protected $inflections;
+    private $inflections;
 
     public function __construct(Inflections $inflections = null)
     {
@@ -80,7 +77,7 @@ class Inflector
      *
      * @return mixed
      * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
-     * class is not available a {@link \InvalidArgumentException} is thrown instead.
+     * class is not available a {@link InvalidArgumentException} is thrown instead.
      */
     public function __get(string $property)
     {
@@ -88,7 +85,7 @@ class Inflector
             return $this->$property;
         }
 
-        if (class_exists('ICanBoogie\PropertyNotDefined')) {
+        if (class_exists(PropertyNotDefined::class)) {
             throw new PropertyNotDefined([ $property, $this ]);
         } else {
             throw new InvalidArgumentException("Property not defined: $property");

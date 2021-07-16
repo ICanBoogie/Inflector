@@ -7,7 +7,7 @@
 
 A multilingual inflector that transforms words from singular to plural, underscore to camel case, and formats strings in
 various ways. Inflections are localized, the default english inflections for pluralization, singularization, and
-uncountable words are kept in [lib/inflections/en.php](lib/Inflections/en.php).
+uncountable words are kept in [lib/Inflections/en.php](lib/Inflections/en.php).
 
 Inflections are currently available for the following languages:
 
@@ -28,7 +28,7 @@ composer require icanboogie/inflector
 
 
 
-### Usage
+## Usage
 
 These are some examples of the inflector with the `en` locale (default).
 
@@ -135,8 +135,15 @@ echo pluralize('üçgen', 'tr');                       // "üçgenler"
 ```
 
 
+## About inflections
 
-### Acknowledgements
+Inflections are localized, the configurators are kept in [lib/Inflections/en.php](lib/Inflections/en.php). Since v2.1,
+these configurators are auto-loaded classes, which means, in theory, you could add your own or overwrite those already
+defined by specifying another `ICanBoogie\\Inflections\\` in your `composer.json` file.
+
+
+
+## Acknowledgements
 
 Most of the code and documentation was adapted from [Ruby On Rails](http://rubyonrails.org/)'s
 [Inflector](http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html) and
@@ -155,7 +162,7 @@ Significant differences:
 
 
 
-### Getting started
+## Getting started
 
 **Inflector** expects to work in UTF-8, which is the default encoding character set starting
 PHP 5.6, for older versions please use `mb_internal_encoding()` as follows:

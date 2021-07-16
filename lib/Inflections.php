@@ -42,14 +42,14 @@ final class Inflections
             return self::$inflections[$locale];
         }
 
-        $instance = new self();
+        $inflections = new self();
 
-        /* @var $inflections callable */
+        /* @var $configurator InflectionsConfigurator */
 
-        $inflections = require __DIR__ . "/Inflections/{$locale}.php";
-        $inflections($instance);
+        $configurator = __NAMESPACE__ . "\\Inflections\\$locale";
+        $configurator::configure($inflections);
 
-        return self::$inflections[$locale] = $instance;
+        return self::$inflections[$locale] = $inflections;
     }
 
     /**

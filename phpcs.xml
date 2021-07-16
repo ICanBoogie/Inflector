@@ -12,15 +12,19 @@
 
     <rule ref="PSR12.Files.FileHeader.IncorrectOrder">
         <exclude-pattern>*/lib/helpers.php</exclude-pattern>
-        <exclude-pattern>*/lib/inflections/*</exclude-pattern>
+        <exclude-pattern>*/lib/Inflections/*</exclude-pattern>
     </rule>
 
     <rule ref="PSR12.Files.FileHeader.SpacingAfterBlock">
         <exclude-pattern>*/lib/helpers.php</exclude-pattern>
-        <exclude-pattern>*/lib/inflections/*</exclude-pattern>
+        <exclude-pattern>*/lib/Inflections/*</exclude-pattern>
     </rule>
 
     <rule ref="Generic.Files.LineLength.TooLong">
-        <exclude-pattern>*/lib/inflections/*</exclude-pattern>
+        <exclude-pattern>*/lib/Inflections/*</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
+        <exclude-pattern>*/lib/Inflections/*</exclude-pattern>
     </rule>
 </ruleset>
