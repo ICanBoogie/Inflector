@@ -182,19 +182,15 @@ titleize("été_aux_âmes_inouïes"); // Été Aux Âmes Inouïes
 
 The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/Common/actions).
 
-[![Tests](https://github.com/ICanBoogie/Inflector/workflows/phpunit/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Aphpunit)
+[![Tests](https://github.com/ICanBoogie/Inflector/workflows/test/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Atest)
 [![Static Analysis](https://github.com/ICanBoogie/Inflector/workflows/static-analysis/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Astatic-analysis)
 [![Code Style](https://github.com/ICanBoogie/Common/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Acode-style)
 
 
 
-## Testing
+## Contributing
 
-The test suite is run with the `make test` command. [Composer](http://getcomposer.org/) is
-automatically installed as well as all the dependencies required to run the suite. It is recommended
-to run `make test` in the test container created with `make test-container`.
-
-The package is continuously tested with [GitHub Actions](https://github.com/ICanBoogie/Inflector/actions/).
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 
 

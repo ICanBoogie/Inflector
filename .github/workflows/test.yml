@@ -1,12 +1,13 @@
 name: test
 
 on:
-  pull_request:
+- push
+- pull_request
 
 jobs:
   phpunit:
     name: phpunit
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         php-version:
