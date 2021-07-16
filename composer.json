@@ -17,10 +17,21 @@
 		"issues": "https://github.com/ICanBoogie/Inflector/issues",
 		"source": "https://github.com/ICanBoogie/Inflector"
 	},
+    "config": {
+        "sort-packages": true
+    },
 	"require": {
 		"php": ">=7.1",
 		"ext-mbstring": "*"
 	},
+    "require-dev": {
+		"icanboogie/common": "^2.0",
+		"phpstan/phpstan": "^0.12.92",
+		"phpunit/phpunit": "^7.5"
+	},
+    "conflict": {
+        "icanboogie/common": "<2.0"
+    },
 	"autoload": {
 		"classmap": [ "lib/" ],
 		"files": [ "lib/helpers.php" ]
@@ -29,8 +40,5 @@
         "psr-4": {
             "Tests\\ICanBoogie\\": "tests"
         }
-    },
-	"require-dev": {
-		"phpunit/phpunit": "^7.5"
-	}
+    }
 }

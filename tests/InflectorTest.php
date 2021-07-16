@@ -24,7 +24,7 @@ final class InflectorTest extends TestCase
      */
     private static $inflector;
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::$inflector = Inflector::get();
     }

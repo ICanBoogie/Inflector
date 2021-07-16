@@ -33,3 +33,4 @@ test-container:
 .PHONY: lint
 lint:
 	@phpcs
+	@vendor/bin/phpstan

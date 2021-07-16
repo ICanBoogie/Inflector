@@ -28,6 +28,7 @@ final class HelpersTest extends TestCase
         $this->assertSame($expected, capitalize($str, $preserve_str_end));
     }
 
+    // @phpstan-ignore-next-line
     public function provide_test_capitalize(): array
     {
         return [

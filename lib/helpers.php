@@ -16,6 +16,7 @@ namespace ICanBoogie;
  */
 const INFLECTOR_DEFAULT_LOCALE = 'en';
 
+// Avoid conflicts with ICanBoogie/Common
 if (!function_exists(__NAMESPACE__ . '\downcase')) {
     /**
      * Returns an lowercase string.
@@ -26,6 +27,7 @@ if (!function_exists(__NAMESPACE__ . '\downcase')) {
     }
 }
 
+// Avoid conflicts with ICanBoogie/Common
 if (!function_exists(__NAMESPACE__ . '\upcase')) {
     /**
      * Returns an uppercase string.
@@ -36,6 +38,7 @@ if (!function_exists(__NAMESPACE__ . '\upcase')) {
     }
 }
 
+// Avoid conflicts with ICanBoogie/Common
 if (!function_exists(__NAMESPACE__ . '\capitalize')) {
     /**
      * Returns a copy of str with the first character converted to uppercase and the

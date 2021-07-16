@@ -10,8 +10,6 @@ return [
     "case" => "cases",
     "stack" => "stacks",
     "wish" => "wishes",
-    "fish" => "fish",
-    "jeans" => "jeans",
     "funky jeans" => "funky jeans",
     "my money" => "my money",
 
@@ -24,21 +22,8 @@ return [
     "movie" => "movies",
 
     "archive" => "archives",
-
     "index" => "indices",
-
-    "wife" => "wives",
-    "safe" => "saves",
-    "half" => "halves",
-
     "move" => "moves",
-
-    "salesperson" => "salespeople",
-    "person" => "people",
-
-    "spokesman" => "spokesmen",
-    "man" => "men",
-    "woman" => "women",
 
     "basis" => "bases",
     "diagnosis" => "diagnoses",
@@ -50,11 +35,6 @@ return [
     "analysis" => "analyses",
     "my_analysis" => "my_analyses",
 
-    "node_child" => "node_children",
-    "child" => "children",
-
-    "experience" => "experiences",
-    "experience" => "experience",
     "day" => "days",
 
     "comment" => "comments",
@@ -62,13 +42,7 @@ return [
     "newsletter" => "newsletters",
 
     "old_news" => "old_news",
-    "news" => "news",
-
-    "series" => "series",
-    "species" => "species",
-
     "quiz" => "quizzes",
-
     "perspective" => "perspectives",
 
     "ox" => "oxen",
@@ -80,8 +54,6 @@ return [
     "hero" => "heroes",
     "dwarf" => "dwarves",
     "elf" => "elves",
-    "information" => "information",
-    "equipment" => "equipment",
     "bus" => "buses",
     "status" => "statuses",
     "status_code" => "status_codes",
@@ -103,7 +75,6 @@ return [
     "testis" => "testes",
     "crisis" => "crises",
 
-    "rice" => "rice",
     "shoe" => "shoes",
 
     "horse" => "horses",
@@ -117,7 +88,6 @@ return [
     "|ice" => "|ices",
     "|ouse" => "|ouses",
     "slice" => "slices",
-    "police" => "police",
 
     # "f" or "fe" => "ves"
     "calf" => "calves",
@@ -125,14 +95,19 @@ return [
     "knife" => "knives",
     "leaf" => "leaves",
     "loaf" => "loaves",
+    "wife" => "wives",
+    "safe" => "saves",
 
     # irregulars
 
     'person' => 'people',
+    "salesperson" => "salespeople",
     'man' => 'men',
+    "spokesman" => "spokesmen", // man
+    "woman" => "women", // man
     'child' => 'children',
+    "node_child" => "node_children",
     'sex' => 'sexes',
-    'move' => 'moves',
     'zombie' => 'zombies',
     'genus' => 'genera',
 

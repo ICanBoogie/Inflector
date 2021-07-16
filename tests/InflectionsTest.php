@@ -28,6 +28,7 @@ final class InflectionsTest extends TestCase
         $this->assertEquals($singular, singularize($plural, $locale));
     }
 
+    // @phpstan-ignore-next-line
     public function provide_singular_and_plural(): array
     {
         $locales = explode(' ', 'en es fr nb pt tr');

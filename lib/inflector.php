@@ -11,6 +11,11 @@
 
 namespace ICanBoogie;
 
+use InvalidArgumentException;
+
+use function assert;
+use function is_string;
+
 /**
  * The Inflector transforms words from singular to plural, class names to table names, modularized
  * class names to ones without, and class names to foreign keys. Inflections can be localized, the
@@ -55,7 +60,7 @@ class Inflector
             return self::$inflectors[$locale];
         }
 
-        return self::$inflectors[$locale] = new static(Inflections::get($locale));
+        return self::$inflectors[$locale] = new self(Inflections::get($locale));
     }
 
     /**
@@ -73,6 +78,7 @@ class Inflector
     /**
      * Returns the {@link $inflections} property.
      *
+     * @return mixed
      * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
      * class is not available a {@link \InvalidArgumentException} is thrown instead.
      */
@@ -85,7 +91,7 @@ class Inflector
         if (class_exists('ICanBoogie\PropertyNotDefined')) {
             throw new PropertyNotDefined([ $property, $this ]);
         } else {
-            throw new \InvalidArgumentException("Property not defined: $property");
+            throw new InvalidArgumentException("Property not defined: $property");
         }
     }
 
@@ -122,12 +128,16 @@ class Inflector
         }
 
         foreach ($rules as $rule => $replacement) {
+            assert(is_string($rc));
+
             $rc = preg_replace($rule, $replacement, $rc, -1, $count);
 
             if ($count) {
                 break;
             }
         }
+
+        assert(is_string($rc));
 
         return $rc;
     }
@@ -216,6 +226,8 @@ class Inflector
             );
         }
 
+        assert(is_string($string));
+
         $string = preg_replace_callback(
             '/(?:_|-|(\/))([[:alnum:]]*)/u',
             function (array $matches) use ($acronyms): string {
@@ -225,6 +237,8 @@ class Inflector
             },
             $string
         );
+
+        assert(is_string($string));
 
         return str_replace('/', '\\', $string);
     }
@@ -262,10 +276,14 @@ class Inflector
             $word
         );
 
+        // @phpstan-ignore-next-line
         $word = preg_replace('/([[:upper:]\d]+)([[:upper:]][[:lower:]])/u', '\1_\2', $word);
+        // @phpstan-ignore-next-line
         $word = preg_replace('/([[:lower:]\d])([[:upper:]])/u', '\1_\2', $word);
+        // @phpstan-ignore-next-line
         $word = preg_replace('/\-+|\s+/', '_', $word);
 
+        // @phpstan-ignore-next-line
         return downcase($word);
     }
 
@@ -283,6 +301,7 @@ class Inflector
         $result = $lower_case_and_underscored_word;
 
         foreach ($this->inflections->humans as $rule => $replacement) {
+            // @phpstan-ignore-next-line
             $result = preg_replace($rule, $replacement, $result, 1, $count);
 
             if ($count) {
@@ -292,7 +311,9 @@ class Inflector
 
         $acronyms = $this->inflections->acronyms;
 
+        // @phpstan-ignore-next-line
         $result = preg_replace('/_id$/', "", $result);
+        // @phpstan-ignore-next-line
         $result = strtr($result, '_', ' ');
         $result = preg_replace_callback(
             '/([[:alnum:]]+)/u',
@@ -304,6 +325,9 @@ class Inflector
             $result
         );
 
+        assert(is_string($result));
+
+        // @phpstan-ignore-next-line
         return preg_replace_callback('/^[[:lower:]]/u', function (array $matches): string {
             return upcase($matches[0]);
         }, $result);
@@ -326,6 +350,7 @@ class Inflector
         $str = $this->underscore($str);
         $str = $this->humanize($str);
 
+        // @phpstan-ignore-next-line
         return preg_replace_callback('/\b(?<![\'’`])[[:lower:]]/u', function (array $matches): string {
             return upcase($matches[0]);
         }, $str);

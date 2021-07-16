@@ -11,6 +11,8 @@
 
 namespace ICanBoogie;
 
+use InvalidArgumentException;
+
 /**
  * A representation of the inflections used by an inflector.
  *
@@ -21,7 +23,7 @@ namespace ICanBoogie;
  * @property-read array $acronyms Acronyms.
  * @property-read string $acronym_regex Acronyms regex.
  */
-class Inflections
+final class Inflections
 {
     /**
      * @var array<string , Inflections>
@@ -40,7 +42,7 @@ class Inflections
             return self::$inflections[$locale];
         }
 
-        $instance = new static();
+        $instance = new self();
 
         /* @var $inflections callable */
 
@@ -53,35 +55,35 @@ class Inflections
     /**
      * Rules for {@link pluralize()}.
      *
-     * @var array
+     * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
     protected $plurals = [];
 
     /**
      * Rules for {@link singularize()}.
      *
-     * @var array
+     * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
     protected $singulars = [];
 
     /**
      * Uncountables.
      *
-     * @var array
+     * @var array<string, string> Where _key_ is a word and _value_ the same word.
      */
     protected $uncountables = [];
 
     /**
      * Rules for {@link humanize()}.
      *
-     * @var array
+     * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
     protected $humans = [];
 
     /**
      * Acronyms.
      *
-     * @var array
+     * @var array<string, string> Where _key_ is a lower case version of _value_.
      */
     protected $acronyms = [];
 
@@ -111,10 +113,10 @@ class Inflections
             return $this->$property;
         }
 
-        if (class_exists('ICanBoogie\PropertyNotDefined')) {
+        if (class_exists(PropertyNotDefined::class)) {
             throw new PropertyNotDefined([ $property, $this ]);
         } else {
-            throw new \InvalidArgumentException("Property not defined: $property");
+            throw new InvalidArgumentException("Property not defined: $property");
         }
     }
 
@@ -294,7 +296,7 @@ class Inflections
      * $this->uncountable(explode(' ', 'money information rice'));
      * </pre>
      *
-     * @param string|array $word
+     * @param string|string[] $word
      *
      * @return $this
      */

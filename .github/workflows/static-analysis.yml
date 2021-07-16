@@ -1,0 +1,32 @@
+name: static-analysis
+
+on:
+- push
+- pull_request
+
+jobs:
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: "7.1"
+        ini-values: memory_limit=-1
+        tools: composer:v2
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.composer/cache
+          vendor
+        key: phpstan-deps
+
+    - name: Install dependencies
+      run: composer install --no-interaction --no-progress
+
+    - name: Run PHPStan
+      run: vendor/bin/phpstan
