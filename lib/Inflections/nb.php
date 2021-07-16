@@ -12,7 +12,7 @@
 namespace ICanBoogie;
 
 /**
- * Norwegian Bokmal inflections.
+ * Norwegian Bokmal Inflections.
  */
 //@codeCoverageIgnoreStart
 return function (Inflections $inflect): void {

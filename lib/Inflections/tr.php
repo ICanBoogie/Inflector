@@ -12,7 +12,7 @@
 namespace ICanBoogie;
 
 /**
- * Turkish inflections.
+ * Turkish Inflections.
  */
 //@codeCoverageIgnoreStart
 return function (Inflections $inflect): void {

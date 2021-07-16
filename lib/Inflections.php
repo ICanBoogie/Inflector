@@ -46,7 +46,7 @@ final class Inflections
 
         /* @var $inflections callable */
 
-        $inflections = require __DIR__ . "/inflections/{$locale}.php";
+        $inflections = require __DIR__ . "/Inflections/{$locale}.php";
         $inflections($instance);
 
         return self::$inflections[$locale] = $instance;

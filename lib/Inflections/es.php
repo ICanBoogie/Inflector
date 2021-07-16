@@ -12,7 +12,7 @@
 namespace ICanBoogie;
 
 /**
- * Spanish inflections.
+ * Spanish Inflections.
  *
  * @see http://www.studyspanish.com/lessons/plnoun.htm
  * @see http://spanish.about.com/cs/writing/a/writing_plurals.htm

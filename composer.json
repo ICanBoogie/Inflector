@@ -33,7 +33,9 @@
         "icanboogie/common": "<2.0"
     },
 	"autoload": {
-		"classmap": [ "lib/" ],
+		"psr-4": {
+            "ICanBoogie\\": "lib/"
+        },
 		"files": [ "lib/helpers.php" ]
 	},
     "autoload-dev": {

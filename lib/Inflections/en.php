@@ -12,7 +12,7 @@
 namespace ICanBoogie;
 
 /**
- * English inflections.
+ * English Inflections.
  */
 //@codeCoverageIgnoreStart
 return function (Inflections $inflect): void {
