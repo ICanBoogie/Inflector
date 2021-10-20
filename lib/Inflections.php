@@ -13,6 +13,8 @@ namespace ICanBoogie;
 
 use InvalidArgumentException;
 
+use function class_exists;
+
 /**
  * A representation of the inflections used by an inflector.
  *
@@ -43,10 +45,12 @@ final class Inflections
         }
 
         $inflections = new self();
-
-        /* @var $configurator InflectionsConfigurator */
-
         $configurator = __NAMESPACE__ . "\\Inflections\\$locale";
+
+        if (!class_exists($configurator)) {
+            throw new InflectionsNotFound("Unable to load inflections for `$locale`, tried `$configurator`.");
+        }
+
         $configurator::configure($inflections);
 
         return self::$inflections[$locale] = $inflections;

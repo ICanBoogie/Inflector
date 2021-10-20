@@ -187,11 +187,11 @@ titleize("été_aux_âmes_inouïes"); // Été Aux Âmes Inouïes
 
 ## Continuous Integration
 
-The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/Common/actions).
+The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/Inflector/actions).
 
 [![Tests](https://github.com/ICanBoogie/Inflector/workflows/test/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Atest)
 [![Static Analysis](https://github.com/ICanBoogie/Inflector/workflows/static-analysis/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Astatic-analysis)
-[![Code Style](https://github.com/ICanBoogie/Common/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Acode-style)
+[![Code Style](https://github.com/ICanBoogie/Inflector/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Acode-style)
 
 
 
