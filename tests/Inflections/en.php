@@ -100,16 +100,17 @@ return [
 
     # irregulars
 
-    'person' => 'people',
+    "bonus" => "bonuses",
+    "child" => 'children',
+    "genus" => 'genera',
+    "man" => 'men',
+    "node_child" => "node_children",
+    "person" => 'people',
     "salesperson" => "salespeople",
-    'man' => 'men',
+    "sex" => 'sexes',
     "spokesman" => "spokesmen", // man
     "woman" => "women", // man
-    'child' => 'children',
-    "node_child" => "node_children",
-    'sex' => 'sexes',
-    'zombie' => 'zombies',
-    'genus' => 'genera',
+    "zombie" => 'zombies',
 
     # uncountable
 
