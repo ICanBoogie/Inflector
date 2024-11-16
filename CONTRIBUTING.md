@@ -2,13 +2,13 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/ICanBoogie/Inflector).
+We accept contributions via Pull Requests.
 
 ## Pull Requests
 
 - **Code style** — We're following a [Coding Standard][]. Check the code style with `make lint`.
 - **Code health** — We're using [PHPStan][] to analyse the code, with maximum scrutiny. Check the code with `make lint`.
-- **Add tests!** — Your contribution won't be accepted if it doesn't have tests.
+- **Add tests!** — Your contribution won't be accepted if it does not have tests.
 - **Document any change in behaviour** — Make sure the `README.md` and any other relevant documentation are kept
   up-to-date.
 - **Consider our release cycle** — We follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not

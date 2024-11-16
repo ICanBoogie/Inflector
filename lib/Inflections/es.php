@@ -17,8 +17,8 @@ use ICanBoogie\InflectionsConfigurator;
 /**
  * Spanish Inflections.
  *
- * @see http://www.studyspanish.com/lessons/plnoun.htm
- * @see http://spanish.about.com/cs/writing/a/writing_plurals.htm
+ * @link http://www.studyspanish.com/lessons/plnoun.htm
+ * @link http://spanish.about.com/cs/writing/a/writing_plurals.htm
  *
  * @codeCoverageIgnore
  */

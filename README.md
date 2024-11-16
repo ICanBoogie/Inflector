@@ -1,12 +1,11 @@
 # Inflector
 
-[![Release](https://img.shields.io/packagist/v/ICanBoogie/Inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
-[![Code Quality](https://img.shields.io/scrutinizer/g/ICanBoogie/Inflector/master.svg)](https://scrutinizer-ci.com/g/ICanBoogie/Inflector)
-[![Code Coverage](https://img.shields.io/coveralls/ICanBoogie/Inflector/master.svg)](https://coveralls.io/r/ICanBoogie/Inflector)
-[![Packagist](https://img.shields.io/packagist/dm/icanboogie/inflector.svg?maxAge=2592000)](https://packagist.org/packages/icanboogie/inflector)
+[![Release](https://img.shields.io/packagist/v/icanboogie/inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
+[![Code Coverage](https://coveralls.io/repos/github/ICanBoogie/Inflector/badge.svg?branch=main)](https://coveralls.io/r/ICanBoogie/Inflector?branch=main)
+[![Downloads](https://img.shields.io/packagist/dm/icanboogie/inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
 
 A multilingual inflector that transforms words from singular to plural, underscore to camel case, and formats strings in
-various ways. Inflections are localized, the default english inflections for pluralization, singularization, and
+various ways. Inflections are localized, the default English inflections for pluralization, singularization, and
 uncountable words are kept in [lib/Inflections/en.php](lib/Inflections/en.php).
 
 Inflections are currently available for the following languages:
@@ -22,7 +21,7 @@ Inflections are currently available for the following languages:
 
 #### Installation
 
-```bash
+```shell
 composer require icanboogie/inflector
 ```
 
@@ -189,25 +188,19 @@ titleize("été_aux_âmes_inouïes"); // Été Aux Âmes Inouïes
 
 The project is continuously tested by [GitHub actions](https://github.com/ICanBoogie/Inflector/actions).
 
-[![Tests](https://github.com/ICanBoogie/Inflector/workflows/test/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Atest)
-[![Static Analysis](https://github.com/ICanBoogie/Inflector/workflows/static-analysis/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Astatic-analysis)
-[![Code Style](https://github.com/ICanBoogie/Inflector/workflows/code-style/badge.svg?branch=master)](https://github.com/ICanBoogie/Inflector/actions?query=workflow%3Acode-style)
+[![Tests](https://github.com/ICanBoogie/Inflector/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/ICanBoogie/Inflector/actions/workflows/test.yml)
+[![Static Analysis](https://github.com/ICanBoogie/Inflector/actions/workflows/static-analysis.yml/badge.svg?branch=main)](https://github.com/ICanBoogie/Inflector/actions/workflows/static-analysis.yml)
+[![Code Style](https://github.com/ICanBoogie/Inflector/actions/workflows/code-style.yml/badge.svg?branch=main)](https://github.com/ICanBoogie/Inflector/actions/workflows/code-style.yml)
 
 
 
 ## Code of Conduct
 
-This project adheres to a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project and its
-community, you are expected to uphold this code.
+This project adheres to a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in
+this project and its community, you're expected to uphold this code.
 
 
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-
-
-## License
-
-**icanboogie/inflector** is released under the [BSD-3-Clause](LICENSE).
+See [CONTRIBUTING](CONTRIBUTING.md) for details.

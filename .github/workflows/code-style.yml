@@ -5,8 +5,7 @@ on:
 - pull_request
 
 jobs:
-  phpstan:
-    name: PHPCS
+  phpcs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
@@ -14,8 +13,9 @@ jobs:
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
+        coverage: none
         php-version: "7.1"
         ini-values: memory_limit=-1
-        tools: composer:v2, phpcs
-    - name: Run PHPCS
-      run: phpcs
+        tools: phpcs, cs2pr
+    - name: Run PHP Code Sniffer
+      run: phpcs -q --report=checkstyle | cs2pr

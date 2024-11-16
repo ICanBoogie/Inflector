@@ -29,17 +29,17 @@ class Inflector
     /**
      * Default inflector locale.
      *
-     * Alias to {@link INFLECTOR_DEFAULT_LOCALE}.
+     * Alias to {@see INFLECTOR_DEFAULT_LOCALE}.
      */
     public const DEFAULT_LOCALE = INFLECTOR_DEFAULT_LOCALE;
 
     /**
-     * {@link camelize()} option to downcase the first letter.
+     * {@see camelize()} option to downcase the first letter.
      */
     public const DOWNCASE_FIRST_LETTER = true;
 
     /**
-     * {@link camelize()} option to keep the first letter as is.
+     * {@see camelize()} option to keep the first letter as is.
      */
     public const UPCASE_FIRST_LETTER = false;
 
@@ -73,11 +73,11 @@ class Inflector
     }
 
     /**
-     * Returns the {@link $inflections} property.
+     * Returns the {@see $inflections} property.
      *
      * @return mixed
-     * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
-     * class is not available a {@link InvalidArgumentException} is thrown instead.
+     * @throws PropertyNotDefined in an attempt to read an inaccessible property. If the {@see PropertyNotDefined}
+     * class is not available a {@see InvalidArgumentException} is thrown instead.
      */
     public function __get(string $property)
     {
@@ -101,7 +101,7 @@ class Inflector
     }
 
     /**
-     * Applies inflection rules for {@link singularize} and {@link pluralize}.
+     * Applies inflection rules for {@see singularize} and {@see pluralize}.
      *
      * <pre>
      * $this->apply_inflections('post', $this->plurals);    // "posts"
@@ -156,7 +156,7 @@ class Inflector
     }
 
     /**
-     * The reverse of {@link pluralize}, returns the singular form of a word in a string.
+     * The reverse of {@see pluralize}, returns the singular form of a word in a string.
      *
      * <pre>
      * $this->singularize('posts');         // "post"
@@ -172,9 +172,9 @@ class Inflector
     }
 
     /**
-     * By default, {@link camelize} converts strings to UpperCamelCase.
+     * By default, {@see camelize} converts strings to UpperCamelCase.
      *
-     * {@link camelize} will also convert "/" to "\" which is useful for converting paths to
+     * {@see camelize} will also convert "/" to "\" which is useful for converting paths to
      * namespaces.
      *
      * <pre>
@@ -184,15 +184,15 @@ class Inflector
      * $this->camelize('active_model/errors', true);   // 'activeModel\Errors'
      * </pre>
      *
-     * As a rule of thumb you can think of {@link camelize} as the inverse of {@link underscore},
+     * As a rule of thumb you can think of {@see camelize} as the inverse of {@see underscore},
      * though there are cases where that does not hold:
      *
      * <pre>
      * $this->camelize($this->underscore('SSLError')); // "SslError"
      * </pre>
      *
-     * @param bool $downcase_first_letter One of {@link UPCASE_FIRST_LETTER},
-     * {@link DOWNCASE_FIRST_LETTER}.
+     * @param bool $downcase_first_letter One of {@see UPCASE_FIRST_LETTER},
+     * {@see DOWNCASE_FIRST_LETTER}.
      */
     public function camelize(string $term, bool $downcase_first_letter = self::UPCASE_FIRST_LETTER): string
     {
@@ -250,7 +250,7 @@ class Inflector
      * $this->underscore('ActiveModel\Errors'); // 'active_model/errors'
      * </pre>
      *
-     * As a rule of thumb you can think of {@link underscore} as the inverse of {@link camelize()},
+     * As a rule of thumb you can think of {@see underscore} as the inverse of {@see camelize()},
      * though there are cases where that does not hold:
      *
      * <pre>
@@ -286,7 +286,7 @@ class Inflector
 
     /**
      * Capitalizes the first word and turns underscores into spaces and strips a trailing "_id",
-     * if any. Like {@link titleize()}, this is meant for creating pretty output.
+     * if any. Like {@see titleize()}, this is meant for creating pretty output.
      *
      * <pre>
      * $this->humanize('employee_salary'); // "Employee salary"
@@ -332,7 +332,7 @@ class Inflector
 
     /**
      * Capitalizes all the words and replaces some characters in the string to create a nicer
-     * looking title. {@link titleize()} is meant for creating pretty output. It is not used in
+     * looking title. {@see titleize()} is meant for creating pretty output. It is not used in
      * the Rails internals.
      *
      * <pre>
@@ -368,7 +368,7 @@ class Inflector
     /**
      * Makes an hyphenated, lowercase form from the expression in the string.
      *
-     * This is a combination of {@link underscore} and {@link dasherize}.
+     * This is a combination of {@see underscore} and {@see dasherize}.
      */
     public function hyphenate(string $str): string
     {

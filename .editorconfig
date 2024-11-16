@@ -8,5 +8,11 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-[*.yaml]
+[{*.yaml,*.yml,*.neon,*.json}]
 indent_size = 2
+
+[*.md]
+max_line_length = 80
+
+[{Dockerfile,Makefile}]
+indent_style = tab

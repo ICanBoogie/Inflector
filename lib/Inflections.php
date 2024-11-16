@@ -18,10 +18,10 @@ use function class_exists;
 /**
  * A representation of the inflections used by an inflector.
  *
- * @property-read array $plurals Rules for {@link pluralize()}.
- * @property-read array $singulars Rules for {@link singularize()}.
+ * @property-read array $plurals Rules for {@see pluralize()}.
+ * @property-read array $singulars Rules for {@see singularize()}.
  * @property-read array $uncountables Uncountables.
- * @property-read array $humans Rules for {@link humanize()}.
+ * @property-read array $humans Rules for {@see humanize()}.
  * @property-read array $acronyms Acronyms.
  * @property-read string $acronym_regex Acronyms regex.
  */
@@ -57,14 +57,14 @@ final class Inflections
     }
 
     /**
-     * Rules for {@link pluralize()}.
+     * Rules for {@see pluralize()}.
      *
      * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
     protected $plurals = [];
 
     /**
-     * Rules for {@link singularize()}.
+     * Rules for {@see singularize()}.
      *
      * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
@@ -78,7 +78,7 @@ final class Inflections
     protected $uncountables = [];
 
     /**
-     * Rules for {@link humanize()}.
+     * Rules for {@see humanize()}.
      *
      * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
@@ -99,15 +99,15 @@ final class Inflections
     protected $acronym_regex = '/(?=a)b/';
 
     /**
-     * Returns the {@link $acronyms}, {@link $acronym_regex}, {@link $plurals}, {@link $singulars},
-     * {@link $uncountables} and {@link $humans} properties.
+     * Returns the {@see $acronyms}, {@see $acronym_regex}, {@see $plurals}, {@see $singulars},
+     * {@see $uncountables} and {@see $humans} properties.
      *
      * @param string $property
      *
      * @return mixed
      *
-     * @throws PropertyNotDefined in attempt to read an inaccessible property. If the {@link PropertyNotDefined}
-     * class is not available a {@link \InvalidArgumentException} is thrown instead.
+     * @throws PropertyNotDefined in an attempt to read an inaccessible property. If the {@see PropertyNotDefined}
+     * class is not available a {@see \InvalidArgumentException} is thrown instead.
      */
     public function __get(string $property)
     {
@@ -127,10 +127,10 @@ final class Inflections
     /**
      * Specifies a new acronym. An acronym must be specified as it will appear
      * in a camelized string. An underscore string that contains the acronym
-     * will retain the acronym when passed to {@link camelize}, {@link humanize}, or
-     * {@link titleize}. A camelized string that contains the acronym will maintain
+     * will retain the acronym when passed to {@see camelize}, {@see humanize}, or
+     * {@see titleize}. A camelized string that contains the acronym will maintain
      * the acronym when titleized or humanized, and will convert the acronym
-     * into a non-delimited single lowercase word when passed to {@link underscore}.
+     * into a non-delimited single lowercase word when passed to {@see underscore}.
      *
      * <pre>
      * $this->acronym('HTML');
@@ -153,7 +153,7 @@ final class Inflections
      * $this->underscore('HTTPS');              // 'https'
      * </pre>
      *
-     * Note: Acronyms that are passed to {@link pluralize} will no longer be
+     * Note: Acronyms that are passed to {@see pluralize} will no longer be
      * recognized, since the acronym will not occur as a delimited unit in the
      * pluralized result. To work around this, you must specify the pluralized
      * form as an acronym as well:
@@ -166,7 +166,7 @@ final class Inflections
      * $this->camelize($this->pluralize('api')); // 'APIs'
      * </pre>
      *
-     * {@link acronym} may be used to specify any word that contains an acronym or
+     * {@see acronym} may be used to specify any word that contains an acronym or
      * otherwise needs to maintain a non-standard capitalization. The only
      * restriction is that the word must begin with a capital letter.
      *
