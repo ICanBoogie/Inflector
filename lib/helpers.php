@@ -1,25 +1,11 @@
 <?php
 
-/*
- * This file is part of the ICanBoogie package.
- *
- * (c) Olivier Laviale <olivier.laviale@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace ICanBoogie;
-
-/**
- * Default inflector locale.
- */
-const INFLECTOR_DEFAULT_LOCALE = 'en';
 
 // Avoid conflicts with ICanBoogie/Common
 if (!function_exists(__NAMESPACE__ . '\downcase')) {
     /**
-     * Returns an lowercase string.
+     * Returns a lowercase string.
      */
     function downcase(string $str): string
     {
@@ -61,7 +47,7 @@ if (!function_exists(__NAMESPACE__ . '\capitalize')) {
 /**
  * Forwards calls to `Inflector::get()->pluralize()`.
  */
-function pluralize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
+function pluralize(string $word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
     return Inflector::get($locale)->pluralize($word);
 }
@@ -69,7 +55,7 @@ function pluralize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): str
 /**
  * Forwards calls to `Inflector::get()->singularize()`.
  */
-function singularize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
+function singularize(string $word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
     return Inflector::get($locale)->singularize($word);
 }
@@ -77,15 +63,18 @@ function singularize(string $word, string $locale = INFLECTOR_DEFAULT_LOCALE): s
 /**
  * Forwards calls to `Inflector::get()->camelize()`.
  */
-function camelize(string $str, bool $uppercase_first_letter = false, string $locale = INFLECTOR_DEFAULT_LOCALE): string
-{
+function camelize(
+    string $str,
+    bool $uppercase_first_letter = false,
+    string $locale = Inflector::DEFAULT_LOCALE
+): string {
     return Inflector::get($locale)->camelize($str, $uppercase_first_letter);
 }
 
 /**
  * Forwards calls to `Inflector::get()->underscore()`.
  */
-function underscore(string $camel_cased_word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
+function underscore(string $camel_cased_word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
     return Inflector::get($locale)->underscore($camel_cased_word);
 }
@@ -93,7 +82,7 @@ function underscore(string $camel_cased_word, string $locale = INFLECTOR_DEFAULT
 /**
  * Forwards calls to `Inflector::get()->hyphenate()`.
  */
-function hyphenate(string $str, string $locale = INFLECTOR_DEFAULT_LOCALE): string
+function hyphenate(string $str, string $locale = Inflector::DEFAULT_LOCALE): string
 {
     return Inflector::get($locale)->hyphenate($str);
 }
@@ -101,7 +90,7 @@ function hyphenate(string $str, string $locale = INFLECTOR_DEFAULT_LOCALE): stri
 /**
  * Forwards calls to `Inflector::get()->humanize()`.
  */
-function humanize(string $lower_case_and_underscored_word, string $locale = INFLECTOR_DEFAULT_LOCALE): string
+function humanize(string $lower_case_and_underscored_word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
     return Inflector::get($locale)->humanize($lower_case_and_underscored_word);
 }
@@ -109,7 +98,7 @@ function humanize(string $lower_case_and_underscored_word, string $locale = INFL
 /**
  * Forwards calls to `Inflector::get()->titleize()`.
  */
-function titleize(string $str, string $locale = INFLECTOR_DEFAULT_LOCALE): string
+function titleize(string $str, string $locale = Inflector::DEFAULT_LOCALE): string
 {
     return Inflector::get($locale)->titleize($str);
 }

@@ -28,10 +28,8 @@ class Inflector
 {
     /**
      * Default inflector locale.
-     *
-     * Alias to {@see INFLECTOR_DEFAULT_LOCALE}.
      */
-    public const DEFAULT_LOCALE = INFLECTOR_DEFAULT_LOCALE;
+    public const DEFAULT_LOCALE = 'en';
 
     /**
      * {@see camelize()} option to downcase the first letter.

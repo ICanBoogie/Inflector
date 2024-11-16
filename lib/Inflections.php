@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the ICanBoogie package.
- *
- * (c) Olivier Laviale <olivier.laviale@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace ICanBoogie;
 
 use InvalidArgumentException;
@@ -38,7 +29,7 @@ final class Inflections
      * Note: Inflections are shared for the same locale. If you need to alter an instance you
      * MUST clone it first, otherwise your changes will affect others.
      */
-    public static function get(string $locale = INFLECTOR_DEFAULT_LOCALE): Inflections
+    public static function get(string $locale = Inflector::DEFAULT_LOCALE): Inflections
     {
         if (isset(self::$inflections[$locale])) {
             return self::$inflections[$locale];
