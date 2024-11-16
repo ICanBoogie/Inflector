@@ -15,9 +15,10 @@ jobs:
         - "7.2"
         - "7.3"
         - "7.4"
+        - "8.4"
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -26,7 +27,7 @@ jobs:
         ini-values: memory_limit=-1
         tools: composer:v2
     - name: Cache dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: |
           ~/.composer/cache
@@ -39,6 +40,8 @@ jobs:
 
     - name: Run PHPUnit
       run: make test-coveralls
+      env:
+        PHPUNIT_VERSION: "${{ matrix.php-version == '8.4' && '11' || '07' }}"
 
     - name: Upload code coverage
       if: ${{ matrix.php-version == '7.1' }}

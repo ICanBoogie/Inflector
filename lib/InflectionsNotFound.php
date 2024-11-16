@@ -15,5 +15,4 @@ use LogicException;
 
 class InflectionsNotFound extends LogicException
 {
-
 }

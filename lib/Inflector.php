@@ -19,7 +19,7 @@ use function is_string;
 /**
  * The Inflector transforms words from singular to plural, class names to table names, modularized
  * class names to ones without, and class names to foreign keys. Inflections can be localized, the
- * default english inflections for pluralization, singularization, and uncountable words are
+ * default English inflections for pluralization, singularization, and uncountable words are
  * kept in `lib/Inflections/en.php`.
  *
  * @property-read Inflections $inflections Inflections used by the inflector.
@@ -67,7 +67,7 @@ class Inflector
      */
     private $inflections;
 
-    public function __construct(Inflections $inflections = null)
+    public function __construct(?Inflections $inflections = null)
     {
         $this->inflections = $inflections ?? new Inflections();
     }

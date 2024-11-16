@@ -5,7 +5,8 @@
 		 executionOrder="depends,defects"
 		 beStrictAboutOutputDuringTests="true"
 		 verbose="true"
-		 colors="true">
+		 colors="true"
+>
 	<testsuites>
 		<testsuite name="icanboogie/inflector">
 			<directory>./tests</directory>

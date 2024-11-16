@@ -25,9 +25,9 @@
 		"ext-mbstring": "*"
 	},
     "require-dev": {
-		"icanboogie/common": "^2.0",
-		"phpstan/phpstan": "^0.12.92",
-		"phpunit/phpunit": "^7.5"
+		"icanboogie/common": "^2.1",
+		"phpstan/phpstan": "^0.12.100|^2.0",
+		"phpunit/phpunit": "^7.5.20|^11.4"
 	},
     "conflict": {
         "icanboogie/common": "<2.0"

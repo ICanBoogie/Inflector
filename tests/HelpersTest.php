@@ -11,6 +11,8 @@
 
 namespace Tests\ICanBoogie;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 use function ICanBoogie\capitalize;
@@ -18,18 +20,20 @@ use function ICanBoogie\capitalize;
 /**
  * @group helpers
  */
+#[Group('helpers')]
 final class HelpersTest extends TestCase
 {
     /**
      * @dataProvider provide_test_capitalize
      */
+    #[DataProvider('provide_test_capitalize')]
     public function test_capitalize(string $str, bool $preserve_str_end, string $expected): void
     {
         $this->assertSame($expected, capitalize($str, $preserve_str_end));
     }
 
     // @phpstan-ignore-next-line
-    public function provide_test_capitalize(): array
+    public static function provide_test_capitalize(): array
     {
         return [
 
