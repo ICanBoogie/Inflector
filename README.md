@@ -4,9 +4,9 @@
 [![Code Coverage](https://coveralls.io/repos/github/ICanBoogie/Inflector/badge.svg?branch=main)](https://coveralls.io/r/ICanBoogie/Inflector?branch=main)
 [![Downloads](https://img.shields.io/packagist/dm/icanboogie/inflector.svg)](https://packagist.org/packages/icanboogie/inflector)
 
-A multilingual inflector that transforms words from singular to plural, underscore to camel case, and formats strings in
-various ways. Inflections are localized, the default English inflections for pluralization, singularization, and
-uncountable words are kept in [lib/Inflections/en.php](lib/Inflections/en.php).
+A multilingual inflector that transforms words from singular to plural, underscore to camel case,
+and formats strings in various ways. Inflections are localized, the default English inflections for
+pluralization, singularization, and uncountable words are kept in [lib/Inflections/en.php][].
 
 Inflections are currently available for the following languages:
 
@@ -142,9 +142,12 @@ echo pluralize('üçgen', 'tr');                       // "üçgenler"
 
 ## About inflections
 
-Inflections are localized, the configurators are kept in [lib/Inflections/en.php](lib/Inflections/en.php). Since v2.1,
-these configurators are auto-loaded classes, which means, in theory, you could add your own or overwrite those already
-defined by specifying another `ICanBoogie\\Inflections\\` in your `composer.json` file.
+Inflections are localized, the configurators are kept in [lib/Inflections/][].
+
+> [!TIP]
+> Since v2.1, these configurators are autoloaded classes, which means, in theory, you could add your
+> own or overwrite those already defined by specifying another `ICanBoogie\\Inflections\\` in your
+> `composer.json` file.
 
 
 
@@ -156,21 +159,21 @@ Most of the code and documentation was adapted from [Ruby On Rails](http://rubyo
 
 Significant differences:
 
-- Better support of accentuated characters.
+- Better support of accented characters.
 - The Ruby module separator `::` as been replaced by the PHP namespace separator `\`.
 - The plural of "octopus" is "octopuses" (not "octopi"), the plural of "virus" is "viruses"
-  (not viri) and the pural of "cow" is "cows" (not "kine").
+  (not viri), and the plural of "cow" is "cows" (not "kine").
 - The following methods have been removed: `tableize`, `classify`, `demodulize`,
   `constantize`, `deconstantize` and `foreign_key`. They can be easily implemented in specific inflectors.
 - Added the `hyphenate` method, which is a combination of `underscore` and `dasherize`.
-- One specifies `true` rather than `false` to `camelize()` to downcase the first letter of the camel cased string.
+- One specifies `true` rather than `false` to `camelize()` to downcase the first letter of the camel-cased string.
 
 
 
 ## Getting started
 
 **Inflector** expects to work in UTF-8, which is the default encoding character set starting
-PHP 5.6, for older versions please use `mb_internal_encoding()` as follows:
+PHP 5.6, if your configuration is different, use `mb_internal_encoding()` as follows:
 
 ```php
 <?php
@@ -210,3 +213,8 @@ this project and its community, you're expected to uphold this code.
 ## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+
+
+[lib/Inflections/]: lib/Inflections/
+[lib/Inflections/en.php]: lib/Inflections/en.php

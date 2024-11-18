@@ -12,7 +12,7 @@ indent_size = 4
 indent_size = 2
 
 [*.md]
-max_line_length = 80
+max_line_length = 100
 
 [{Dockerfile,Makefile}]
 indent_style = tab
