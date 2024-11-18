@@ -1,5 +1,8 @@
+# $schema: https://phpstan.olvlvl.com/schema.json
 parameters:
-    level: max
-    paths:
-        - lib
-        - tests
+  level: max
+  paths:
+    - lib
+    - tests
+  ignoreErrors:
+    - "#::provide_.+ type array#"

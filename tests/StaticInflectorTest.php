@@ -2,27 +2,17 @@
 
 namespace Tests\ICanBoogie;
 
+use ICanBoogie\StaticInflector;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-use function ICanBoogie\camelize;
-use function ICanBoogie\capitalize;
-use function ICanBoogie\downcase;
-use function ICanBoogie\humanize;
-use function ICanBoogie\hyphenate;
-use function ICanBoogie\pluralize;
-use function ICanBoogie\singularize;
-use function ICanBoogie\titleize;
-use function ICanBoogie\underscore;
-use function ICanBoogie\upcase;
-
-final class HelpersTest extends TestCase
+final class StaticInflectorTest extends TestCase
 {
     public function test_downcase(): void
     {
         $this->assertEquals(
             "îñfléçtör",
-            downcase("ÎñflÉÇtÖr")
+            StaticInflector::downcase("ÎñflÉÇtÖr")
         );
     }
 
@@ -30,7 +20,7 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals(
             "ÎÑFLÉÇTÖR",
-            upcase("ÎñflÉÇtÖr")
+            StaticInflector::upcase("ÎñflÉÇtÖr")
         );
     }
 
@@ -38,12 +28,12 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals(
             "Été ensoleillé",
-            capitalize("été Ensoleillé")
+            StaticInflector::capitalize("été Ensoleillé")
         );
 
         $this->assertEquals(
             "Été Ensoleillé",
-            capitalize("été Ensoleillé", true)
+            StaticInflector::capitalize("été Ensoleillé", true)
         );
     }
 
@@ -53,7 +43,7 @@ final class HelpersTest extends TestCase
     #[DataProvider('provide_pluralize')]
     public function test_pluralize(string $locale, string $word, string $expected): void
     {
-        $actual = pluralize($word, $locale);
+        $actual = StaticInflector::pluralize($word, $locale);
 
         $this->assertEquals($expected, $actual);
     }
@@ -72,7 +62,7 @@ final class HelpersTest extends TestCase
     #[DataProvider('provide_singularize')]
     public function test_singularize(string $locale, string $word, string $expected): void
     {
-        $actual = singularize($word, $locale);
+        $actual = StaticInflector::singularize($word, $locale);
 
         $this->assertEquals($expected, $actual);
     }
@@ -89,7 +79,7 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals(
             "Area51Controller",
-            camelize("area51_controller")
+            StaticInflector::camelize("area51_controller")
         );
     }
 
@@ -97,7 +87,7 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals(
             "area51_controller",
-            underscore("Area51Controller")
+            StaticInflector::underscore("Area51Controller")
         );
     }
 
@@ -105,7 +95,7 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals(
             "johnny5-still-alive",
-            hyphenate("Johnny5 Still alive")
+            StaticInflector::hyphenate("Johnny5 Still alive")
         );
     }
 
@@ -113,7 +103,7 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals(
             "Employee salary",
-            humanize("employee_salary")
+            StaticInflector::humanize("employee_salary")
         );
     }
 
@@ -121,7 +111,7 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals(
             "Restful Http Api",
-            titleize("restful_http_api")
+            StaticInflector::titleize("restful_http_api")
         );
     }
 }

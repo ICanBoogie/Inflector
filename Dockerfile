@@ -3,6 +3,14 @@ FROM php:${PHP_TAG}
 
 RUN <<-EOF
 	docker-php-ext-enable opcache
+
+	if [ "$PHP_VERSION" \< "7.4" ]; then
+		apt-get update
+		apt-get install -y autoconf pkg-config
+		pecl channel-update pecl.php.net
+		pecl install xdebug-2.9.0
+		docker-php-ext-enable xdebug
+	fi
 EOF
 
 RUN <<-EOF

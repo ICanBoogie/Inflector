@@ -5,100 +5,91 @@ namespace ICanBoogie;
 // Avoid conflicts with ICanBoogie/Common
 if (!function_exists(__NAMESPACE__ . '\downcase')) {
     /**
-     * Returns a lowercase string.
+     * @see StaticInflector::downcase()
      */
     function downcase(string $str): string
     {
-        return mb_strtolower($str);
+        return StaticInflector::downcase($str);
     }
 }
 
 // Avoid conflicts with ICanBoogie/Common
 if (!function_exists(__NAMESPACE__ . '\upcase')) {
     /**
-     * Returns an uppercase string.
+     * @see StaticInflector::upcase()
      */
     function upcase(string $str): string
     {
-        return mb_strtoupper($str);
+        return StaticInflector::upcase($str);
     }
 }
 
 // Avoid conflicts with ICanBoogie/Common
 if (!function_exists(__NAMESPACE__ . '\capitalize')) {
     /**
-     * Returns a copy of str with the first character converted to uppercase and the
-     * remainder to lowercase.
-     *
-     * @param bool $preserve_str_end Whether the string end should be preserved or downcased.
+     * @see StaticInflector::capitalize()
      */
     function capitalize(string $str, bool $preserve_str_end = false): string
     {
-        $end = mb_substr($str, 1);
-
-        if (!$preserve_str_end) {
-            $end = downcase($end);
-        }
-
-        return upcase(mb_substr($str, 0, 1)) . $end;
+        return StaticInflector::capitalize($str, $preserve_str_end);
     }
 }
 
 /**
- * Forwards calls to `Inflector::get()->pluralize()`.
+ * @see StaticInflector::pluralize()
  */
 function pluralize(string $word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
-    return Inflector::get($locale)->pluralize($word);
+    return StaticInflector::pluralize($word, $locale);
 }
 
 /**
- * Forwards calls to `Inflector::get()->singularize()`.
+ * @see StaticInflector::singularize()
  */
 function singularize(string $word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
-    return Inflector::get($locale)->singularize($word);
+    return StaticInflector::singularize($word, $locale);
 }
 
 /**
- * Forwards calls to `Inflector::get()->camelize()`.
+ * @see StaticInflector::camelize()
  */
 function camelize(
     string $str,
     bool $uppercase_first_letter = false,
     string $locale = Inflector::DEFAULT_LOCALE
 ): string {
-    return Inflector::get($locale)->camelize($str, $uppercase_first_letter);
+    return StaticInflector::camelize($str, $uppercase_first_letter, $locale);
 }
 
 /**
- * Forwards calls to `Inflector::get()->underscore()`.
+ * @see StaticInflector::underscore()
  */
 function underscore(string $camel_cased_word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
-    return Inflector::get($locale)->underscore($camel_cased_word);
+    return StaticInflector::underscore($camel_cased_word, $locale);
 }
 
 /**
- * Forwards calls to `Inflector::get()->hyphenate()`.
+ * @see StaticInflector::hyphenate()
  */
 function hyphenate(string $str, string $locale = Inflector::DEFAULT_LOCALE): string
 {
-    return Inflector::get($locale)->hyphenate($str);
+    return StaticInflector::hyphenate($str, $locale);
 }
 
 /**
- * Forwards calls to `Inflector::get()->humanize()`.
+ * @see StaticInflector::humanize()
  */
 function humanize(string $lower_case_and_underscored_word, string $locale = Inflector::DEFAULT_LOCALE): string
 {
-    return Inflector::get($locale)->humanize($lower_case_and_underscored_word);
+    return StaticInflector::humanize($lower_case_and_underscored_word, $locale);
 }
 
 /**
- * Forwards calls to `Inflector::get()->titleize()`.
+ * @see StaticInflector::titleize()
  */
 function titleize(string $str, string $locale = Inflector::DEFAULT_LOCALE): string
 {
-    return Inflector::get($locale)->titleize($str);
+    return StaticInflector::titleize($str, $locale);
 }

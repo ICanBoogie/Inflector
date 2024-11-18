@@ -8,13 +8,13 @@ None
 
 ### New features
 
-None
+Added `StaticInflector`, that can be used instead of the helper functions.
 
 ### Backward Incompatible Changes
 
-The file with the helper functions is no longer included in the autoload. You
-need to include the file `vendor/icanboogie/inflector/lib/helpers.php` in your
-`composer.json` if you want to continue using these functions.
+The file with the helper functions is no longer included in the autoload. You need to include the
+file `vendor/icanboogie/inflector/lib/helpers.php` in your `composer.json` if you want to continue
+using these functions. Better use the new `StaticInflector` instead.
 
 ### Deprecated Features
 

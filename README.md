@@ -120,13 +120,20 @@ $inflector->is_uncountable("weather");               // true
 $inflector->is_uncountable("cat");                   // false
 ```
 
-Helpers make it easy to use default locale inflections.
+Static interfaces are also available:
 
 ```php
 <?php
 
 namespace ICanBoogie;
 
+# Static inflector
+echo StaticInflector::pluralize('child');            // "children"
+echo StaticInflector::pluralize('genou', 'fr');      // "genoux"
+echo StaticInflector::singularize('lærere', 'nb');   // "lærer"
+echo StaticInflector::pluralize('üçgen', 'tr');      // "üçgenler"
+
+# Helper functions
 echo pluralize('child');                             // "children"
 echo pluralize('genou', 'fr');                       // "genoux"
 echo singularize('lærere', 'nb');                    // "lærer"
