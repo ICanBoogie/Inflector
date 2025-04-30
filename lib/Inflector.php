@@ -116,7 +116,7 @@ class Inflector
             return $rc;
         }
 
-        if (preg_match('/\b[[:word:]]+\Z/u', downcase($rc), $matches)) {
+        if (preg_match('/\b[[:word:]]+\Z/u', StaticInflector::downcase($rc), $matches)) {
             if (isset($this->inflections->uncountables[$matches[0]])) {
                 return $rc;
             }
@@ -203,7 +203,7 @@ class Inflector
                 . trim($this->inflections->acronym_regex, '/')
                 . '(?=\b|[[:upper:]_])|\w)/u',
                 function (array $matches): string {
-                    return downcase($matches[0]);
+                    return StaticInflector::downcase($matches[0]);
                 },
                 $string,
                 1
@@ -214,7 +214,7 @@ class Inflector
                 function (array $matches) use ($acronyms): string {
                     $m = $matches[0];
 
-                    return !empty($acronyms[$m]) ? $acronyms[$m] : capitalize($m, true);
+                    return !empty($acronyms[$m]) ? $acronyms[$m] : StaticInflector::capitalize($m, true);
                 },
                 $string,
                 1
@@ -228,7 +228,7 @@ class Inflector
             function (array $matches) use ($acronyms): string {
                 [ , $m1, $m2 ] = $matches;
 
-                return $m1 . ($acronyms[$m2] ?? capitalize($m2, true));
+                return $m1 . ($acronyms[$m2] ?? StaticInflector::capitalize($m2, true));
             },
             $string
         );
@@ -266,7 +266,7 @@ class Inflector
             function (array $matches): string {
                 [ , $m1, $m2 ] = $matches;
 
-                return $m1 . ($m1 ? '_' : '') . downcase($m2);
+                return $m1 . ($m1 ? '_' : '') . StaticInflector::downcase($m2);
             },
             $word
         );
@@ -279,7 +279,7 @@ class Inflector
         $word = preg_replace('/\-+|\s+/', '_', $word);
 
         // @phpstan-ignore-next-line
-        return downcase($word);
+        return StaticInflector::downcase($word);
     }
 
     /**
@@ -315,7 +315,7 @@ class Inflector
             function (array $matches) use ($acronyms): string {
                 [ $m ] = $matches;
 
-                return !empty($acronyms[$m]) ? $acronyms[$m] : downcase($m);
+                return !empty($acronyms[$m]) ? $acronyms[$m] : StaticInflector::downcase($m);
             },
             $result
         );
@@ -324,7 +324,7 @@ class Inflector
 
         // @phpstan-ignore-next-line
         return preg_replace_callback('/^[[:lower:]]/u', function (array $matches): string {
-            return upcase($matches[0]);
+            return StaticInflector::upcase($matches[0]);
         }, $result);
     }
 
@@ -347,7 +347,7 @@ class Inflector
 
         // @phpstan-ignore-next-line
         return preg_replace_callback('/\b(?<![\'’`])[[:lower:]]/u', function (array $matches): string {
-            return upcase($matches[0]);
+            return StaticInflector::upcase($matches[0]);
         }, $str);
     }
 
@@ -438,7 +438,7 @@ class Inflector
         $rc = $word;
 
         return $rc
-            && preg_match('/\b[[:word:]]+\Z/u', downcase($rc), $matches)
+            && preg_match('/\b[[:word:]]+\Z/u', StaticInflector::downcase($rc), $matches)
             && isset($this->inflections->uncountables[$matches[0]]);
     }
 }

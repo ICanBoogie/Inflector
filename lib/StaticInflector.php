@@ -34,10 +34,10 @@ final class StaticInflector
         $end = mb_substr($str, 1);
 
         if (!$preserve_str_end) {
-            $end = downcase($end);
+            $end = self::downcase($end);
         }
 
-        return upcase(mb_substr($str, 0, 1)) . $end;
+        return self::upcase(mb_substr($str, 0, 1)) . $end;
     }
 
     /**

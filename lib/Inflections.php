@@ -178,7 +178,7 @@ final class Inflections
      */
     public function acronym(string $acronym): self
     {
-        $this->acronyms[downcase($acronym)] = $acronym;
+        $this->acronyms[StaticInflector::downcase($acronym)] = $acronym;
         $this->acronym_regex = '/' . implode('|', $this->acronyms) . '/';
 
         return $this;
@@ -252,11 +252,11 @@ final class Inflections
         unset($this->uncountables[$plural]);
 
         $s0 = mb_substr($singular, 0, 1);
-        $s0_upcase = upcase($s0);
+        $s0_upcase = StaticInflector::upcase($s0);
         $srest = mb_substr($singular, 1);
 
         $p0 = mb_substr($plural, 0, 1);
-        $p0_upcase = upcase($p0);
+        $p0_upcase = StaticInflector::upcase($p0);
         $prest = mb_substr($plural, 1);
 
         if ($s0_upcase == $p0_upcase) {
@@ -266,8 +266,8 @@ final class Inflections
             $this->singular("/({$s0}){$srest}$/i", '\1' . $srest);
             $this->singular("/({$p0}){$prest}$/i", '\1' . $srest);
         } else {
-            $s0_downcase = downcase($s0);
-            $p0_downcase = downcase($p0);
+            $s0_downcase = StaticInflector::downcase($s0);
+            $p0_downcase = StaticInflector::downcase($p0);
 
             $this->plural("/{$s0_upcase}(?i){$srest}$/", $p0_upcase . $prest);
             $this->plural("/{$s0_downcase}(?i){$srest}$/", $p0_downcase . $prest);
