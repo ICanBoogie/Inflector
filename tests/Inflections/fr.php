@@ -59,4 +59,21 @@ return [
     'monsieur' => 'messieurs',
     'madame' => 'mesdames',
     'mademoiselle' => 'mesdemoiselles',
+
+    # invariables
+
+    'abattis' => 'abattis',
+    'autobus' => 'autobus',
+    'bras' => 'bras',
+    'bus' => 'bus',
+    'corps' => 'corps',
+    'époux' => 'époux',
+    'escalvis' => 'escalvis',
+    'frais' => 'frais',
+    'ours' => 'ours',
+    'prix' => 'prix',
+    'souris' => 'souris',
+    'virus' => 'virus',
+    'voix' => 'voix',
+
 ];

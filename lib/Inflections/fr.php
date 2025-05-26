@@ -40,6 +40,7 @@ final class fr implements InflectionsConfigurator
             ->plural('/(s|x|z)$/', '\1')
             ->irregular('monsieur', 'messieurs')
             ->irregular('madame', 'mesdames')
-            ->irregular('mademoiselle', 'mesdemoiselles');
+            ->irregular('mademoiselle', 'mesdemoiselles')
+            ->uncountable(explode(' ', "abattis autobus bras bus corps époux escalvis frais ours prix souris virus voix"));
     }
 }
