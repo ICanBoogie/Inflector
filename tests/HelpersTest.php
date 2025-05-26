@@ -2,6 +2,8 @@
 
 namespace Tests\ICanBoogie;
 
+require_once __DIR__ . '/../lib/helpers.php';
+
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

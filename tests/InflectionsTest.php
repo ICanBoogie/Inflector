@@ -13,12 +13,10 @@ namespace Tests\ICanBoogie;
 
 use ICanBoogie\Inflections;
 use ICanBoogie\InflectionsNotFound;
+use ICanBoogie\StaticInflector;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
-
-use function ICanBoogie\pluralize;
-use function ICanBoogie\singularize;
 
 /**
  * @group integration
@@ -39,7 +37,7 @@ final class InflectionsTest extends TestCase
     #[DataProvider('provide_singular_and_plural')]
     public function test_singular_to_plural(string $locale, string $singular, string $plural): void
     {
-        $this->assertEquals($plural, pluralize($singular, $locale));
+        $this->assertEquals($plural, StaticInflector::pluralize($singular, $locale));
     }
 
     /**
@@ -48,7 +46,7 @@ final class InflectionsTest extends TestCase
     #[DataProvider('provide_singular_and_plural')]
     public function test_plural_to_singular(string $locale, string $singular, string $plural): void
     {
-        $this->assertEquals($singular, singularize($plural, $locale));
+        $this->assertEquals($singular, StaticInflector::singularize($plural, $locale));
     }
 
     // @phpstan-ignore-next-line

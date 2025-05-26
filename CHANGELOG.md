@@ -1,6 +1,30 @@
 # CHANGELOG
 
-## 2.x to 3.0
+## v3.0.1
+
+### New requirements
+
+None
+
+### New features
+
+None
+
+### Backward Incompatible Changes
+
+None
+
+### Deprecated Features
+
+None
+
+### Other Changes
+
+Fix: Helpers are used, although they are no longer required by default. @donatj
+
+
+
+## v3.0
 
 ### New requirements
 
@@ -26,7 +50,7 @@ None
 
 
 
-## 1.x to 2.0
+## v2.0
 
 ### New requirements
 

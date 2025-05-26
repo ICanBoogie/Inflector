@@ -9,17 +9,13 @@
 >
 	<testsuites>
 		<testsuite name="icanboogie/inflector">
-			<directory>tests</directory>
-            <exclude>tests/HelpersTest.php</exclude>
+            <file>tests/HelpersTest.php</file>
 		</testsuite>
 	</testsuites>
 
 	<filter>
 		<whitelist>
 			<directory suffix=".php">lib</directory>
-            <exclude>
-                <file>lib/helpers.php</file>
-            </exclude>
 		</whitelist>
 	</filter>
 </phpunit>

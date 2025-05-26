@@ -27,4 +27,8 @@
     <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
         <exclude-pattern>*/lib/Inflections/*</exclude-pattern>
     </rule>
+
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>*/tests/HelpersTest.php</exclude-pattern>
+    </rule>
 </ruleset>
