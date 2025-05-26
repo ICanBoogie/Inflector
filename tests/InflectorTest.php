@@ -13,9 +13,8 @@ namespace Tests\ICanBoogie;
 
 use ICanBoogie\Inflections;
 use ICanBoogie\Inflector;
+use ICanBoogie\StaticInflector;
 use PHPUnit\Framework\TestCase;
-
-use function ICanBoogie\camelize;
 
 final class InflectorTest extends TestCase
 {
@@ -73,39 +72,39 @@ final class InflectorTest extends TestCase
 
         foreach ($ar as $camel => $underscore) {
             $this->assertEquals($camel, self::$inflector->camelize($underscore));
-            $this->assertEquals($camel, camelize($underscore));
+            $this->assertEquals($camel, StaticInflector::camelize($underscore));
         }
 
         $ar = require __DIR__ . '/cases/camel_to_dash.php';
 
         foreach ($ar as $camel => $dash) {
             $this->assertEquals($camel, self::$inflector->camelize($dash));
-            $this->assertEquals($camel, camelize($dash));
+            $this->assertEquals($camel, StaticInflector::camelize($dash));
         }
     }
 
     public function test_camelize_with_lower_upcases_the_first_letter(): void
     {
         $this->assertEquals('Capital', self::$inflector->camelize('capital'));
-        $this->assertEquals('Capital', camelize('capital'));
+        $this->assertEquals('Capital', StaticInflector::camelize('capital'));
     }
 
     public function test_camelize_preserve_words_ends(): void
     {
         $this->assertEquals('WordOne\\WordTwo', self::$inflector->camelize('wordOne/wordTwo'));
-        $this->assertEquals('WordOne\\WordTwo', camelize('wordOne/wordTwo'));
+        $this->assertEquals('WordOne\\WordTwo', StaticInflector::camelize('wordOne/wordTwo'));
     }
 
     public function test_camelize_with_lower_downcases_the_first_letter(): void
     {
         $this->assertEquals('capital', self::$inflector->camelize('Capital', true));
-        $this->assertEquals('capital', camelize('Capital', true));
+        $this->assertEquals('capital', StaticInflector::camelize('Capital', true));
     }
 
     public function test_camelize_with_underscores(): void
     {
         $this->assertEquals("CamelCase", self::$inflector->camelize('Camel_Case'));
-        $this->assertEquals("CamelCase", camelize('Camel_Case'));
+        $this->assertEquals("CamelCase", StaticInflector::camelize('Camel_Case'));
     }
 
     public function test_acronyms(): void

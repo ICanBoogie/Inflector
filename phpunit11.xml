@@ -3,7 +3,7 @@
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.4/phpunit.xsd"
          beStrictAboutCoverageMetadata="true"
          beStrictAboutOutputDuringTests="true"
-         bootstrap="tests/bootstrap.php"
+         bootstrap="vendor/autoload.php"
          colors="true"
          displayDetailsOnTestsThatTriggerDeprecations="true"
          displayDetailsOnTestsThatTriggerNotices="true"
@@ -14,11 +14,15 @@
     <testsuites>
         <testsuite name="icanboogie/inflector">
             <directory>tests</directory>
+            <exclude>tests/HelpersTest.php</exclude>
         </testsuite>
     </testsuites>
     <source>
         <include>
             <directory>lib</directory>
         </include>
+        <exclude>
+            <file>lib/helpers.php</file>
+        </exclude>
     </source>
 </phpunit>
