@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## v3.0.2
+
+### New requirements
+
+None
+
+### New features
+
+None
+
+### Backward Incompatible Changes
+
+None
+
+### Deprecated Features
+
+None
+
+### Other Changes
+
+Add invariable French nouns.
+
+
+
 ## v3.0.1
 
 ### New requirements
