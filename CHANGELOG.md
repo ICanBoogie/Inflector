@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## v4.0.0
+
+### New requirements
+
+Require PHP 7.2+
+
+### New features
+
+None
+
+### Backward Incompatible Changes
+
+None
+
+### Deprecated Features
+
+None
+
+### Other Changes
+
+Updated PHPUnit to v.8.5.52 to avoid [vulnerability](https://github.com/ICanBoogie/Inflector/security/dependabot/1).
+
+
+
 ## v3.0.2
 
 ### New requirements

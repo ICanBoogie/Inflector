@@ -1,13 +1,13 @@
 ---
 services:
-  app71:
+  app72:
     build:
       context: .
       args:
-        PHP_TAG: "7.1-cli-buster"
+        PHP_TAG: "7.2-cli-buster"
     environment:
       PHP_IDE_CONFIG: 'serverName=icanboogie-inflector'
-      PHPUNIT_VERSION: "07"
+      PHPUNIT_VERSION: "08"
     volumes: &vol
     - .:/app:delegated
     - ~/.composer:/root/.composer:delegated
@@ -16,7 +16,7 @@ services:
     build:
       context: .
       args:
-        PHP_TAG: "8.4.0RC4-cli-bookworm"
+        PHP_TAG: "8.4-cli-bookworm"
     environment:
       PHP_IDE_CONFIG: 'serverName=icanboogie-inflector'
       PHPUNIT_VERSION: "11"

@@ -1,4 +1,4 @@
-ARG PHP_TAG=7.1-cli-buster
+ARG PHP_TAG=7.2-cli-buster
 FROM php:${PHP_TAG}
 
 RUN <<-EOF
