@@ -84,6 +84,7 @@ final class en implements InflectionsConfigurator
             ->irregular('sex', 'sexes')
             ->irregular('virus', 'viruses')
             ->irregular('zombie', 'zombies')
+            ->irregular('glove', 'gloves')
 
             // http://easenglish.net/Files/Grammar/uncountable%20words.pdf
             ->uncountable(explode(' ', 'advice aircraft art baggage butter clothing coal cotton deer equipment experience feedback fish flour food furniture gas homework impatience information jeans knowledge leather love luggage management money moose music news oil patience police polish progress research rice salmon sand series sheep silk sms soap spam species staff sugar swine talent toothpaste traffic travel vinegar weather wood wool work'));

@@ -23,6 +23,7 @@ None
 - Updated PHPUnit to v9.6 to avoid [vulnerability](https://github.com/ICanBoogie/Inflector/security/dependabot/1).
 - Throw `Error` instead of `PropertyNotDefined`/`InvalidArgumentException`.
 - Remove dependency on `icanboogie/common`.
+- 'glove' -> 'gloves' (@RickKukiela)
 
 
 

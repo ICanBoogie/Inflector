@@ -111,6 +111,7 @@ return [
     "spokesman" => "spokesmen", // man
     "woman" => "women", // man
     "zombie" => 'zombies',
+    "glove" => 'gloves',
 
     # uncountable
 
