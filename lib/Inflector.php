@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the ICanBoogie package.
- *
- * (c) Olivier Laviale <olivier.laviale@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace ICanBoogie;
 
 use InvalidArgumentException;
@@ -44,7 +35,7 @@ class Inflector
     /**
      * @var array<string, Inflector>
      */
-    private static $inflectors = [];
+    private static array $inflectors = [];
 
     /**
      * Returns an inflector for the specified locale.
@@ -54,16 +45,13 @@ class Inflector
      */
     public static function get(string $locale = self::DEFAULT_LOCALE): self
     {
-        return self::$inflectors[$locale]
-            ?? self::$inflectors[$locale] = new self(Inflections::get($locale));
+        return self::$inflectors[$locale] ??= new self(Inflections::get($locale));
     }
 
     /**
      * Inflections used by the inflector.
-     *
-     * @var Inflections
      */
-    private $inflections;
+    private Inflections $inflections;
 
     public function __construct(?Inflections $inflections = null)
     {

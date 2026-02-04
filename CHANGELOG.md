@@ -4,7 +4,7 @@
 
 ### New requirements
 
-Require PHP 7.2+
+Require PHP 7.4+ (older Debian distributions are now archived)
 
 ### New features
 
@@ -20,7 +20,7 @@ None
 
 ### Other Changes
 
-Updated PHPUnit to v.8.5.52 to avoid [vulnerability](https://github.com/ICanBoogie/Inflector/security/dependabot/1).
+Updated PHPUnit to v9.6 to avoid [vulnerability](https://github.com/ICanBoogie/Inflector/security/dependabot/1).
 
 
 

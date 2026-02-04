@@ -9,11 +9,11 @@ use function class_exists;
 /**
  * A representation of the inflections used by an inflector.
  *
- * @property-read array $plurals Rules for {@see pluralize()}.
- * @property-read array $singulars Rules for {@see singularize()}.
- * @property-read array $uncountables Uncountables.
- * @property-read array $humans Rules for {@see humanize()}.
- * @property-read array $acronyms Acronyms.
+ * @property-read array<string, string> $plurals Rules for {@see pluralize()}.
+ * @property-read array<string, string> $singulars Rules for {@see singularize()}.
+ * @property-read array<string, string> $uncountables Uncountables.
+ * @property-read array<string, string> $humans Rules for {@see humanize()}.
+ * @property-read array<string, string> $acronyms Acronyms.
  * @property-read string $acronym_regex Acronyms regex.
  */
 final class Inflections
@@ -21,7 +21,7 @@ final class Inflections
     /**
      * @var array<string , Inflections>
      */
-    private static $inflections = [];
+    private static array $inflections = [];
 
     /**
      * Returns inflections for the specified locale.
@@ -52,42 +52,51 @@ final class Inflections
      *
      * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
-    protected $plurals = [];
+    private array $plurals = [];
 
     /**
      * Rules for {@see singularize()}.
      *
      * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
-    protected $singulars = [];
+    private array $singulars = [];
 
     /**
      * Uncountables.
      *
      * @var array<string, string> Where _key_ is a word and _value_ the same word.
      */
-    protected $uncountables = [];
+    private array $uncountables = [];
 
     /**
      * Rules for {@see humanize()}.
      *
      * @var array<string, string> Where _key_ is a rule and _value_ a replacement.
      */
-    protected $humans = [];
+    private array $humans = [];
 
     /**
      * Acronyms.
      *
      * @var array<string, string> Where _key_ is a lower case version of _value_.
      */
-    protected $acronyms = [];
+    private array $acronyms = [];
 
     /**
      * Acronyms regex.
      *
      * @var string
      */
-    protected $acronym_regex = '/(?=a)b/';
+    private string $acronym_regex = '/(?=a)b/';
+
+    private const READERS = [
+        'acronyms' => true,
+        'acronym_regex' => true,
+        'plurals' => true,
+        'singulars' => true,
+        'uncountables' => true,
+        'humans' => true,
+    ];
 
     /**
      * Returns the {@see $acronyms}, {@see $acronym_regex}, {@see $plurals}, {@see $singulars},
@@ -102,9 +111,7 @@ final class Inflections
      */
     public function __get(string $property)
     {
-        static $readers = [ 'acronyms', 'acronym_regex', 'plurals', 'singulars', 'uncountables', 'humans' ];
-
-        if (in_array($property, $readers)) {
+        if (isset(self::READERS[$property])) {
             return $this->$property;
         }
 

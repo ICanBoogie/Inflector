@@ -1,16 +1,10 @@
-ARG PHP_TAG=7.2-cli-buster
+ARG PHP_TAG=7.4-cli-bullseye
 FROM php:${PHP_TAG}
 
 RUN <<-EOF
+	apt-get update
+	apt-get install unzip
 	docker-php-ext-enable opcache
-
-	if [ "$PHP_VERSION" \< "7.4" ]; then
-		apt-get update
-		apt-get install -y autoconf pkg-config
-		pecl channel-update pecl.php.net
-		pecl install xdebug-2.9.0
-		docker-php-ext-enable xdebug
-	fi
 EOF
 
 RUN <<-EOF
@@ -23,14 +17,7 @@ EOF
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN <<-EOF
-	apt-get update
-	apt-get install unzip
-	curl -s https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer | php -- --quiet
-	mv composer.phar /usr/local/bin/composer
-	cat <<-SHELL >> /root/.bashrc
-	export PATH="$HOME/.composer/vendor/bin:$PATH"
-	SHELL
-EOF
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+ENV PATH="/root/.composer/vendor/bin:${PATH}"
 
 RUN composer global require squizlabs/php_codesniffer

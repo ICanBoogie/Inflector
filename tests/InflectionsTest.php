@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the ICanBoogie package.
- *
- * (c) Olivier Laviale <olivier.laviale@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Tests\ICanBoogie;
 
 use ICanBoogie\Inflections;
@@ -56,7 +47,9 @@ final class InflectionsTest extends TestCase
         $rc = [];
 
         foreach ($locales as $locale) {
-            foreach (require __DIR__ . "/Inflections/$locale.php" as $singular => $plural) {
+            /** @var array<string, string> $cases */
+            $cases = require __DIR__ . "/Inflections/$locale.php";
+            foreach ($cases as $singular => $plural) {
                 $rc[] = [ $locale, $singular, $plural ];
             }
         }

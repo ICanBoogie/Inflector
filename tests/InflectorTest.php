@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the ICanBoogie package.
- *
- * (c) Olivier Laviale <olivier.laviale@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Tests\ICanBoogie;
 
 use ICanBoogie\Inflections;
@@ -68,15 +59,15 @@ final class InflectorTest extends TestCase
 
     public function test_camelize(): void
     {
+        /** @var array<string, string> $ar */
         $ar = require __DIR__ . '/cases/camel_to_underscore.php';
-
         foreach ($ar as $camel => $underscore) {
             $this->assertEquals($camel, self::$inflector->camelize($underscore));
             $this->assertEquals($camel, StaticInflector::camelize($underscore));
         }
 
+        /** @var array<string, string> $ar */
         $ar = require __DIR__ . '/cases/camel_to_dash.php';
-
         foreach ($ar as $camel => $dash) {
             $this->assertEquals($camel, self::$inflector->camelize($dash));
             $this->assertEquals($camel, StaticInflector::camelize($dash));
@@ -184,16 +175,18 @@ final class InflectorTest extends TestCase
 
     public function test_underscore_to_lower_camel(): void
     {
-        foreach (require __DIR__ . '/cases/underscore_to_lower_camel.php' as $underscored => $lower_camel) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/underscore_to_lower_camel.php';
+        foreach ($cases as $underscored => $lower_camel) {
             $this->assertEquals($lower_camel, self::$inflector->camelize($underscored, true));
         }
     }
 
     public function test_camelize_with_namespace(): void
     {
-        $cases = '/cases/camel_with_namespace_to_underscore_with_slash.php';
-
-        foreach (require __DIR__ . $cases as $camel => $underscore) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/camel_with_namespace_to_underscore_with_slash.php';
+        foreach ($cases as $camel => $underscore) {
             $this->assertEquals($camel, self::$inflector->camelize($underscore));
         }
     }
@@ -211,24 +204,30 @@ final class InflectorTest extends TestCase
 
     public function test_underscore(): void
     {
-        foreach (require __DIR__ . '/cases/camel_to_underscore.php' as $camel => $underscore) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/camel_to_underscore.php';
+        foreach ($cases as $camel => $underscore) {
             $this->assertEquals($underscore, self::$inflector->underscore($camel));
         }
 
-        foreach (require __DIR__ . '/cases/camel_to_underscore_without_reverse.php' as $camel => $underscore) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/camel_to_underscore_without_reverse.php';
+        foreach ($cases as $camel => $underscore) {
             $this->assertEquals($underscore, self::$inflector->underscore($camel));
         }
 
-        foreach (require __DIR__ . '/cases/misc_to_underscore.php' as $misc => $underscore) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/misc_to_underscore.php';
+        foreach ($cases as $misc => $underscore) {
             $this->assertEquals($underscore, self::$inflector->underscore($misc));
         }
     }
 
     public function test_underscore_with_slashes(): void
     {
-        $cases = '/cases/camel_with_namespace_to_underscore_with_slash.php';
-
-        foreach (require __DIR__ . $cases as $camel => $underscore) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/camel_with_namespace_to_underscore_with_slash.php';
+        foreach ($cases as $camel => $underscore) {
             $this->assertEquals($underscore, self::$inflector->underscore($camel));
         }
     }
@@ -245,18 +244,24 @@ final class InflectorTest extends TestCase
             $this->assertEquals($hyphenated, $inflector->hyphenate($str));
         }
 
-        foreach (require __DIR__ . '/cases/underscores_to_dashes.php' as $underscore => $dash) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/underscores_to_dashes.php';
+        foreach ($cases as $underscore => $dash) {
             $this->assertEquals($dash, self::$inflector->hyphenate($underscore));
         }
 
-        foreach (require __DIR__ . '/cases/misc_to_hyphens.php' as $misc => $dash) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/misc_to_hyphens.php';
+        foreach ($cases as $misc => $dash) {
             $this->assertEquals($dash, self::$inflector->hyphenate($misc));
         }
     }
 
     public function test_humanize(): void
     {
-        foreach (require __DIR__ . '/cases/underscore_to_human.php' as $underscore => $human) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/underscore_to_human.php';
+        foreach ($cases as $underscore => $human) {
             $this->assertEquals($human, self::$inflector->humanize($underscore));
         }
     }
@@ -284,28 +289,36 @@ final class InflectorTest extends TestCase
 
     public function test_ordinal(): void
     {
-        foreach (require __DIR__ . '/cases/ordinal_numbers.php' as $number => $ordinalized) {
+        /** @var array<int, string> $cases */
+        $cases = require __DIR__ . '/cases/ordinal_numbers.php';
+        foreach ($cases as $number => $ordinalized) {
             $this->assertEquals($ordinalized, $number . self::$inflector->ordinal($number));
         }
     }
 
     public function test_ordinalize(): void
     {
-        foreach (require __DIR__ . '/cases/ordinal_numbers.php' as $number => $ordinalized) {
+        /** @var array<int, string> $cases */
+        $cases = require __DIR__ . '/cases/ordinal_numbers.php';
+        foreach ($cases as $number => $ordinalized) {
             $this->assertEquals($ordinalized, self::$inflector->ordinalize($number));
         }
     }
 
     public function test_dasherize(): void
     {
-        foreach (require __DIR__ . '/cases/underscores_to_dashes.php' as $underscored => $dasherized) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/underscores_to_dashes.php';
+        foreach ($cases as $underscored => $dasherized) {
             $this->assertEquals($dasherized, self::$inflector->dasherize($underscored));
         }
     }
 
     public function test_underscore_as_reverse_of_dasherize(): void
     {
-        foreach (require __DIR__ . '/cases/underscores_to_dashes.php' as $underscored => $dasherized) {
+        /** @var array<string, string> $cases */
+        $cases = require __DIR__ . '/cases/underscores_to_dashes.php';
+        foreach ($cases as $underscored => $dasherized) {
             $this->assertEquals($underscored, self::$inflector->underscore(self::$inflector->dasherize($underscored)));
         }
     }

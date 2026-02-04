@@ -11,7 +11,6 @@ jobs:
     strategy:
       matrix:
         php-version:
-        - "7.2"
         - "7.4"
         - "8.4"
     steps:
@@ -39,10 +38,10 @@ jobs:
     - name: Run PHPUnit
       run: make test-coveralls
       env:
-        PHPUNIT_VERSION: "${{ matrix.php-version == '8.4' && '11' || '08' }}"
+        PHPUNIT_VERSION: "${{ matrix.php-version == '8.4' && '11' || '09' }}"
 
     - name: Upload code coverage
-      if: ${{ matrix.php-version == '7.2' }}
+      if: ${{ matrix.php-version == '7.4' }}
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -58,7 +57,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           coverage: xdebug
-          php-version: "7.2"
+          php-version: "7.4"
           ini-values: memory_limit=-1
           tools: composer:v2
       - name: Cache dependencies
@@ -67,8 +66,8 @@ jobs:
           path: |
             ~/.composer/cache
             vendor
-          key: "php-7.2"
-          restore-keys: "php-7.2"
+          key: "php-7.4"
+          restore-keys: "php-7.4"
 
       - name: Install dependencies
         run: composer install --no-interaction --no-progress
@@ -76,4 +75,4 @@ jobs:
       - name: Run PHPUnit
         run: make test
         env:
-          PHPUNIT_VERSION: "08-helpers"
+          PHPUNIT_VERSION: "09-helpers"

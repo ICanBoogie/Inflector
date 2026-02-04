@@ -29,13 +29,13 @@
     "sort-packages": true
   },
   "require": {
-    "php": ">=7.2",
+    "php": ">=7.4",
     "ext-mbstring": "*"
   },
   "require-dev": {
     "icanboogie/common": "^2.1",
-    "phpstan/phpstan": "^1.4|^2.0",
-    "phpunit/phpunit": "^8.5.22|^11.4"
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "^9.6.34|^11.4"
   },
   "conflict": {
     "icanboogie/common": "<2.0"

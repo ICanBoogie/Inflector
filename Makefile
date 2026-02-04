@@ -25,11 +25,11 @@ test-coveralls: test-dependencies
 	@XDEBUG_MODE=coverage $(PHPUNIT) --coverage-clover build/logs/clover.xml
 
 .PHONY: test-container
-test-container: test-container-72
+test-container: test-container-74
 
-.PHONY: test-container-72
-test-container-72:
-	@-docker-compose run --rm app72 bash
+.PHONY: test-container-74
+test-container-74:
+	@-docker-compose run --rm app74 bash
 	@docker-compose down -v
 
 .PHONY: test-container-84
