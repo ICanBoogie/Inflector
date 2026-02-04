@@ -125,26 +125,15 @@ Static interfaces are also available:
 ```php
 <?php
 
-namespace ICanBoogie;
+use ICanBoogie\StaticInflector;
 
 # Static inflector
 echo StaticInflector::pluralize('child');            // "children"
 echo StaticInflector::pluralize('genou', 'fr');      // "genoux"
 echo StaticInflector::singularize('lærere', 'nb');   // "lærer"
 echo StaticInflector::pluralize('üçgen', 'tr');      // "üçgenler"
-
-# Helper functions
-echo pluralize('child');                             // "children"
-echo pluralize('genou', 'fr');                       // "genoux"
-echo singularize('lærere', 'nb');                    // "lærer"
-echo pluralize('üçgen', 'tr');                       // "üçgenler"
 ```
 
-> [!WARNING]
-> Since v3.0 the file with the helper functions is no longer included in the
-> autoload.
-> You need to include the file `vendor/icanboogie/inflector/lib/helpers.php`
-> in your `composer.json` if you want to continue using these functions.
 
 
 ## About inflections
