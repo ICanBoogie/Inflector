@@ -47,32 +47,3 @@ jobs:
       run: |
         composer global require php-coveralls/php-coveralls
         php-coveralls --coverage_clover=build/logs/clover.xml -v
-
-  test-helpers:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          coverage: xdebug
-          php-version: "7.4"
-          ini-values: memory_limit=-1
-          tools: composer:v2
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.composer/cache
-            vendor
-          key: "php-7.4"
-          restore-keys: "php-7.4"
-
-      - name: Install dependencies
-        run: composer install --no-interaction --no-progress
-
-      - name: Run PHPUnit
-        run: make test
-        env:
-          PHPUNIT_VERSION: "09-helpers"

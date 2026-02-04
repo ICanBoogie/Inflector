@@ -12,7 +12,7 @@ None
 
 ### Backward Incompatible Changes
 
-None
+Removed helper functions, use `StaticInflector` instead.
 
 ### Deprecated Features
 
