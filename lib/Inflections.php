@@ -106,8 +106,7 @@ final class Inflections
      *
      * @return mixed
      *
-     * @throws PropertyNotDefined in an attempt to read an inaccessible property. If the {@see PropertyNotDefined}
-     * class is not available a {@see \InvalidArgumentException} is thrown instead.
+     * @throws \Error in an attempt to read an inaccessible property.
      */
     public function __get(string $property)
     {
@@ -115,11 +114,7 @@ final class Inflections
             return $this->$property;
         }
 
-        if (class_exists(PropertyNotDefined::class)) {
-            throw new PropertyNotDefined([ $property, $this ]);
-        } else {
-            throw new InvalidArgumentException("Property not defined: $property");
-        }
+        throw new \Error("Undefined property: " . self::class . "::\$$property");
     }
 
     /**

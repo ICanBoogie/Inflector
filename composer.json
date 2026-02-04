@@ -33,7 +33,6 @@
     "ext-mbstring": "*"
   },
   "require-dev": {
-    "icanboogie/common": "^2.1",
     "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^9.6.34|^11.4"
   },
