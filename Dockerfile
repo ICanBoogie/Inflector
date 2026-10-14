@@ -1,10 +1,14 @@
 ARG PHP_TAG=7.4-cli-bullseye
 FROM php:${PHP_TAG}
 
+# Debian 11 (bullseye) is archived, the 7.4 image needs the archive mirror.
 RUN <<-EOF
+	set -e
+	if [ -f /etc/apt/sources.list ]; then
+		sed -i 's#deb.debian.org#archive.debian.org#; s#security.debian.org#archive.debian.org#' /etc/apt/sources.list
+	fi
 	apt-get update
-	apt-get install unzip
-	docker-php-ext-enable opcache
+	apt-get install -y unzip
 EOF
 
 RUN <<-EOF
@@ -15,9 +19,12 @@ RUN <<-EOF
 	SHELL
 EOF
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
+# composer
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV PATH="/root/.composer/vendor/bin:${PATH}"
 
-RUN composer global require squizlabs/php_codesniffer
+# lint
+
+RUN composer global require friendsofphp/php-cs-fixer

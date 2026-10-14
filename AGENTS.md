@@ -1,0 +1,3 @@
+- Keep the documentation consistent with changes to the codebase.
+- Keep CHANGELOG.md up to date with changes.
+- Improve the documentation when it can improve the user experience.

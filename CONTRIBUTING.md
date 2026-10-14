@@ -6,7 +6,7 @@ We accept contributions via Pull Requests.
 
 ## Pull Requests
 
-- **Code style** — We're following a [Coding Standard][]. Check the code style with `make lint`.
+- **Code style** — We follow [PSR-12][], as enforced by [PHP-CS-Fixer][] (see `.php-cs-fixer.dist.php`). Check the code style with `make lint`, and fix it with `php-cs-fixer fix`.
 - **Code health** — We're using [PHPStan][] to analyse the code, with maximum scrutiny. Check the code with `make lint`.
 - **Add tests!** — Your contribution won't be accepted if it does not have tests.
 - **Document any change in behaviour** — Make sure the `README.md` and any other relevant documentation are kept
@@ -27,6 +27,7 @@ coverage. The coverage report is available in `build/coverage/index.html`.
 **Thanks for your contribution**!
 
 
-[Coding Standard]: phpcs.xml
 [git-squash]: http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages
+[PSR-12]: https://www.php-fig.org/psr/psr-12/
+[PHP-CS-Fixer]: https://cs.symfony.com/
 [PHPStan]: https://phpstan.org/user-guide/getting-started

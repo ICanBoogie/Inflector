@@ -10,12 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version:
-        - "7.4"
-        - "8.4"
+        include:
+        - php-version: "7.4"
+          dependencies: lowest
+          phpunit-version: "09"
+        - php-version: "8.5"
+          dependencies: highest
+          phpunit-version: "11"
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -29,19 +33,19 @@ jobs:
         path: |
           ~/.composer/cache
           vendor
-        key: "php-${{ matrix.php-version }}"
-        restore-keys: "php-${{ matrix.php-version }}"
+        key: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}-${{ hashFiles('composer.json') }}"
+        restore-keys: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}-"
 
     - name: Install dependencies
-      run: composer install --no-interaction --no-progress
+      run: composer update --no-interaction --no-progress --prefer-stable ${{ matrix.dependencies == 'lowest' && '--prefer-lowest' || '' }}
 
     - name: Run PHPUnit
       run: make test-coveralls
       env:
-        PHPUNIT_VERSION: "${{ matrix.php-version == '8.4' && '11' || '09' }}"
+        PHPUNIT_VERSION: "${{ matrix.phpunit-version }}"
 
     - name: Upload code coverage
-      if: ${{ matrix.php-version == '7.4' }}
+      if: ${{ matrix.dependencies == 'highest' }}
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |

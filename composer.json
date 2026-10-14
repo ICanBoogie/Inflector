@@ -33,7 +33,7 @@
     "ext-mbstring": "*"
   },
   "require-dev": {
-    "phpstan/phpstan": "^2.1",
+    "phpstan/phpstan": "^2.3",
     "phpunit/phpunit": "^9.6.34|^11.4"
   },
   "conflict": {

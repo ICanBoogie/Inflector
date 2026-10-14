@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.4/phpunit.xsd"
-         beStrictAboutCoverageMetadata="true"
          beStrictAboutOutputDuringTests="true"
          bootstrap="vendor/autoload.php"
          colors="true"
@@ -9,20 +8,16 @@
          displayDetailsOnTestsThatTriggerNotices="true"
          displayDetailsOnTestsThatTriggerWarnings="true"
          displayDetailsOnPhpunitDeprecations="true"
-         executionOrder="depends,defects"
+         executionOrder="defects"
 >
     <testsuites>
         <testsuite name="icanboogie/inflector">
             <directory>tests</directory>
-            <exclude>tests/HelpersTest.php</exclude>
         </testsuite>
     </testsuites>
     <source>
         <include>
             <directory>lib</directory>
         </include>
-        <exclude>
-            <file>lib/helpers.php</file>
-        </exclude>
     </source>
 </phpunit>
